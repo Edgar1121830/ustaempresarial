@@ -67,9 +67,9 @@
 			<version>2.4</version>
 		</dependency>
 		<dependency>
-			<groupId>jLdap-4.3</groupId>
-			<artifactId>jldap-4.3</artifactId>
-			<version>1.0</version>
+			<groupId>com.novell.ldap</groupId>
+			<artifactId>jldap</artifactId>
+			<version>4.3</version>
 		</dependency>
 		<dependency>
 			<groupId>javax</groupId>
