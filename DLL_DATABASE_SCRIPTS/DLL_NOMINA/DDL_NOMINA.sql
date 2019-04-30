@@ -1,4 +1,6 @@
 CREATE SCHEMA USTANOMINA;
+set schema 'USTANOMINA';
+
 
 /*==============================================================*/
 /* Table: HOJA_VIDA                                          */
