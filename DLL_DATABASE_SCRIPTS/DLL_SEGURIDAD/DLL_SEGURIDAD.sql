@@ -11,7 +11,7 @@ CREATE TABLE seguridad.USUARIO (
     codigo       SERIAL                              NOT NULL,
     nombre       CHARACTER VARYING(40)               NOT NULL,
     email        CHARACTER VARYING(30)               NOT NULL,
-    password     CHARACTER VARYING(250)              NOT NULL,
+    password     CHARACTER VARYING(75)              NOT NULL,
     fecha_inicio TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
     fecha_fin    TIMESTAMP,
     tipo         INTEGER                             NOT NULL,
@@ -109,7 +109,8 @@ ALTER TABLE seguridad.ROL_USUARIO
 CREATE TABLE seguridad.ROL_PERMISO (
     permiso_cod INTEGER                             NOT NULL,
     rol_cod     INTEGER                             NOT NULL,
-    fecha       TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL
+    fecha       TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
+    Primary key (permiso_cod, rol_cod)
 );
 COMMENT ON TABLE seguridad.ROL_PERMISO IS 'Asociación de un Rol con un permiso';
 
