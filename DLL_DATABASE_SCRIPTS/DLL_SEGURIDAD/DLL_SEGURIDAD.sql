@@ -1,9 +1,12 @@
 /*
+ Database 'usta_empresarial'
+ Schema 'seguridad'
  Created by: jobless-team
- version: 1.0
+ version: 1.0.1
  date: 29th April 2019
  */
-
+ 
+CREATE SCHEMA seguridad;
 /*==============================================================*/
 /* Table: USUARIO                                          */
 /*==============================================================*/
