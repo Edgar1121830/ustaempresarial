@@ -1,4 +1,4 @@
-package com.usta.SeguridadModelo;
+package co.com.ustaempresarial.seguridad.modelo;
 
 import java.io.Serializable;
 import javax.persistence.*;

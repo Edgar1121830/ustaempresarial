@@ -1,30 +1,30 @@
-package com.usta.SeguridadModelo;
+package co.com.ustaempresarial.seguridad.modelo;
 
 import java.io.Serializable;
 import javax.persistence.*;
 
 /**
- * The primary key class for the rol_usuario database table.
+ * The primary key class for the rol_permiso database table.
  * 
  */
 @Embeddable
-public class RolUsuarioPK implements Serializable {
+public class RolPermisoPK implements Serializable {
 	//default serial version id, required for serializable classes.
 	private static final long serialVersionUID = 1L;
 
-	@Column(name="usuario_cod", insertable=false, updatable=false)
-	private Integer usuarioCod;
+	@Column(name="permiso_cod", insertable=false, updatable=false)
+	private Integer permisoCod;
 
 	@Column(name="rol_cod", insertable=false, updatable=false)
 	private Integer rolCod;
 
-	public RolUsuarioPK() {
+	public RolPermisoPK() {
 	}
-	public Integer getUsuarioCod() {
-		return this.usuarioCod;
+	public Integer getPermisoCod() {
+		return this.permisoCod;
 	}
-	public void setUsuarioCod(Integer usuarioCod) {
-		this.usuarioCod = usuarioCod;
+	public void setPermisoCod(Integer permisoCod) {
+		this.permisoCod = permisoCod;
 	}
 	public Integer getRolCod() {
 		return this.rolCod;
@@ -37,19 +37,19 @@ public class RolUsuarioPK implements Serializable {
 		if (this == other) {
 			return true;
 		}
-		if (!(other instanceof RolUsuarioPK)) {
+		if (!(other instanceof RolPermisoPK)) {
 			return false;
 		}
-		RolUsuarioPK castOther = (RolUsuarioPK)other;
+		RolPermisoPK castOther = (RolPermisoPK)other;
 		return 
-			this.usuarioCod.equals(castOther.usuarioCod)
+			this.permisoCod.equals(castOther.permisoCod)
 			&& this.rolCod.equals(castOther.rolCod);
 	}
 
 	public int hashCode() {
 		final int prime = 31;
 		int hash = 17;
-		hash = hash * prime + this.usuarioCod.hashCode();
+		hash = hash * prime + this.permisoCod.hashCode();
 		hash = hash * prime + this.rolCod.hashCode();
 		
 		return hash;
