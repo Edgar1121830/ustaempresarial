@@ -113,6 +113,11 @@
   			<artifactId>UstaEmpresarialParientesModelo</artifactId>
   			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
+		<dependency>
+			<groupId>UstaEmpresarial</groupId>
+  			<artifactId>SeguridadModelo</artifactId>
+  			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<plugins>

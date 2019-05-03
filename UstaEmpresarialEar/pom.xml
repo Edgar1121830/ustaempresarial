@@ -74,6 +74,11 @@
 		</dependency>
 		<dependency>
 			<groupId>UstaEmpresarial</groupId>
+			<artifactId>SeguridadModelo</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>UstaEmpresarial</groupId>
 			<artifactId>UstaEmpresarialEjb</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 			<type>ejb</type>

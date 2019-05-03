@@ -46,4 +46,28 @@
 			<!-- <property name="hibernate.hbm2ddl.auto" value="update" /> -->
 		</properties>
 	</persistence-unit>
+	<persistence-unit name="UstaEmpresarialParientes"
+		transaction-type="JTA">
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		<jta-data-source>java:jboss/env/jdbc/seguridad</jta-data-source>
+		<mapping-file>META-INF/seguridad-orm.xml</mapping-file>
+		<class>co.com.ustaempresarial.seguridad.modelo.Permiso</class>
+		<class>co.com.ustaempresarial.seguridad.modelo.Rol</class>
+		<class>co.com.ustaempresarial.seguridad.modelo.RolPermiso</class>
+		<class>co.com.ustaempresarial.seguridad.modelo.RolPermisoPK</class>
+		<class>co.com.ustaempresarial.seguridad.modelo.RolUsuario</class>
+		<class>co.com.ustaempresarial.seguridad.modelo.RolUsuarioPK</class>
+		<class>co.com.ustaempresarial.seguridad.modelo.Usuario</class>
+		<class>co.com.ustaempresarial.seguridad.modelo.UsuarioLog</class>
+		<exclude-unlisted-classes>true</exclude-unlisted-classes>
+		<shared-cache-mode>ENABLE_SELECTIVE</shared-cache-mode>
+		<properties>
+			<property name="hibernate.connection.driver_class"
+				value="org.postgresql.Driver" />
+			<property name="hibernate.dialect"
+				value="org.hibernate.dialect.PostgreSQL82Dialect" />
+			<property name="hibernate.show_sql" value="true" />
+			<!-- <property name="hibernate.hbm2ddl.auto" value="update" /> -->
+		</properties>
+	</persistence-unit>
 </persistence>

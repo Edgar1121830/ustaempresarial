@@ -6,6 +6,7 @@
 		<project>FacturacionEjb</project>
 		<project>UstaEmpresarialEjb</project>
 		<project>UstaEmpresarialWeb</project>
+		<project>SeguridadModelo</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
