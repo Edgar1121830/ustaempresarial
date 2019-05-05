@@ -13,12 +13,7 @@ import java.util.Date;
 @Table(name="plan_contable", schema="\"FINANZAS\"")
 public class PlanContable implements Serializable {
 	private static final long serialVersionUID = 1L;
-
-	public static final String LISTAR_PLAN = "listarcargo.CARGO";
-	public static final String LISTAR_PLANBYNAME = "listarcargo.CARGOBYNAME";
-	public static final String LISTAR_PLANESBYNAME = "listarcargos.CARGOBYNAME";
-	public static final String LISTAR_PLANBYID = "listarcargo.CARGOBYID";
-
+	
 	@Id
 	//@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer codigo;

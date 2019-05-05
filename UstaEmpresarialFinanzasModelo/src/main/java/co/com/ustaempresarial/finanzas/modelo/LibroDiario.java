@@ -11,8 +11,7 @@ import java.util.Date;
  * 
  */
 @Entity
-@Table(name="libro_diario")
-@NamedQuery(name="LibroDiario.findAll", query="SELECT l FROM LibroDiario l")
+@Table(name="libro_diario", schema="\"FINANZAS\"")
 public class LibroDiario implements Serializable {
 	private static final long serialVersionUID = 1L;
 
