@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+	<persistence-unit name="modeloNomina">
+		<class>modeloNomina.Cargo</class>
+		<class>modeloNomina.Concepto</class>
+		<class>modeloNomina.Contrato</class>
+		<class>modeloNomina.Dependencia</class>
+		<class>modeloNomina.HojaVida</class>
+		<class>modeloNomina.Nomina</class>
+		<class>modeloNomina.NominaPK</class>
+		<class>modeloNomina.Periodo</class>
+		
+		<properties>
+			<property name="hibernate.connection.driver_class"
+				value="net.sourceforge.jtds.jdbc.Driver" />
+		</properties>
+	</persistence-unit>
+</persistence>
