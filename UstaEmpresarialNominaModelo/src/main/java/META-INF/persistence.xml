@@ -3,5 +3,11 @@
 	<persistence-unit name="UstaEmpresarialNominaModelo">
 		<class>co.com.UstaEmpresarial.nomina.modelo.Nomina</class>
 		<class>co.com.UstaEmpresarial.nomina.modelo.NominaPK</class>
+		<class>co.com.UstaEmpresarial.nomina.modelo.Cargo</class>
+		<class>co.com.UstaEmpresarial.nomina.modelo.Concepto</class>
+		<class>co.com.UstaEmpresarial.nomina.modelo.Contrato</class>
+		<class>co.com.UstaEmpresarial.nomina.modelo.Dependencia</class>
+		<class>co.com.UstaEmpresarial.nomina.modelo.HojaVida</class>
+		<class>co.com.UstaEmpresarial.nomina.modelo.Periodo</class>
 	</persistence-unit>
 </persistence>
