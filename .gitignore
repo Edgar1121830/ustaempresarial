@@ -131,6 +131,8 @@ local.properties
 .factorypath
 .buildpath
 .target
+.project
+.classpath
 .tern-project
 .texlipse
 .springBeans
