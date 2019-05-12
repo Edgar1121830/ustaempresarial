@@ -39,8 +39,8 @@
 							<artifactId>UstaEmpresarialEjb</artifactId>
 						</ejbModule>
 						<jarModule>
-							<groupId>facturacion</groupId>
-							<artifactId>facturacionModelo</artifactId>
+							<groupId>UstaEmpresarial</groupId>
+							<artifactId>FacturacionModelo</artifactId>
 						</jarModule>
 						<webModule>
 							<groupId>UstaEmpresarial</groupId>
@@ -68,8 +68,8 @@
 
 	<dependencies>
 		<dependency>
-			<groupId>facturacion</groupId>
-			<artifactId>facturacionModelo</artifactId>
+			<groupId>UstaEmpresarial</groupId>
+			<artifactId>FacturacionModelo</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 		<dependency>

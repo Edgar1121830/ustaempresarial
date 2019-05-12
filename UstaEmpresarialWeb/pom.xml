@@ -98,8 +98,8 @@
 			<version>3.10-FINAL</version>
 		</dependency>
 		<dependency>
-			<groupId>facturacion</groupId>
-  			<artifactId>facturacionModelo</artifactId>
+			<groupId>UstaEmpresarial</groupId>
+  			<artifactId>FacturacionModelo</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 		<dependency>
@@ -110,7 +110,7 @@
 		</dependency>
 		<dependency>
 			<groupId>UstaEmpresarial</groupId>
-  			<artifactId>UstaEmpresarialParientesModelo</artifactId>
+  			<artifactId>ParientesModelo</artifactId>
   			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 		<dependency>
