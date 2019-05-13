@@ -15,6 +15,8 @@ public class Usuario implements Serializable {
     private static final long serialVersionUID = 1L;
 
     public static final String TRAER_USUARIO = "Usuario.TRAER_USUARIO";
+    public static final String FIND_ALL = "Usuario.findAll";
+    public static final String ENCONTRAR_POR_NOMBRE = "Usuario.encontrarPorNombre";
 
 
     @Id
