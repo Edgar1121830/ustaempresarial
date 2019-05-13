@@ -11,6 +11,7 @@
 		<class>co.com.facturacion.modelo.CategoriaProducto</class>
 		<class>co.com.facturacion.modelo.Cliente</class>
 		<class>co.com.facturacion.modelo.Producto</class>
+
 		<class>co.com.facturacion.modelo.Proveedor</class>
 		<class>co.com.facturacion.modelo.ProveedorProducto</class>
 		<class>co.com.facturacion.modelo.ProveedorProductoPK</class>

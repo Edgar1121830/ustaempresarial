@@ -14,6 +14,8 @@ import java.math.BigDecimal;
 @NamedQuery(name="VentaDetalle.findAll", query="SELECT v FROM VentaDetalle v")
 public class VentaDetalle implements Serializable {
 	private static final long serialVersionUID = 1L;
+	
+	public static final String EncontrarPorCodigos = "ventaDetalle.encontrarPorCodigo";
 
 	@EmbeddedId
 	private VentaDetallePK id;

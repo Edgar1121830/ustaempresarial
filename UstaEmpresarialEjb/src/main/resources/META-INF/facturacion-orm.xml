@@ -1,31 +1,175 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <entity-mappings version="2.0"
-	xmlns="http://java.sun.com/xml/ns/persistence/orm"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm http://java.sun.com/xml/ns/persistence/orm_2_0.xsd">
+ xmlns="http://java.sun.com/xml/ns/persistence/orm"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm http://java.sun.com/xml/ns/persistence/orm_2_0.xsd">
 
-	<named-query name="CategoriaProducto.findAll">
-		<query>
-			SELECT c 
-			FROM CategoriaProducto c
-		</query>
-	</named-query>
-	
-	<named-query name="CategoriaProducto.encontrarPorNombre">
-		<query>
-			SELECT c 
-			FROM CategoriaProducto c
-			WHERE c.nombre like '%:nombre%'
-		</query>
-	</named-query>
-	
-	<named-query name="UsuarioLogin.TRAER_USUARIO">
-		<query>
-			SELECT u
-			FROM UsuarioLogin u
-			WHERE u.usuario = :usua
-			AND u.clave = :pass
-		</query>
-	</named-query>
+ <named-query name="listarcategoria.CATEGORIAPRODUCTO">
+  <query>
+  SELECT c 
+  FROM CategoriaProducto c
+  </query>
+ </named-query>
+ <named-query
+  name="listarcategoria.CATEGORIAPRODUCTONBYNAME">
+  <query>
+  SELECT c 
+  FROM CategoriaProducto c
+  WHERE  c.nombre = :nombre
+  </query>
+ </named-query>
+ <named-query
+  name="listarcategorias.CATEGORIAPRODUCTONBYNAME">
+  <query>
+  SELECT c 
+  FROM CategoriaProducto c
+  WHERE  c.nombre LIKE '%:nombre%'
+  </query>
+ </named-query>
+ <named-query name="listarcategoria.CATEGORIAPRODUCTONBYID">
+  <query>
+  SELECT c 
+  FROM CategoriaProducto c
+  WHERE c.codigo=:id 
+  </query>
+ </named-query>
+
+
+ <named-query name="listarproveedor.PROVEEDOR">
+  <query>
+  SELECT p 
+  FROM Proveedor p
+  </query>
+ </named-query>
+ <named-query name="listarproveedor.PROVEEDORBYNAME">
+  <query>
+  SELECT p 
+  FROM Proveedor p
+  WHERE p.nombre=:nombre
+  </query>
+ </named-query>
+ <named-query name="listarproveedores.PROVEEDORBYNAME">
+  <query>
+  SELECT p 
+  FROM Proveedor p
+  WHERE p.nombre LIKE '%:nombre%'
+  </query>
+ </named-query>
+ <named-query name="listarproveedor.PROVEEDORBYID">
+  <query>
+  SELECT p 
+  FROM Proveedor p
+  WHERE p.nombre=:nombre
+  </query>
+ </named-query>
+
+
+ <named-query name="listarcliente.CLIENTE">
+  <query>
+  SELECT c 
+  FROM Cliente c
+  </query>
+ </named-query>
+ <named-query name="listarcliente.CLIENTEBYNAME">
+  <query>
+  SELECT c 
+  FROM Cliente c
+  WHERE  c.nombre=:nombre
+  </query>
+ </named-query>
+ <named-query name="listarclientes.CLIENTEBYNAME">
+  <query>
+  SELECT c 
+  FROM Cliente c
+  WHERE  c.nombre like '%:nombre%'
+  </query>
+ </named-query>
+ <named-query name="listarcliente.CLIENTEBYID">
+  <query>
+  SELECT c 
+  FROM Cliente c
+  WHERE c.codigo=:id
+  </query>
+ </named-query>
+
+ <named-query name="listarproducto.PRODUCTO">
+  <query>
+  SELECT p 
+  FROM Producto p
+  </query>
+ </named-query>
+ <named-query name="listarproducto.PRODUCTOBYNAME">
+  <query>
+  SELECT p 
+  FROM Producto p
+  WHERE  p.nombre=:nombre
+  </query>
+ </named-query>
+ <named-query name="listarproductos.PRODUCTOBYNAME">
+  <query>
+  SELECT p
+  FROM Producto p
+  WHERE  p.nombre like '%:nombre%'
+  </query>
+ </named-query>
+ <named-query name="listarproducto.PRODUCTOBYID">
+  <query>
+  SELECT p 
+  FROM Producto p
+  WHERE p.codigo=:id
+  </query>
+ </named-query>
+
+ <named-query name="listarventa.VENTA">
+  <query>
+  SELECT v 
+  FROM Venta v
+  </query>
+ </named-query>
+ <named-query name="listarventa.VENTABYID">
+  <query>
+  SELECT v 
+  FROM Venta v
+  WHERE v.codigo=:id
+  </query>
+ </named-query>
+
+ <named-query name="listarproductostock.PRODUCTOSTOCK">
+  <query>
+  SELECT pp
+  FROM ProveedorProducto pp
+  </query>
+ </named-query>
+
+ <named-query
+  name="listarproveedorproducto.PROVEEDORPRODUCTO">
+  <query>
+  SELECT pp
+  FROM ProveedorProducto pp
+  </query>
+ </named-query>
+ 
+ <named-query
+  name="listarproveedorproducto.PROVEEDORPRODUCTOBYID">
+  <query>
+  SELECT pp
+  FROM ProveedorProducto pp
+  WHERE pp.id=:id
+  </query>
+ </named-query>
+
+ <named-query name="listarventadetalle.VENTADETALLE">
+  <query>
+  SELECT vd
+  FROM VentaDetalle vd
+  </query>
+ </named-query>
+ <named-query name="listarventadetalle.VENTADETALLEBYID">
+  <query>
+  SELECT vd
+  FROM VentaDetalle vd
+  WHERE vd.id=:id
+  </query>
+ </named-query>
 
 </entity-mappings>

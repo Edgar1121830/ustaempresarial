@@ -14,6 +14,8 @@ import java.util.Date;
 public class Venta implements Serializable {
 	private static final long serialVersionUID = 1L;
 
+	public static final String FILL_ALL = "venta.traerVentas";
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="\"CODIGO\"")

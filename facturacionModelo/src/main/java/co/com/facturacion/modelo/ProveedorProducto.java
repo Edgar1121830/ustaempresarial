@@ -16,6 +16,8 @@ import java.util.Date;
 public class ProveedorProducto implements Serializable {
 	private static final long serialVersionUID = 1L;
 
+	public static final String FILL_ALL = "proveedorProducto.traerlos";
+
 	@EmbeddedId
 	private ProveedorProductoPK id;
 

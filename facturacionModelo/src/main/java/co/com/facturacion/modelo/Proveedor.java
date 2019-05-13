@@ -13,6 +13,8 @@ import javax.persistence.*;
 public class Proveedor implements Serializable {
 	private static final long serialVersionUID = 1L;
 
+	public static final String FILL_ALL = "proveedor.traerPros";
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="\"CODIGO\"")
