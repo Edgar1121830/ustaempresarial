@@ -7,6 +7,12 @@ import java.util.Objects;
 @Entity
 @Table(name = "tipo_medio", schema = "crm", catalog = "usta_empresarial")
 public class TipoMedio {
+
+    private static final long serialVersionUID = 1L;
+    
+    public static final String TRAER_TIPOMEDIO = "TipoMedio.TRAER_TIPOMEDIO";
+    public static final String ENCONTRAR_POR_NOMBRE="TipoMedio.ENCONTRAR_POR_NOMBRE";
+
     private int codigo;
     private String nombre;
     private String descripcion;
@@ -100,7 +106,7 @@ public class TipoMedio {
     public int hashCode() {
         return Objects.hash(codigo, nombre, descripcion, valorProm, estado);
     }
-
+/*
     @OneToMany(mappedBy = "tipoMedioByTipoMedioCod")
     public Collection<Medio> getMediosByCodigo() {
 
@@ -112,5 +118,5 @@ public class TipoMedio {
 
         this.mediosByCodigo = mediosByCodigo;
 
-    }
+    }*/
 }
