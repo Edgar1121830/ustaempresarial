@@ -12,6 +12,7 @@ import javax.persistence.*;
 @NamedQuery(name="Cargo.findAll", query="SELECT c FROM Cargo c")
 public class Cargo implements Serializable {
 	private static final long serialVersionUID = 1L;
+	public static final String LISTAR_CARGO="Cargo.Listar_cargo";
 	private Integer codigo;
 	private String competencias;
 	private String funcion;

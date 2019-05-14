@@ -14,6 +14,7 @@ import java.util.Date;
 @NamedQuery(name="Nomina.findAll", query="SELECT n FROM Nomina n")
 public class Nomina implements Serializable {
 	private static final long serialVersionUID = 1L;
+	public static final String LISTAR_NOMINA="Nomina.Listar_nomina";
 	private NominaPK id;
 	private Date fechaInsert;
 	private String fechaUpdate;

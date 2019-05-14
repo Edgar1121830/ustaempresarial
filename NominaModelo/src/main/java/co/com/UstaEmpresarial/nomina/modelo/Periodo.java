@@ -14,6 +14,7 @@ import java.util.Date;
 @NamedQuery(name="Periodo.findAll", query="SELECT p FROM Periodo p")
 public class Periodo implements Serializable {
 	private static final long serialVersionUID = 1L;
+	public static final String FIND_ALL = "Peiodo.Listar_periodo";
 	private Integer codigo;
 	private Boolean estado;
 	private Date fechaFin;

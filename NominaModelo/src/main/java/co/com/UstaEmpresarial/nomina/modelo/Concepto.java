@@ -12,6 +12,8 @@ import javax.persistence.*;
 @NamedQuery(name="Concepto.findAll", query="SELECT c FROM Concepto c")
 public class Concepto implements Serializable {
 	private static final long serialVersionUID = 1L;
+	public static final String LISTAR_CONCEPTO="Concepto.Listar_concepto";
+	public static final String FIND_ALL = null;
 	private Integer codigo;
 	private String descripcion;
 	private Boolean estado;
