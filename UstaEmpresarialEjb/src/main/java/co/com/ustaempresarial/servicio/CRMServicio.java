@@ -25,8 +25,8 @@ public class CRMServicio {
 	CRMFachada fachada;
 
 	// Campaña
-	public List<Campania> obtenerCampania() throws Exception {
-		return fachada.obtenerCampania();
+	public List<Campania> listarCampania() throws Exception {
+		return fachada.listarCampania();
 	}
 
 	public void crearCampania(Campania campania) throws Exception {
@@ -37,8 +37,8 @@ public class CRMServicio {
 		return fachada.editarCampania(campania);
 	}
 
-	public boolean borrarCampania(int codigo) throws Exception {
-		return fachada.borrarCampania(codigo);
+	public boolean eliminarCampania(int codigo) throws Exception {
+		return fachada.eliminarCampania(codigo);
 	}
 
 	public List<Campania> buscarCampaniaPorNombre(String nombre) throws Exception {
@@ -46,8 +46,8 @@ public class CRMServicio {
 	}
 
 	// Medio
-	public List<Medio> obtenerMedio() throws Exception {
-		return fachada.obtenerMedio();
+	public List<Medio> listarMedio() throws Exception {
+		return fachada.listarMedio();
 	}
 
 	public void crearMedio(Medio medio) throws Exception {
@@ -58,8 +58,8 @@ public class CRMServicio {
 		return fachada.editarMedio(medio);
 	}
 
-	public boolean borrarMedio(int codigo) throws Exception {
-		return fachada.borrarMedio(codigo);
+	public boolean eliminarMedio(int codigo) throws Exception {
+		return fachada.eliminarMedio(codigo);
 	}
 
 	public List<Medio> buscarMedioPorNombre(String nombre) throws Exception {
@@ -67,8 +67,8 @@ public class CRMServicio {
 	}
 
 	// Evento
-	public List<Evento> obtenerEvento() throws Exception {
-		return fachada.obtenerEvento();
+	public List<Evento> listarEvento() throws Exception {
+		return fachada.listarEvento();
 	}
 
 	public void crearEvento(Evento evento) throws Exception {
@@ -79,8 +79,8 @@ public class CRMServicio {
 		return fachada.editarEvento(evento);
 	}
 
-	public boolean borrarEvento(int codigo) throws Exception {
-		return fachada.borrarEvento(codigo);
+	public boolean eliminarEvento(int codigo) throws Exception {
+		return fachada.eliminarEvento(codigo);
 	}
 
 	public List<Evento> buscarEventoPorNombre(String nombre) throws Exception {
@@ -121,8 +121,8 @@ public class CRMServicio {
 		return fachada.eliminarTipoMedio(codigo);
 	}
 
-	public TipoMedio listarTipoMedioByNombre(String nombre) throws Exception {
-		return fachada.listarTipoMedioByNombre(nombre);
+	public TipoMedio listarTipoMedioPorNombre(String nombre) throws Exception {
+		return fachada.listarTipoMedioPorNombre(nombre);
 	}
 
 	// Recurso

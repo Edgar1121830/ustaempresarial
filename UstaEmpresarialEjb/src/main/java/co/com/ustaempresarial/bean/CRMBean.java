@@ -34,7 +34,11 @@ public class CRMBean implements CRMFachada {
 
 	@Override
 	@SuppressWarnings("unchecked")
-	public List<Campania> obtenerCampania() throws Exception {
+	/**
+	  Metodo que lista las campañas   
+	  Juan Diego Gomez
+	*/
+	public List<Campania> listarCampania() throws Exception {
 		List<Campania> campania = new ArrayList<Campania>();
 		Query query = em.createNamedQuery(Campania.TRAER_CAMPANIA);
 		campania = query.getResultList();
@@ -42,6 +46,10 @@ public class CRMBean implements CRMFachada {
 	}
 
 	@Override
+	/**
+	  Metodo que crea  campañas   
+	  Juan Diego Gomez
+	*/
 	public void crearCampania(Campania campania) throws Exception {
 		if (campania.getNombre() != null && !campania.getNombre().equals("")) {
 			em.persist(campania);
@@ -49,6 +57,10 @@ public class CRMBean implements CRMFachada {
 
 	}
 
+    /**
+	  Metodo que busca  campañas   por Id
+	  Juan Diego Gomez
+	*/
 	private Campania buscarCampaniaPorId(int codigo) throws Exception {
 		Campania p = new Campania();
 		p = em.find(Campania.class, codigo);
@@ -56,6 +68,10 @@ public class CRMBean implements CRMFachada {
 	}
 	
 	@Override
+	/**
+	  Metodo que edita una campaña 
+	  Juan Diego Gomez
+	*/
 	public Campania editarCampania(Campania campania) throws Exception {
 		Campania newCampania = new Campania();
 		newCampania = buscarCampaniaPorId(campania.getCodigo());
@@ -67,7 +83,11 @@ public class CRMBean implements CRMFachada {
 	}
 
 	@Override
-	public boolean borrarCampania(int codigo) throws Exception {
+	/**
+	  Metodo que elimina una campaña 
+	  Juan Diego Gomez
+	*/
+	public boolean eliminarCampania(int codigo) throws Exception {
 		Campania campania = buscarCampaniaPorId(codigo);
 		boolean retorno = false;
 		if (campania.getCodigo() > 0) {
@@ -80,6 +100,10 @@ public class CRMBean implements CRMFachada {
 
 	@Override
 	@SuppressWarnings("unchecked")
+	/**
+	  Metodo que busca una campaña por nombre
+	  Juan Diego Gomez
+	*/
 	public List<Campania> buscarCampaniaPorNombre(String nombre) throws Exception {
 		List<Campania> campania = new ArrayList<Campania>();
 		Query query = em.createNamedQuery(Campania.ENCONTRAR_POR_NOMBRE);
@@ -93,6 +117,10 @@ public class CRMBean implements CRMFachada {
 	//Recurso
 	@Override
 	@SuppressWarnings("unchecked")
+	/**
+	  Metodo que lista las recursos   
+	  Nicolle Vanessa Saavedra
+	*/
 	public List<Recurso> listarRecursos() throws Exception {
 		List<Recurso> recursos = new ArrayList<>();
 		Query q = em.createNamedQuery(Recurso.TRAER_RECURSO);
@@ -101,6 +129,10 @@ public class CRMBean implements CRMFachada {
 	}
 
 	@Override
+	/**
+	  Metodo que crea  recursos   
+	  Nicolle Vanessa Saavedra
+	*/
 	public void crearRecurso(Recurso recurso) throws Exception {
 		if (recurso.getNombre().equals("") && recurso.getNombre() != null ) {	
 			em.persist(recurso);
@@ -109,6 +141,10 @@ public class CRMBean implements CRMFachada {
 	}
 
 	@Override
+	/**
+	  Metodo que edita un recurso 
+	  Nicolle Vanessa Saavedra
+	*/
 	public Recurso editarRecurso(Recurso recurso) throws Exception {
 		Recurso p = new Recurso();
 		if (recurso != null) {
@@ -124,6 +160,10 @@ public class CRMBean implements CRMFachada {
 	}
 
 	@Override
+	/**
+	  Metodo que elimina un recurso 
+	  Nicolle Vanessa Saavedra
+	*/
 	public boolean eliminarRecurso(int codigo) throws Exception {
 		Recurso rec = buscarRecursoID(codigo);
 		boolean retorno = false;
@@ -135,6 +175,10 @@ public class CRMBean implements CRMFachada {
 	}
 
 	@Override
+	/**
+	  Metodo que lista las recursos   
+	  Nicolle Vanessa Saavedra
+	*/
 	public Recurso listarRecursoNombre(String nombre) throws Exception {
 		Recurso objRecurso = new Recurso();
 		if (nombre != null && !nombre.equals("")) {
@@ -156,6 +200,10 @@ public class CRMBean implements CRMFachada {
 	
 	@Override
 	@SuppressWarnings("unchecked")
+	/**
+	  Metodo que lista las tipo medios   
+	  Maria Fernanda Molina
+	*/
 	public List<TipoMedio> listarTipoMedio() throws Exception {
 		List<TipoMedio> tipos = new ArrayList<>();
 		Query q = em.createNamedQuery(TipoMedio.TRAER_TIPOMEDIO);
@@ -164,6 +212,10 @@ public class CRMBean implements CRMFachada {
 	}
 
 	@Override
+	/**
+	  Metodo que crea  tipo medios   
+	  Maria Fernanda Molina
+	*/
 	public void crearTipoMedio(TipoMedio tipo) throws Exception {
 		if (tipo.getNombre() != null && !tipo.getNombre().equals("")) {
 			em.persist(tipo);
@@ -172,6 +224,10 @@ public class CRMBean implements CRMFachada {
 	}
 
 	@Override
+	/**
+	  Metodo que edita un tipo medio 
+	  Maria Fernanda Molina
+	*/
 	public TipoMedio editarTipoMedio(TipoMedio tipo) throws Exception {
 		TipoMedio T = new TipoMedio();
 		if (tipo != null) {
@@ -187,6 +243,10 @@ public class CRMBean implements CRMFachada {
 	}
 
 	@Override
+	/**
+	  Metodo que elimina un tipo medio 
+	  Maria Fernanda Molina
+	*/
 	public boolean eliminarTipoMedio(int codigo) throws Exception {
 		TipoMedio cod = buscarTipoPorId(codigo);
 		boolean retorno = false;
@@ -199,7 +259,7 @@ public class CRMBean implements CRMFachada {
 
 
 	@Override
-	public TipoMedio listarTipoMedioByNombre(String nombre) throws Exception {
+	public TipoMedio listarTipoMedioPorNombre(String nombre) throws Exception {
 		TipoMedio objMedio = new TipoMedio();
 		if (nombre != null && !nombre.equals("")) {
 			Query q = em.createNamedQuery(TipoMedio.ENCONTRAR_POR_NOMBRE).setParameter("nombre", nombre);
@@ -218,6 +278,10 @@ public class CRMBean implements CRMFachada {
 	
 	//Periodo
 	@Override
+	/**
+	  Metodo que crea  periodos   
+	  Marcela Rincon
+	*/
 	public void crearPeriodo(Periodo per) throws Exception {
 		if ( per.getCodigo() >0){
 			em.persist(per);
@@ -227,6 +291,10 @@ public class CRMBean implements CRMFachada {
 	
 
 	@Override
+	/**
+	  Metodo que edita un periodo 
+	  Marcela Rincon
+	*/
 	public Periodo editarPeriodo(Periodo per) throws Exception {
 		Periodo periodo = new Periodo();
 		if (per != null) {
@@ -242,6 +310,10 @@ public class CRMBean implements CRMFachada {
 	}
 
 	@Override
+	/**
+	  Metodo que elimina un periodo 
+	  Marcela Rincon
+	*/
 	public boolean eliminarRegistros (int codigo) throws Exception {
 		Periodo periodo = buscarPeriodoPorId(codigo);
 		boolean retorno = true;
@@ -252,6 +324,10 @@ public class CRMBean implements CRMFachada {
 	}
 	@Override
 	@SuppressWarnings("unchecked")
+	/**
+	  Metodo que lista las periodos   
+	  Marcela Rincon
+	*/
 	public List<Periodo> listarPeriodo() throws Exception {
 		List<Periodo> periodos = new ArrayList<>();
 		Query q = em.createNamedQuery(Periodo.TRAER_PERIODO);
@@ -268,7 +344,11 @@ public class CRMBean implements CRMFachada {
 	//Medio
 	@Override
 	@SuppressWarnings("unchecked")
-	public List<Medio> obtenerMedio() throws Exception {
+	/**
+	  Metodo que lista las medios   
+	  Christopher Pérez
+	*/
+	public List<Medio> listarMedio() throws Exception {
 		List<Medio> medio = new ArrayList<Medio>();
 		Query query = em.createNamedQuery(Medio.TRAER_MEDIO);
 		medio = query.getResultList();
@@ -276,6 +356,10 @@ public class CRMBean implements CRMFachada {
 	}
 
 	@Override
+	/**
+	  Metodo que crea  medios   
+	  Christopher Pérez
+	*/
 	public void crearMedio(Medio medio) throws Exception {
 		if (medio.getNombre() != null && !medio.getNombre().equals("")) {
 			em.persist(medio);
@@ -290,6 +374,10 @@ public class CRMBean implements CRMFachada {
 	}
 	
 	@Override
+	/**
+	  Metodo que edita un medio 
+	  Christopher Pérez
+	*/
 	public Medio editarMedio(Medio medio) throws Exception {
 		Medio newMedio = new Medio();
 		newMedio = buscarMedioPorId(medio.getCodigo());
@@ -301,7 +389,11 @@ public class CRMBean implements CRMFachada {
 	}
 
 	@Override
-	public boolean borrarMedio(int codigo) throws Exception {
+	/**
+	  Metodo que elimina un medio 
+	  Christopher Pérez
+	*/
+	public boolean eliminarMedio(int codigo) throws Exception {
 		Medio medio = buscarMedioPorId(codigo);
 		boolean retorno = false;
 		if (medio.getCodigo() > 0) {
@@ -327,7 +419,11 @@ public class CRMBean implements CRMFachada {
 	//Evento
 	@Override
 	@SuppressWarnings("unchecked")
-	public List<Evento> obtenerEvento() throws Exception {
+	/**
+	  Metodo que lista las eventos   
+	  Luis Gomez
+	*/
+	public List<Evento> listarEvento() throws Exception {
 		List<Evento> evento = new ArrayList<Evento>();
 		Query query = em.createNamedQuery(Evento.TRAER_EVENTO);
 		evento = query.getResultList();
@@ -335,6 +431,10 @@ public class CRMBean implements CRMFachada {
 	}
 
 	@Override
+	/**
+	  Metodo que crea  eventos   
+	  Luis Gomez
+	*/
 	public void crearEvento(Evento evento) throws Exception {
 		if (evento.getNombre() != null && !evento.getNombre().equals("")) {
 			em.persist(evento);
@@ -350,6 +450,10 @@ public class CRMBean implements CRMFachada {
 	}
 	
 	@Override
+	/**
+	  Metodo que edita un evento 
+	  Luis Gomez
+	*/
 	public Evento editarEvento(Evento evento) throws Exception {
 		Evento newEvento = new Evento();
 		newEvento = buscarPorId(evento.getCodigo());
@@ -361,7 +465,11 @@ public class CRMBean implements CRMFachada {
 	}
 
 	@Override
-	public boolean borrarEvento(int codigo) throws Exception {
+	/**
+	  Metodo que elimina un evento 
+	  Luis Gomez
+	*/
+	public boolean eliminarEvento(int codigo) throws Exception {
 		Evento evento = buscarPorId(codigo);
 		boolean retorno = false;
 		if (evento.getCodigo() > 0) {

@@ -20,7 +20,7 @@ public interface CRMFachada {
 	 * @return List<Campania>: listado de Campañas
 	 * @throws Exception Capturar errores posibles sobre ejecucion
 	 */
-	public List<Campania> obtenerCampania() throws Exception;
+	public List<Campania> listarCampania() throws Exception;
 
 	/**
 	 * Este Metodo que crea una campaña publicitaria
@@ -46,7 +46,7 @@ public interface CRMFachada {
 	 * @return true: donde si borra y false donde hay error de ejecucion
 	 * @throws Exception Capturar errores posibles sobre ejecucion
 	 */
-	public boolean borrarCampania(int codigo) throws Exception;
+	public boolean eliminarCampania(int codigo) throws Exception;
 
 	/**
 	 * Este metodo busca una campaña publicitaria por el nombre
@@ -143,7 +143,7 @@ public interface CRMFachada {
 	 * @return Objeto TipoMedio
 	 * @throws Exception Captura posibles errores sobre la ejecución
 	 */
-	public TipoMedio listarTipoMedioByNombre(String nombre) throws Exception;
+	public TipoMedio listarTipoMedioPorNombre(String nombre) throws Exception;
 
 	/**
 	 * Metodo que busca un medio por codigo
@@ -198,7 +198,7 @@ public interface CRMFachada {
 	 * @return List<Medio>: listado de medios
 	 * @throws Exception Capturar errores posibles sobre ejecucion
 	 */
-	public List<Medio> obtenerMedio() throws Exception;
+	public List<Medio> listarMedio() throws Exception;
 
 	/**
 	 * Este Metodo crea un medio
@@ -220,11 +220,11 @@ public interface CRMFachada {
 	/**
 	 * Este metodo borra una medio
 	 * 
-	 * @param Codigo de la medio que hay que borrar
+	 * @param Codigo de la medio que hay que eliminar
 	 * @return true: donde si borra y false donde hay error de ejecucion
 	 * @throws Exception Capturar errores posibles sobre ejecucion
 	 */
-	public boolean borrarMedio(int codigo) throws Exception;
+	public boolean eliminarMedio(int codigo) throws Exception;
 
 	/**
 	 * Este metodo busca una medio publicitario por el nombre
@@ -244,7 +244,7 @@ public interface CRMFachada {
 	 * @return List<Evento>: listado de Evento
 	 * @throws Exception Capturar errores posibles sobre ejecucion
 	 */
-	public List<Evento> obtenerEvento() throws Exception;
+	public List<Evento> listarEvento() throws Exception;
 
 	/**
 	 * Este Metodo que crea un evento publicitario
@@ -266,11 +266,11 @@ public interface CRMFachada {
 	/**
 	 * Este metodo borra un evento
 	 * 
-	 * @param Codigo del evento que hay que borrar
+	 * @param Codigo del evento que hay que eliminar
 	 * @return true: donde si borra y false donde hay error de ejecucion
 	 * @throws Exception Capturar errores posibles sobre ejecucion
 	 */
-	public boolean borrarEvento(int codigo) throws Exception;
+	public boolean eliminarEvento(int codigo) throws Exception;
 
 	/**
 	 * Este metodo busca un evento publicitario por el nombre 
