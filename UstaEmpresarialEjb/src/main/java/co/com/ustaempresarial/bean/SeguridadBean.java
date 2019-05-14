@@ -261,5 +261,54 @@ public class SeguridadBean implements SeguridadFachada{
 			return objPermiso;
 		}
 	//*********************************************************************************************	
+
+			@Override
+		public List<RolPermiso> listarRolPermiso() throws Exception {
+			List<RolPermiso> rolPermisoList;
+			rolPermisoList = new ArrayList<RolPermiso>();
+			Query q = em.createNamedQuery(RolPermiso.LISTAR_PERMISOS);
+			rolPermisoList = q.getResultList();
+			return rolPermisoList;
+		}
+
+		@Override
+		public void crearRolPermiso(RolPermiso rolP) throws Exception {
+			if (rolP.getId().getRolCod()>0 && rolP.getId().getPermisoCod()>0) {
+				em.persist(rolP);
+			}
+			
+		}
+
+		@Override
+		public RolPermiso buscarRolPermiso(int codigo) throws Exception {
+			RolPermiso rol = new RolPermiso();
+			//Query q = em.createNamedQuery("SELECT r FROM Rol r WHERE id_rol = "+codigo);
+			//rol = (RolPermiso) q.getSingleResult();
+			return rol;
+		}
+		
+		@Override
+		public List<RolUsuario> listarRolUsuario() throws Exception {
+			List<RolUsuario> rolUsuarioList;
+			rolUsuarioList = new ArrayList<RolUsuario>();
+			Query q = em.createNamedQuery(RolUsuario.LISTAR_ROL_USER);
+			rolUsuarioList = q.getResultList();
+			return rolUsuarioList;
+		}
+
+		@Override
+		public void crearRolUsuario(RolUsuario rolU) throws Exception {
+			if (rolU.getId().getRolCod()>0 && rolU.getId().getUsuarioCod()>0) {
+				em.persist(rolU);
+			}
+		}
+
+		@Override
+		public RolUsuario buscarRolUsuario(int codigo) throws Exception {
+			RolUsuario rol = new RolUsuario();
+			//Query q = em.createNamedQuery("SELECT r FROM Rol r WHERE id_rol = "+codigo);
+			//rol = (RolUsuario) q.getSingleResult();
+			return rol;
+		}
 		
 }

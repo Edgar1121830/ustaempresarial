@@ -29,4 +29,18 @@
 		</query>
 	</named-query>
 
+<named-query name="RolPermiso.LISTAR_PERMISOS">
+		<query>
+			SELECT r 
+			FROM RolPermisos r
+		</query>
+	</named-query>
+	
+<named-query name="RolUsuario.find_all">
+		<query>
+			SELECT R 
+			FROM RolUsuarios R
+		</query>
+	</named-query>
+
 </entity-mappings>

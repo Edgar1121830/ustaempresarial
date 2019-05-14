@@ -14,6 +14,7 @@ import java.sql.Timestamp;
 @NamedQuery(name="RolUsuario.findAll", query="SELECT r FROM RolUsuario r")
 public class RolUsuario implements Serializable {
 	private static final long serialVersionUID = 1L;
+        public static final String LISTAR_ROL_USER = "RolUsuario.find_all";
 
 	@EmbeddedId
 	private RolUsuarioPK id;

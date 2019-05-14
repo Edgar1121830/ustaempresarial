@@ -69,7 +69,7 @@ public interface SeguridadFachada {
 		public boolean eliminarRol(int codigo) throws Exception;
 		
 		public Rol buscarRol(int codigo) throws Exception; 
-	//--------------------------------------------------------------------------------
+	
 	//******************************Permiso*******************************************
 		public List<Permiso> listarPermiso() throws Exception;
 
@@ -80,7 +80,22 @@ public interface SeguridadFachada {
 		public boolean eliminarPermiso(int codigo) throws Exception;
 		
 		public Permiso buscarPermiso(int codigo) throws Exception; 
-	//*************************************************************************************
+	
+       //********************************rol_usuario*******************************************
 		
+		public List<RolUsuario> listarRolUsuario() throws Exception;
+
+		public void crearRolUsuario(RolUsuario rolU) throws Exception;
+		
+		public RolUsuario buscarRolUsuario(int codigo) throws Exception; 
+		
+	//**********************************rol_permiso******************************************
+		
+		public List<RolPermiso> listarRolPermiso() throws Exception;
+
+		public void crearRolPermiso(RolPermiso rolP) throws Exception;
+		
+		public RolPermiso buscarRolPermiso(int codigo) throws Exception;
+
 	
 }

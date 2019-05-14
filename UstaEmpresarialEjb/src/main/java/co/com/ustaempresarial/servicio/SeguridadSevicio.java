@@ -108,7 +108,26 @@ public class SeguridadSevicio {
 		}
 		
 	//**************************************************************************************	
-
+                
+                public List<RolPermiso> traerRolPermisos() throws Exception {
+			return fachada.listarRolPermiso();
+		}
+		public void crearRolPermisos(RolPermiso rolP) throws Exception {
+			fachada.crearRolPermiso(rolP);
+		}
+		public RolPermiso buscarRolPermiso(int codigo) throws Exception {
+			return objSeguridad.buscarRolPermiso(codigo);
+		}
+		
+		public List<RolUsuario> traerRolUsuario() throws Exception {
+			return fachada.listarRolUsuario();
+		}
+		public void crearRolUsuarios(RolUsuario rolU) throws Exception {
+			fachada.crearRolUsuario(rolU);
+		}
+		public RolUsuario buscarRolUsuario(int codigo) throws Exception {
+			return objSeguridad.buscarRolUsuario(codigo);
+		}
 		
 	
 }
