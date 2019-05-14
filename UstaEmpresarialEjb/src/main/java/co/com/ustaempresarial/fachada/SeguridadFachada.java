@@ -58,7 +58,6 @@ public interface SeguridadFachada {
 		public boolean eliminarUsuarioLog(int codigo) throws Exception;
 		
 		public UsuarioLog buscarUsuarioLog(int codigo) throws Exception; 
-public List<Rol> buscarRolPorNombre(String nombre) throws Exception;
 	//********************************************************************************
 		//--------------rol-----------------------------------------------------------
 		public List<Rol> listarRol() throws Exception;
@@ -70,7 +69,6 @@ public List<Rol> buscarRolPorNombre(String nombre) throws Exception;
 		public boolean eliminarRol(int codigo) throws Exception;
 		
 		public Rol buscarRol(int codigo) throws Exception; 
-public List<Rol> buscarRolPorNombre(String nombre) throws Exception;
 	
 	//******************************Permiso*******************************************
 		public List<Permiso> listarPermiso() throws Exception;
@@ -82,7 +80,6 @@ public List<Rol> buscarRolPorNombre(String nombre) throws Exception;
 		public boolean eliminarPermiso(int codigo) throws Exception;
 		
 		public Permiso buscarPermiso(int codigo) throws Exception; 
-public List<Permiso> buscarPermisoPorNombre(String nombre) throws Exception;
 	
        //********************************rol_usuario*******************************************
 		
