@@ -91,8 +91,11 @@ public class SeguridadBean implements SeguridadFachada{
 	//****************************************Usuariolog******************************************
 		@Override
 		public List<UsuarioLog> listarUsuarioLog() throws Exception {
-			// TODO Auto-generated method stub
-			return null;
+				List<UsuarioLog> usuarioLogList;
+		Query q;
+		usuarioLogList = new ArrayList<UsuarioLog>();
+		q = em.createNamedQuery(UsuarioLog.TRAER_USUARIO_LOG);
+		return usuarioLogList;
 		}
 
 		@Override
@@ -141,17 +144,29 @@ public class SeguridadBean implements SeguridadFachada{
 			// TODO Auto-generated method stub
 			return objUsuarioLog;
 		}
-		
+		@Override
+	public List<UsuarioLog> buscarUsuarioLogPorProceso(String proceso) throws Exception {
+		List<UsuarioLog> usuarioLogList;
+		Query q;
+
+		usuarioLogList = new ArrayList<UsuarioLog>();
+		q = em.createNamedQuery(UsuarioLog.ENCONTRAR_NOMBRE_PROCESO_USUARIO_LOG);
+
+		if (proceso != null) {
+			q.setParameter("proceso", proceso);
+			usuarioLogList = q.getResultList();
+		}
+		return usuarioLogList;
+	}
 	//*************************************************************************************************
 		//************************************Rol*****************************************************
 		@Override
 		public List<Rol> listarRol() throws Exception {
-			List<Rol> rolList;
-			Query q;
-			
-			rolList = new ArrayList<Rol>();
-			
-			return null;
+				List<Rol> rolList;
+		Query q;
+		rolList = new ArrayList<Rol>();
+		q = em.createNamedQuery(Rol.TRAER_ROL);
+		return rolList;
 		}
 
 		@Override
@@ -202,17 +217,30 @@ public class SeguridadBean implements SeguridadFachada{
 			return objRol;
 
 		}
+@Override
+	public List<Rol> buscarRolPorNombre(String nombre) throws Exception {
+		List<Rol> rolList;
+		Query q;
+
+		rolList = new ArrayList<Rol>();
+		q = em.createNamedQuery(Rol.ENCONTRAR_NOMBRE_ROL);
+
+		if (nombre != null) {
+			q.setParameter("nombre", nombre);
+			rolList = q.getResultList();
+		}
+		return rolList;
+	}
 
 	//********************************************************************************************
 		//**************************************Permiso****************************************************
 		@Override
 		public List<Permiso> listarPermiso() throws Exception {
-			List<Permiso> rolList;
-			Query q;
-
-			rolList = new ArrayList<Permiso>();
-
-			return null;
+			List<Permiso> permisoList;
+		Query q;
+		permisoList = new ArrayList<Permiso>();
+		q = em.createNamedQuery(Permiso.TRAER_PERMISO);
+		return permisoList;
 		}
 
 		@Override
@@ -260,6 +288,20 @@ public class SeguridadBean implements SeguridadFachada{
 			objPermiso = em.find(Permiso.class, codigo);
 			return objPermiso;
 		}
+@Override
+	public List<Permiso> buscarPermisoPorNombre(String nombre) throws Exception {
+		List<Permiso> permisoList;
+		Query q;
+
+		permisoList = new ArrayList<Permiso>();
+		q = em.createNamedQuery(Permiso.ENCONTRAR_NOMBRE_PERMISO);
+
+		if (nombre != null) {
+			q.setParameter("nombre", nombre);
+			permisoList = q.getResultList();
+		}
+		return permisoList;
+	}
 	//*********************************************************************************************	
 
 			@Override
@@ -286,6 +328,11 @@ public class SeguridadBean implements SeguridadFachada{
 			//rol = (RolPermiso) q.getSingleResult();
 			return rol;
 		}
+                private RolPermiso buscarPorId(RolPermisoPK codigo) throws Exception {
+			RolPermiso rolP = new RolPermiso();
+			rolP = em.find(RolPermiso.class, codigo);
+			return rolP;
+		}
 		
 		@Override
 		public List<RolUsuario> listarRolUsuario() throws Exception {
@@ -310,5 +357,9 @@ public class SeguridadBean implements SeguridadFachada{
 			//rol = (RolUsuario) q.getSingleResult();
 			return rol;
 		}
-		
+		private RolUsuario buscarPorId(RolUsuarioPK codigo) throws Exception {
+			RolUsuario rolP = new RolUsuario();
+			rolP = em.find(RolUsuario.class, codigo);
+			return rolP;
+		}
 }

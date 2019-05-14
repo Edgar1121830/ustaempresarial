@@ -19,6 +19,7 @@ public class RolUsuario implements Serializable {
 	@EmbeddedId
 	private RolUsuarioPK id;
 
+	@Temporal(TemporalType.TIMESTAMP)
 	private Timestamp fecha;
 
 	public RolUsuario() {
@@ -32,8 +33,8 @@ public class RolUsuario implements Serializable {
 		this.id = id;
 	}
 
-	public Timestamp getFecha() {
-		return this.fecha;
+	public void setFecha(Timestamp fecha) {
+		this.fecha = (Timestamp)fecha;
 	}
 
 	public void setFecha(Timestamp fecha) {

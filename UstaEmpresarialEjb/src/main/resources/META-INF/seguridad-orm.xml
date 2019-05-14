@@ -43,4 +43,49 @@
 		</query>
 	</named-query>
 
+	<named-query name="Rol.TRAER_ROL">
+		<query>
+		SELECT r 
+        FROM rol r
+		</query>
+	</named-query>
+	
+	<named-query name="Rol.ENCONTRAR_NOMBRE_ROL">
+		<query>
+			SELECT r 
+			FROM rol r
+			WHERE r.nombre like '%:nombre%'
+		</query>
+	</named-query>
+
+		<named-query name="UsuarioLog.TRAER_USUARIO_LOG">
+		<query>
+		SELECT ul
+		FROM usuario_log ul
+		</query>
+	</named-query>
+	
+	<named-query name="UsuarioLog.ENCONTRAR_NOMBRE_PROCESO_USUARIO_LOG">
+		<query>
+			SELECT ul
+			FROM usuario_log ul
+			WHERE ul.proceso like '%:proceso%'
+		</query>
+	</named-query>
+
+	<named-query name="Permiso.TRAER_PERMISO">
+		<query>
+		SELECT p
+		FROM permiso p
+		</query>
+	</named-query>
+	
+	<named-query name="Permiso.ENCONTRAR_NOMBRE_PERMISO">
+		<query>
+			SELECT p
+			FROM permiso p
+			WHERE p.nombre like '%:nombre%'
+		</query>
+	</named-query>
+
 </entity-mappings>

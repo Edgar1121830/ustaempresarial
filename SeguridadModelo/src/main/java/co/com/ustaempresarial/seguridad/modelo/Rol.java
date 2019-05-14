@@ -12,6 +12,8 @@ import javax.persistence.*;
 @NamedQuery(name="Rol.findAll", query="SELECT r FROM Rol r")
 public class Rol implements Serializable {
 	private static final long serialVersionUID = 1L;
+public static final String TRAER_ROL = "Rol.TRAER_ROL";
+	public static final String ENCONTRAR_NOMBRE_ROL="Rol.ENCONTRAR_NOMBRE_ROL";
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
