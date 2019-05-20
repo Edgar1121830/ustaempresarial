@@ -1,13 +1,22 @@
 package co.com.ustaempresarial.modelo.crm;
 
 import javax.persistence.*;
+
+import java.io.Serializable;
 import java.math.BigInteger;
 import java.sql.Date;
 import java.util.Collection;
 import java.util.Objects;
 
 @Entity
-public class Campania {
+@Table(name = "campania", schema = "crm", catalog = "usta_empresarial")
+public class Campania implements Serializable{
+	
+	private static final long serialVersionUID = 1L;
+	
+	public static final String TRAER_CAMPANIA = "Campania.TRAER_CAMPANIA";
+	public static final String ENCONTRAR_POR_NOMBRE="Campania.ENCONTRAR_POR_NOMBRE";
+	
     private int codigo;
     private String nombre;
     private String descripcion;
@@ -150,7 +159,7 @@ public class Campania {
     public int hashCode() {
         return Objects.hash(codigo, nombre, descripcion, fechaInicio, fechaFin, periodoCod, valor, estado);
     }
-
+    /*
     @ManyToOne
     @JoinColumn(name = "periodo_cod", referencedColumnName = "codigo", nullable = false)
     public Periodo getPeriodoByPeriodoCod() {
@@ -169,12 +178,12 @@ public class Campania {
     public Collection<Evento> getEventosByCodigo() {
 
         return eventosByCodigo;
-
+    
     }
 
     public void setEventosByCodigo(Collection<Evento> eventosByCodigo) {
 
         this.eventosByCodigo = eventosByCodigo;
 
-    }
+    }*/
 }

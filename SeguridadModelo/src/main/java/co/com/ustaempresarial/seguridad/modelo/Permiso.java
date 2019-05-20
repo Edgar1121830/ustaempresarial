@@ -12,6 +12,8 @@ import javax.persistence.*;
 @NamedQuery(name="Permiso.findAll", query="SELECT p FROM Permiso p")
 public class Permiso implements Serializable {
 	private static final long serialVersionUID = 1L;
+public static final String TRAER_PERMISO = "Permiso.TRAER_PERMISO";
+	public static final String ENCONTRAR_NOMBRE_PERMISO = "Permiso.ENCONTRAR_NOMBRE_PERMISO";
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)

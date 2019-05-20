@@ -31,4 +31,85 @@ having count(*)<3
 		</named-native-query>
 	
 
+
+	<named-query name="Periodo.TRAER_PERIODO">
+		<query>
+			SELECT p
+			FROM Periodo p
+		</query>
+	</named-query>
+
+	<named-query name="Periodo.ENCONTRAR_POR_FECHAI">
+		<query>
+			SELECT p
+			FROM Periodo p
+			WHERE p.fecha_inicio = ':fechainicio'
+		</query>
+	</named-query>
+
+
+	<named-query name="Evento.TRAER_EVENTO">
+		<query>
+			SELECT e
+			FROM Evento e
+		</query>
+	</named-query>
+
+	<named-query name="Evento.ENCONTRAR_POR_NOMBRE">
+		<query>
+			SELECT e
+			FROM Evento e
+			WHERE e.nombre like '%:nombre%'
+		</query>
+	</named-query>
+
+
+	<named-query name="Recurso.TRAER_RECURSO">
+		<query>
+			SELECT r
+			FROM Recurso r
+		</query>
+	</named-query>
+
+	<named-query name="Recurso.ENCONTRAR_POR_NOMBRE">
+		<query>
+			SELECT r
+			FROM Recurso r
+			WHERE r.nombre like '%:nombre%'
+		</query>
+	</named-query>
+
+
+	<named-query name="TipoMedio.TRAER_TIPOMEDIO">
+		<query>
+			SELECT tm
+			FROM Tipo_Medio tm
+		</query>
+	</named-query>
+
+	<named-query name="Recurso.ENCONTRAR_POR_NOMBRE">
+		<query>
+			SELECT tm
+			FROM Tipo_Medio tm
+			WHERE tm.nombre like '%:nombre%'
+		</query>
+	</named-query>
+	
+
+	<named-query name="Medio.TRAER_MEDIO">
+		<query>
+			SELECT m
+			FROM Medio m
+		</query>
+	</named-query>
+
+	<named-query name="Medio.ENCONTRAR_POR_NOMBRE">
+		<query>
+			SELECT m
+			FROM Medio m
+			WHERE m.nombre like '%:nombre%'
+		</query>
+	</named-query>
+
+
 </entity-mappings>

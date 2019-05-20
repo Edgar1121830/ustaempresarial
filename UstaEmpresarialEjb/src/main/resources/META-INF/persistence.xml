@@ -71,7 +71,7 @@
 		</properties>
 	</persistence-unit>
 	<persistence-unit name="UstaEmpresarialCRM"
-		transaction-type="JTA">
+					  transaction-type="JTA">
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
 		<jta-data-source>java:jboss/env/jdbc/crm</jta-data-source>
 		<mapping-file>META-INF/CRM-orm.xml</mapping-file>
@@ -85,11 +85,35 @@
 		<shared-cache-mode>ENABLE_SELECTIVE</shared-cache-mode>
 		<properties>
 			<property name="hibernate.connection.driver_class"
-				value="org.postgresql.Driver" />
+					  value="org.postgresql.Driver" />
 			<property name="hibernate.dialect"
-				value="org.hibernate.dialect.PostgreSQL82Dialect" />
+					  value="org.hibernate.dialect.PostgreSQL82Dialect" />
 			<property name="hibernate.show_sql" value="true" />
 			<!-- <property name="hibernate.hbm2ddl.auto" value="update" /> -->
 		</properties>
 	</persistence-unit>
+    <persistence-unit name="UstaEmpresarialNomina" transaction-type="JTA">
+        <provider>org.hibernate.ejb.HibernatePersistence</provider>
+        <jta-data-source>java:jboss/env/jdbc/nomina</jta-data-source>
+        <mapping-file>META-INF/nomina-orm.xml</mapping-file>
+        <class>co.com.UstaEmpresarial.nomina.modelo.Nomina</class>
+        <class>co.com.UstaEmpresarial.nomina.modelo.NominaPK</class>
+        <class>co.com.UstaEmpresarial.nomina.modelo.Cargo</class>
+        <class>co.com.UstaEmpresarial.nomina.modelo.Concepto</class>
+        <class>co.com.UstaEmpresarial.nomina.modelo.Contrato</class>
+        <class>co.com.UstaEmpresarial.nomina.modelo.Dependencia</class>
+        <class>co.com.UstaEmpresarial.nomina.modelo.HojaVida</class>
+        <class>co.com.UstaEmpresarial.nomina.modelo.Periodo</class>
+        <exclude-unlisted-classes>true</exclude-unlisted-classes>
+        <shared-cache-mode>ENABLE_SELECTIVE</shared-cache-mode>
+        <properties>
+            <property name="hibernate.connection.driver_class"
+                      value="org.postgresql.Driver" />
+            <property name="hibernate.dialect"
+                      value="org.hibernate.dialect.PostgreSQL82Dialect" />
+            <property name="hibernate.show_sql" value="true" />
+        </properties>
+    </persistence-unit>
+
+
 </persistence>

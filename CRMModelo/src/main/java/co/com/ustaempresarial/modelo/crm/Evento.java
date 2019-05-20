@@ -6,7 +6,15 @@ import java.util.Collection;
 import java.util.Objects;
 
 @Entity
+@Table(name = "evento", schema = "crm", catalog = "usta_empresarial")
 public class Evento {
+
+
+    private static final long serialVersionUID = 1L;
+    
+    public static final String TRAER_EVENTO = "Evento.TRAER_EVENTO";
+    public static final String ENCONTRAR_POR_NOMBRE="Evento.ENCONTRAR_POR_NOMBRE";
+
     private int codigo;
     private String nombre;
     private String descripcion;
@@ -117,7 +125,7 @@ public class Evento {
     public int hashCode() {
         return Objects.hash(codigo, nombre, descripcion, fecha, campaniaCod, estado);
     }
-
+    /*
     @ManyToOne
     @JoinColumn(name = "campania_cod", referencedColumnName = "codigo", nullable = false)
     public Campania getCampaniaByCampaniaCod() {
@@ -143,5 +151,5 @@ public class Evento {
 
         this.mediosByCodigo = mediosByCodigo;
 
-    }
+    }*/
 }

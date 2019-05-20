@@ -10,10 +10,10 @@ import java.util.Date;
  * 
  */
 @Entity
-@Table(name = "PERIODO", schema = "ustanomina")
-@NamedQuery(name="Periodo.findAll", query="SELECT p FROM Periodo p")
+@Table(name = "periodo", schema = "ustanomina")
 public class Periodo implements Serializable {
 	private static final long serialVersionUID = 1L;
+	public static final String FIND_ALL = "Peiodo.Listar_periodo";
 	private Integer codigo;
 	private Boolean estado;
 	private Date fechaFin;

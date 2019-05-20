@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings version="2.0"
+                 xmlns="http://java.sun.com/xml/ns/persistence/orm"
+                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                 xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm http://java.sun.com/xml/ns/persistence/orm_2_0.xsd">
+
+    <named-query name="Cargo.Listar_cargo">
+        <query>
+            SELECT c
+            FROM Cargo c
+        </query>
+    </named-query>
+
+    <named-query name="Contrato.FIND_ALL">
+        <query>
+            SELECT c
+            FROM Concepto c
+            WHERE c.nombre like '%:nombre%'
+        </query>
+    </named-query>
+    <named-query name="Contrato.ENCONTRAR_POR_CARGO">
+        <query>
+            SELECT c
+            FROM Contrato c
+            WHERE c.cargoCod = ':cargoCod'
+        </query>
+    </named-query>
+
+    <named-query name="	Contrato.ENCONTRAR_POR_DEPENDENCIA">
+        <query>
+            SELECT c
+            FROM Contrato c
+            WHERE c.dependenciaCod = ':dependenciaCod'
+        </query>
+    </named-query>
+
+
+    <named-query name="Dependencia.Listar_depndencia">
+        <query>
+            SELECT d
+            FROM Dependencia d
+        </query>
+    </named-query>
+
+    <named-query name="Hoja_vida.Listar_hojaVida">
+        <query>
+            SELECT h
+            FROM HojaVida h
+        </query>
+    </named-query>
+
+
+    <named-query name="Nomina.Listar_nomina">
+        <query>
+            SELECT n
+            FROM Nomina n
+        </query>
+    </named-query>
+
+    <named-query name="Nomina.liquidacion_nomina_empleado">
+        <query>
+            select concat(h.nombre, ' ', h.apellido) as nombre,
+            contr.salario,
+            concep.nombre,
+            CASE
+            WHEN concep.tipo = 'false' THEN 'deducido'
+            WHEN concep.tipo = 'true' THEN 'devengado'
+            END as tipo,
+            concep.formula,
+            contr.salario * CAST(concep.formula AS float) as resultado
+            from hoja_vida h,
+            contrato contr,
+            concepto concep,
+            nomina n,
+            periodo p
+            where h.documento = ':documento'
+            and h.documento = contr.hoja_vida_doc
+            and contr.codigo = n.contrato_cod
+            and concep.codigo = n.concepto_cod
+            and p.codigo = n.periodo_cod;
+        </query>
+    </named-query>
+    <named-query name="Nomina.liquidacion_nomina_periodo">
+        <query>
+            select concat(h.nombre, ' ', h.apellido)             as nombre,
+            contr.salario,
+            concep.nombre,
+            CASE
+            WHEN concep.tipo = 'false' THEN 'deducido'
+            WHEN concep.tipo = 'true' THEN 'devengado'
+            END                                       as tipo,
+            concep.formula,
+            contr.salario * CAST(concep.formula AS float) as resultado
+            from hoja_vida h,
+            contrato contr,
+            concepto concep,
+            nomina n,
+            periodo p
+            where n.periodo_cod = ":periodo"
+            and h.documento = contr.hoja_vida_doc
+            and contr.codigo = n.contrato_cod
+            and concep.codigo = n.concepto_cod
+            and p.codigo = n.periodo_cod;
+        </query>
+    </named-query>
+    <named-query name="Nomina.comparar_liquidacion">
+        <query>
+            SELECT n
+            FROM Nomina n
+        </query>
+    </named-query>
+
+    <named-query name="Peiodo.Listar_periodo">
+        <query>
+            SELECT p
+            FROM Periodo p
+        </query>
+    </named-query>
+
+</entity-mappings>

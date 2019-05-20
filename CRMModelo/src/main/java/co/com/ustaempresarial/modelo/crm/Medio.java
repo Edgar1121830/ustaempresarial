@@ -5,7 +5,16 @@ import java.math.BigInteger;
 import java.util.Objects;
 
 @Entity
+@Table(name = "medio", schema = "crm", catalog = "usta_empresarial")
 public class Medio {
+
+
+    private static final long serialVersionUID = 1L;
+    
+    public static final String TRAER_MEDIO = "Medio.TRAER_MEDIO";
+    public static final String ENCONTRAR_POR_NOMBRE="Medio.ENCONTRAR_POR_NOMBRE";
+
+
     private int codigo;
     private String nombre;
     private String descripcion;
@@ -149,7 +158,7 @@ public class Medio {
     public int hashCode() {
         return Objects.hash(codigo, nombre, descripcion, tipoMedioCod, eventoCod, recursoCod, valor, estado);
     }
-
+    /*
     @ManyToOne
     @JoinColumn(name = "tipo_medio_cod", referencedColumnName = "codigo", nullable = false)
     public TipoMedio getTipoMedioByTipoMedioCod() {
@@ -190,5 +199,5 @@ public class Medio {
 
         this.recursoByRecursoCod = recursoByRecursoCod;
 
-    }
+    }*/
 }

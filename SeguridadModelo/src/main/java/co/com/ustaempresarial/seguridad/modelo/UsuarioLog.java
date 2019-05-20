@@ -14,6 +14,9 @@ import java.sql.Timestamp;
 @NamedQuery(name="UsuarioLog.findAll", query="SELECT u FROM UsuarioLog u")
 public class UsuarioLog implements Serializable {
 	private static final long serialVersionUID = 1L;
+public static final String TRAER_USUARIO_LOG = "UsuarioLog.TRAER_USUARIO_LOG";
+	public static final String ENCONTRAR_NOMBRE_PROCESO_USUARIO_LOG = "UsuarioLog.ENCONTRAR_NOMBRE_PROCESO_USUARIO_LOG";
+
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)

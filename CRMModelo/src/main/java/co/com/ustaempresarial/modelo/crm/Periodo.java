@@ -6,7 +6,14 @@ import java.util.Collection;
 import java.util.Objects;
 
 @Entity
+@Table(name = "periodo", schema = "crm", catalog = "usta_empresarial")
 public class Periodo {
+
+    private static final long serialVersionUID = 1L;
+    
+    public static final String TRAER_PERIODO = "Periodo.TRAER_PERIODO";
+    public static final String ENCONTRAR_POR_NOMBRE="Periodo.ENCONTRAR_POR_FECHAI";
+
     private int codigo;
     private Date fechaInicio;
     private Date fechaFin;
@@ -84,7 +91,7 @@ public class Periodo {
     public int hashCode() {
         return Objects.hash(codigo, fechaInicio, fechaFin, estado);
     }
-
+    /*
     @OneToMany(mappedBy = "periodoByPeriodoCod")
     public Collection<Campania> getCampaniasByCodigo() {
 
@@ -96,5 +103,5 @@ public class Periodo {
 
         this.campaniasByCodigo = campaniasByCodigo;
 
-    }
+    }*/
 }

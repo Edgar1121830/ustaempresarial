@@ -14,12 +14,13 @@ import java.sql.Timestamp;
 @NamedQuery(name="RolPermiso.findAll", query="SELECT r FROM RolPermiso r")
 public class RolPermiso implements Serializable {
 	private static final long serialVersionUID = 1L;
+        public static final String LISTAR_PERMISOS = "RolPermiso.LISTAR_PERMISOS";
 
 	@EmbeddedId
 	private RolPermisoPK id;
 
+@Temporal(TemporalType.TIMESTAMP)
 	private Timestamp fecha;
-
 	public RolPermiso() {
 	}
 
@@ -31,8 +32,8 @@ public class RolPermiso implements Serializable {
 		this.id = id;
 	}
 
-	public Timestamp getFecha() {
-		return this.fecha;
+	public void setFecha(Timestamp fecha) {
+		this.fecha =(Timestamp) fecha;
 	}
 
 	public void setFecha(Timestamp fecha) {

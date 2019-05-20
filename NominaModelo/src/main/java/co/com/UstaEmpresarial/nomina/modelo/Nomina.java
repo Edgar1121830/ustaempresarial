@@ -1,87 +1,90 @@
 package co.com.UstaEmpresarial.nomina.modelo;
 
-import java.io.Serializable;
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 
 
 /**
  * The persistent class for the nomina database table.
- * 
  */
 @Entity
-@Table(name = "NOMINA", schema = "ustanomina")
-@NamedQuery(name="Nomina.findAll", query="SELECT n FROM Nomina n")
+@Table(name = "nomina", schema = "ustanomina")
 public class Nomina implements Serializable {
-	private static final long serialVersionUID = 1L;
-	private NominaPK id;
-	private Date fechaInsert;
-	private String fechaUpdate;
-	private String usuarioInsert;
-	private String usuarioUpdate;
-	private Integer valor;
+    private static final long serialVersionUID = 1L;
+    public static final String LISTAR_NOMINA = "Nomina.Listar_nomina";
+    public static final String LIQUIDACION_NOMINA_EMPLEADO = "Nomina.liquidacion_nomina_empleado";
+    public static final String LIQUIDACION_NOMINA_PERIODO = "Nomina.liquidacion_nomina_periodo";
+    public static final String COMPARAR_LIQUIDACION_PERIODO = "Nomina.comparar_liquidacion";
 
-	public Nomina() {
-	}
+    private NominaPK id;
+    private Date fechaInsert;
+    private String fechaUpdate;
+    private String usuarioInsert;
+    private String usuarioUpdate;
+    private Integer valor;
 
-
-	@EmbeddedId
-	public NominaPK getId() {
-		return this.id;
-	}
-
-	public void setId(NominaPK id) {
-		this.id = id;
-	}
+    public Nomina() {
+    }
 
 
-	@Temporal(TemporalType.DATE)
-	@Column(name="fecha_insert")
-	public Date getFechaInsert() {
-		return this.fechaInsert;
-	}
+    @EmbeddedId
+    public NominaPK getId() {
+        return this.id;
+    }
 
-	public void setFechaInsert(Date fechaInsert) {
-		this.fechaInsert = fechaInsert;
-	}
-
-
-	@Column(name="fecha_update")
-	public String getFechaUpdate() {
-		return this.fechaUpdate;
-	}
-
-	public void setFechaUpdate(String fechaUpdate) {
-		this.fechaUpdate = fechaUpdate;
-	}
+    public void setId(NominaPK id) {
+        this.id = id;
+    }
 
 
-	@Column(name="usuario_insert")
-	public String getUsuarioInsert() {
-		return this.usuarioInsert;
-	}
+    @Temporal(TemporalType.DATE)
+    @Column(name = "fecha_insert")
+    public Date getFechaInsert() {
+        return this.fechaInsert;
+    }
 
-	public void setUsuarioInsert(String usuarioInsert) {
-		this.usuarioInsert = usuarioInsert;
-	}
-
-
-	@Column(name="usuario_update")
-	public String getUsuarioUpdate() {
-		return this.usuarioUpdate;
-	}
-
-	public void setUsuarioUpdate(String usuarioUpdate) {
-		this.usuarioUpdate = usuarioUpdate;
-	}
+    public void setFechaInsert(Date fechaInsert) {
+        this.fechaInsert = fechaInsert;
+    }
 
 
-	public Integer getValor() {
-		return this.valor;
-	}
+    @Column(name = "fecha_update")
+    public String getFechaUpdate() {
+        return this.fechaUpdate;
+    }
 
-	public void setValor(Integer valor) {
-		this.valor = valor;
-	}
+    public void setFechaUpdate(String fechaUpdate) {
+        this.fechaUpdate = fechaUpdate;
+    }
+
+
+    @Column(name = "usuario_insert")
+    public String getUsuarioInsert() {
+        return this.usuarioInsert;
+    }
+
+    public void setUsuarioInsert(String usuarioInsert) {
+        this.usuarioInsert = usuarioInsert;
+    }
+
+
+    @Column(name = "usuario_update")
+    public String getUsuarioUpdate() {
+        return this.usuarioUpdate;
+    }
+
+    public void setUsuarioUpdate(String usuarioUpdate) {
+        this.usuarioUpdate = usuarioUpdate;
+    }
+
+
+    public Integer getValor() {
+        return this.valor;
+    }
+
+    public void setValor(Integer valor) {
+        this.valor = valor;
+    }
 
 }
