@@ -11,10 +11,13 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
-import co.com.facturacion.modelo.CategoriaProducto;
 import co.com.ustaempresarial.fachada.SeguridadFachada;
 import co.com.ustaempresarial.seguridad.modelo.Permiso;
 import co.com.ustaempresarial.seguridad.modelo.Rol;
+import co.com.ustaempresarial.seguridad.modelo.RolPermiso;
+import co.com.ustaempresarial.seguridad.modelo.RolPermisoPK;
+import co.com.ustaempresarial.seguridad.modelo.RolUsuario;
+import co.com.ustaempresarial.seguridad.modelo.RolUsuarioPK;
 import co.com.ustaempresarial.seguridad.modelo.Usuario;
 import co.com.ustaempresarial.seguridad.modelo.UsuarioLog;
 
@@ -57,6 +60,7 @@ public class SeguridadBean implements SeguridadFachada{
 
 		return usuario;
 	}
+	
 
 	@Override
 	public boolean borrarUsuario(int codigo) throws Exception {
@@ -70,6 +74,12 @@ public class SeguridadBean implements SeguridadFachada{
 		return retorno;
 	}
 	
+	/**
+	 * metodo para buscar por el codigo usuario
+	 * @return usuario   
+	 * @throws Exception Capturar errores posibles sobre ejecucion
+	 *@autor Juan Sebastian Ulloa
+	 */
 	private Usuario buscarPorId(int codigoUser) throws Exception {
 		Usuario u = new Usuario();
 		u = em.find(Usuario.class, codigoUser);
@@ -328,6 +338,12 @@ public class SeguridadBean implements SeguridadFachada{
 			//rol = (RolPermiso) q.getSingleResult();
 			return rol;
 		}
+		/**
+		 * metodo para buscar el rolpermiso por el codigo
+		 * @return RolPermiso   
+		 * @throws Exception Capturar errores posibles sobre ejecucion
+		 *@autor Juan Sebastian Ulloa
+		 */
                 private RolPermiso buscarPorId(RolPermisoPK codigo) throws Exception {
 			RolPermiso rolP = new RolPermiso();
 			rolP = em.find(RolPermiso.class, codigo);
@@ -357,6 +373,12 @@ public class SeguridadBean implements SeguridadFachada{
 			//rol = (RolUsuario) q.getSingleResult();
 			return rol;
 		}
+		/**
+		 * metodo para buscar un RolUsuario con el codigo
+		 * @return RolUsuario   
+		 * @throws Exception Capturar errores posibles sobre ejecucion
+		 *@autor Juan Sebastian Ulloa
+		 */
 		private RolUsuario buscarPorId(RolUsuarioPK codigo) throws Exception {
 			RolUsuario rolP = new RolUsuario();
 			rolP = em.find(RolUsuario.class, codigo);

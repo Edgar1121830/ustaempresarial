@@ -9,7 +9,7 @@ import javax.ejb.Stateless;
 import javax.ejb.TransactionAttribute;
 import javax.ejb.TransactionAttributeType;
 
-import co.com.facturacion.modelo.CategoriaProducto;
+
 import co.com.ustaempresarial.fachada.SeguridadFachada;
 import co.com.ustaempresarial.seguridad.modelo.Permiso;
 import co.com.ustaempresarial.seguridad.modelo.Rol;
@@ -25,109 +25,344 @@ import co.com.ustaempresarial.seguridad.modelo.UsuarioLog;
 public class SeguridadSevicio {
 	@EJB
 	 SeguridadFachada fachada;
-	 SeguridadFachada objSeguridad;
+	
+	/**
+	 * metodo para listar los usuarios
+	 * 
+	 * @return traerUsuarios();: listado de usuarios
+	 * @throws Exception Capturar errores posibles sobre ejecucion
+	 */
 	public List<Usuario> traerUsuarios() throws Exception {
 		return fachada.traerUsuarios();
 	}
+
+	/**
+	 * metodo que crea los usuarios
+	 * 
+	 * @param User: tipo de objeto a crear
+	 * @throws Exception errores posibles sobre ejecucion
+	 */
 	public void crearUsuario(Usuario user) throws Exception {
 		fachada.crearUsuario(user);
 	}
-	
+
+	/**
+	 * metodo encargado de actualizar los usuarios
+	 * 
+	 * @param Usuario
+	 * @return el usuario que se creo
+	 * @throws Exception
+	 */
+
 	public Usuario editarUsuario(Usuario user) throws Exception {
 		return fachada.editarUsuario(user);
 	}
+
+	/**
+	 * metodo que borra el Usuario seleccionado
+	 * 
+	 * @param codigo
+	 * @return true: donde si borra y false donde hay error de ejecucion
+	 * @throws Exception
+	 */
 	public boolean borrarUsuario(int codigo) throws Exception {
 		return fachada.borrarUsuario(codigo);
 	}
-	
-	public List<Usuario> buscarPorNombre(String nombre) throws Exception{
+
+	/**
+	 * metodo que busca por el nombre de Usuario
+	 * 
+	 * @param nombre: nombre de usuario
+	 * @return: la objeto Usuario
+	 * @throws Exception
+	 */
+	public List<Usuario> buscarPorNombre(String nombre) throws Exception {
 		return fachada.buscarUsuarioPorNombre(nombre);
 	}
-	//********************************************UsuarioLog***********************************
-		public List<UsuarioLog> listarUsuarioLog() throws Exception {
-			return objSeguridad.listarUsuarioLog();
-		}
 
-		public void crearUsuarioLog(UsuarioLog usuarioLog) throws Exception {
-			objSeguridad.crearUsuarioLog(usuarioLog);
-		}
 
-		public UsuarioLog editarUsuarioLog(UsuarioLog usuarioLog) throws Exception {
-			return objSeguridad.editarUsuarioLog(usuarioLog);
-		}
 
-		public boolean eliminarUsuarioLog(int codigo) throws Exception {
-			return objSeguridad.eliminarUsuarioLog(codigo);
-		}
+	// ********************************************UsuarioLog***********************************
+	/**
+	 * metodo para listar los usuarios_log
+	 * 
+	 * @return List<UsuarioLog>: listado de usuarioLog
+	 * @throws Exception Capturar errores posibles sobre ejecucion
+	 * @author Lorena
+	 */
+	public List<UsuarioLog> listarUsuarioLog() throws Exception {
+		return fachada.listarUsuarioLog();
+	}
 
-		public UsuarioLog buscarUsuarioLog(int codigo) throws Exception {
-			return objSeguridad.buscarUsuarioLog(codigo);
-		}
-	//******************************************************************************************
-	//************************************Rol************************************************
-		public List<Rol> listarRol() throws Exception {
-			return objSeguridad.listarRol();
-		}
+	/**
+	 * metodo que crea los usuarios_log
+	 * 
+	 * @param usuarioLog: tipo de objeto a crear
+	 * @throws Exception errores posibles sobre ejecucion
+	 * @author Lorena
+	 */
+	public void crearUsuarioLog(UsuarioLog usuarioLog) throws Exception {
+		fachada.crearUsuarioLog(usuarioLog);
+	}
 
-		public void crearRol(Rol rol) throws Exception {
-			objSeguridad.crearRol(rol);
-		}
+	/**
+	 * metodo encargado de actualizar los usuarios_log
+	 * 
+	 * @param usuarioLog
+	 * @return el usuarioLog que se ha creado
+	 * @throws Exception
+	 * @author Lorena
+	 */
+	public UsuarioLog editarUsuarioLog(UsuarioLog usuarioLog) throws Exception {
+		return fachada.editarUsuarioLog(usuarioLog);
+	}
 
-		public Rol editarRol(Rol rol) throws Exception {
-			return objSeguridad.editarRol(rol);
-		}
+	/**
+	 * metodo que borra el usuarioLog seleccionado
+	 * 
+	 * @param codigo
+	 * @return true: donde si borra y false donde hay error de ejecucion
+	 * @throws Exception
+	 * @author Lorena
+	 */
+	public boolean eliminarUsuarioLog(int codigo) throws Exception {
+		return fachada.eliminarUsuarioLog(codigo);
+	}
 
-		public boolean eliminarRol(int codigo) throws Exception {
-			return objSeguridad.eliminarRol(codigo);
-		}
+	/**
+	 * metodo que busca por el codigo de UsuarioLog
+	 * 
+	 * @param codigo: codigo de usuario
+	 * @return: la objeto Usuario
+	 * @throws Exception
+	 * @author Lorena
+	 */
+	public UsuarioLog buscarUsuarioLog(int codigo) throws Exception {
+		return fachada.buscarUsuarioLog(codigo);
+	}
 
-		public Rol buscarRol(int codigo) throws Exception {
-			return objSeguridad.buscarRol(codigo);
-		}
-	//*****************************************************************************************
-		//*************************************Permiso**********************************************
+	/**
+	 * metodo que busca por el proceso de UsuarioLog
+	 * 
+	 * @param proceso: proceso de usuario
+	 * @return: la objeto Usuario
+	 * @throws Exception
+	 * @author Lorena
+	 */
+	public List<UsuarioLog> buscarUsuarioLogPorProceso(String proceso) throws Exception {
+		return fachada.buscarUsuarioLogPorProceso(proceso);
+	}
 
-		public List<Permiso> listarPermiso() throws Exception {
-			return objSeguridad.listarPermiso();
-		}
+	// ******************************************************************************************
+	// ************************************Rol************************************************
+	/**
+	 * metodo para listar los roles
+	 * 
+	 * @return List<Rol>: listado de rol
+	 * @throws Exception Capturar errores posibles sobre ejecucion
+	 * @author Jairo
+	 */
+	public List<Rol> listarRol() throws Exception {
+		return fachada.listarRol();
+	}
 
-		public void crearPermiso(Permiso permiso) throws Exception {
-			objSeguridad.crearPermiso(permiso);
-		}
+	/**
+	 * metodo que crea los roles
+	 * 
+	 * @param rol: tipo de objeto a crear
+	 * @throws Exception errores posibles sobre ejecucion
+	 * @author Jairo
+	 */
+	public void crearRol(Rol rol) throws Exception {
+		fachada.crearRol(rol);
+	}
 
-		public Permiso editarPermiso(Permiso permiso) throws Exception {
-			return objSeguridad.editarPermiso(permiso);
-		}
+	/**
+	 * metodo encargado de actualizar los roles
+	 * 
+	 * @param rol
+	 * @return el rol que se ha actualizado
+	 * @throws Exception
+	 * @author Jairo
+	 */
+	public Rol editarRol(Rol rol) throws Exception {
+		return fachada.editarRol(rol);
+	}
 
-		public boolean eliminarPermiso(int codigo) throws Exception {
-			return objSeguridad.eliminarPermiso(codigo);
-		}
+	/**
+	 * metodo que borra el rol seleccionado
+	 * 
+	 * @param codigo
+	 * @return true: donde si borra y false donde hay error de ejecucion
+	 * @throws Exception
+	 * @author Jairo
+	 */
 
-		public Permiso buscarPermiso(int codigo) throws Exception {
-			return objSeguridad.buscarPermiso(codigo);
-		}
-		
-	//**************************************************************************************	
-                
-                public List<RolPermiso> traerRolPermisos() throws Exception {
-			return fachada.listarRolPermiso();
-		}
-		public void crearRolPermisos(RolPermiso rolP) throws Exception {
-			fachada.crearRolPermiso(rolP);
-		}
-		public RolPermiso buscarRolPermiso(int codigo) throws Exception {
-			return objSeguridad.buscarRolPermiso(codigo);
-		}
-		
-		public List<RolUsuario> traerRolUsuario() throws Exception {
-			return fachada.listarRolUsuario();
-		}
-		public void crearRolUsuarios(RolUsuario rolU) throws Exception {
-			fachada.crearRolUsuario(rolU);
-		}
-		public RolUsuario buscarRolUsuario(int codigo) throws Exception {
-			return objSeguridad.buscarRolUsuario(codigo);
-		}
-		
+	public boolean eliminarRol(int codigo) throws Exception {
+		return fachada.eliminarRol(codigo);
+	}
+
+	/**
+	 * metodo que busca por el codigo de rol
+	 * 
+	 * @param codigo: codigo de usuario
+	 * @return: la objeto Usuario
+	 * @throws Exception
+	 * @author Jairo
+	 */
+
+	public Rol buscarRol(int codigo) throws Exception {
+		return fachada.buscarRol(codigo);
+	}
+
+	/**
+	 * metodo que busca por el nombre de rol
+	 * 
+	 * @param nombre: nombre de usuario
+	 * @return: la objeto Usuario
+	 * @throws Exception
+	 * @author Jairo
+	 * 
+	 */
+	public List<Rol> buscarRolPorNombre(String nombre) throws Exception {
+		return fachada.buscarRolPorNombre(nombre);
+	}
+
+	// *****************************************************************************************
+	// *************************************Permiso**********************************************
+	/**
+	 * metodo para listar los roles
+	 * 
+	 * @return List<Permiso>: listado de Permiso
+	 * @throws Exception Capturar errores posibles sobre ejecucion
+	 * @author Lizeth
+	 */
+	public List<Permiso> listarPermiso() throws Exception {
+		return fachada.listarPermiso();
+	}
+
+	/**
+	 * metodo para editar permisos
+	 * 
+	 * @param permiso: tipo de objeto a editar
+	 * @return permiso tipo de objeto que se edita
+	 * @throws Exception errores posibles sobre ejecucion
+	 * @author Lizeth
+	 */
+
+	public void crearPermiso(Permiso permiso) throws Exception {
+		fachada.crearPermiso(permiso);
+	}
+
+	/**
+	 * metodo para editar permisos
+	 * 
+	 * @param permiso: tipo de objeto a editar
+	 * @return permiso tipo de objeto que se edita
+	 * @throws Exception errores posibles sobre ejecucion
+	 * @author Lizeth
+	 */
+	public Permiso editarPermiso(Permiso permiso) throws Exception {
+		return fachada.editarPermiso(permiso);
+	}
+
+	/**
+	 * metodo para eliminar permisos
+	 * 
+	 * @param codigo identificador para buscar el objeto a borrar
+	 * @return boolean tipo de respuesta para la eliminacion de objeto permiso
+	 * @throws Exception errores posibles sobre ejecucion
+	 * @author Lizeth
+	 */
+	public boolean eliminarPermiso(int codigo) throws Exception {
+		return fachada.eliminarPermiso(codigo);
+	}
+
+	/**
+	 * metodo para bucar permisos con codigo
+	 * 
+	 * @param permiso: tipo de objeto buscar
+	 * @throws Exception errores posibles sobre ejecucion
+	 * @author Lizeth
+	 */
+	public Permiso buscarPermiso(int codigo) throws Exception {
+		return fachada.buscarPermiso(codigo);
+	}
+
+	/**
+	 * metodo para bucar permisos por nombre
+	 * 
+	 * @param permiso: tipo de objeto buscar
+	 * @throws Exception errores posibles sobre ejecucion
+	 * @author Lizeth
+	 */
+
+	public List<Permiso> buscarPermisoPorNombre(String nombre) throws Exception {
+		return buscarPermisoPorNombre(nombre);
+	}
+
+	// **************************************************************************************
+	/**
+	 * metodo para listar los RolUsuarios
+	 * 
+	 * @return List<RolUsuario>: listado de RolUsuario
+	 * @throws Exception Capturar errores posibles sobre ejecucion
+	 * @author Favian
+	 */
+	public List<RolPermiso> traerRolPermisos() throws Exception {
+		return fachada.listarRolPermiso();
+	}
+
+	/**
+	 * metodo encargado para crear rolUsuario
+	 * 
+	 * @return el Rolusuario que se creo
+	 * @throws Exception Capturar errores posibles sobre ejecucion
+	 * @author Favian
+	 */
+	public void crearRolPermisos(RolPermiso rolP) throws Exception {
+		fachada.crearRolPermiso(rolP);
+	}
+	/**
+	 * metodo encargado de buscar los RolUsuarios 
+	 * @param codigo del usuario
+	 * @return el objeto rolUsuario
+	 * @throws Exception Capturar errores posibles sobre ejecucion
+	 *@author Favian
+	 */
+
+	public RolPermiso buscarRolPermiso(int codigo) throws Exception {
+		return fachada.buscarRolPermiso(codigo);
+	}
+	/**
+	 * metodo para listar los RolPermiso
+	 * @return List<RolPermiso>: listado de RolPermiso
+	 * @throws Exception Capturar errores posibles sobre ejecucion
+	 * @author Favian
+	 */
+
+	public List<RolUsuario> traerRolUsuario() throws Exception {
+		return fachada.listarRolUsuario();
+	}
+	/**
+	 * metodo encargado para crear el rolPermiso
+	 * @throws Exception
+	 * @author Favian
+	 */
+
+	public void crearRolUsuarios(RolUsuario rolU) throws Exception {
+		fachada.crearRolUsuario(rolU);
+	}
+	/**
+	 * metodo para listar los RolPermiso
+	 * @param codigo del permiso
+	 * @return el objeto rolPermiso
+	 * @throws Exception Capturar errores posibles sobre ejecucion
+	 * @author Favian
+	 */
+
+	public RolUsuario buscarRolUsuario(int codigo) throws Exception {
+		return fachada.buscarRolUsuario(codigo);
+	}	
 	
 }

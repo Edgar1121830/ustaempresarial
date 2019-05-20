@@ -2,11 +2,14 @@ package co.com.ustaempresarial.fachada;
 
 import java.util.List;
 
-import co.com.facturacion.modelo.CategoriaProducto;
+
 import co.com.ustaempresarial.seguridad.modelo.Permiso;
 import co.com.ustaempresarial.seguridad.modelo.Rol;
+import co.com.ustaempresarial.seguridad.modelo.RolPermiso;
+import co.com.ustaempresarial.seguridad.modelo.RolUsuario;
 import co.com.ustaempresarial.seguridad.modelo.Usuario;
 import co.com.ustaempresarial.seguridad.modelo.UsuarioLog;
+
 
 public interface SeguridadFachada {
 	

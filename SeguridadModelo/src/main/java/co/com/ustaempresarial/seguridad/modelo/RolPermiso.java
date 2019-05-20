@@ -36,8 +36,6 @@ public class RolPermiso implements Serializable {
 		this.fecha =(Timestamp) fecha;
 	}
 
-	public void setFecha(Timestamp fecha) {
-		this.fecha = fecha;
-	}
+	
 
 }

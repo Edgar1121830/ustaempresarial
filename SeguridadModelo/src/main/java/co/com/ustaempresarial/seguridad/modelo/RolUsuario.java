@@ -33,9 +33,7 @@ public class RolUsuario implements Serializable {
 		this.id = id;
 	}
 
-	public void setFecha(Timestamp fecha) {
-		this.fecha = (Timestamp)fecha;
-	}
+	
 
 	public void setFecha(Timestamp fecha) {
 		this.fecha = fecha;
