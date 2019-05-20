@@ -171,5 +171,17 @@
   WHERE vd.id=:id
   </query>
  </named-query>
+ <named-native-query name="VENTADETALLE.REGLA2" >
+<query>
+			select COUNT(*) total_productos, p."PROVEEDOR_CODIGO" from facturacion."PROVEEDOR_PRODUCTO" p ,facturacion."VENTA_DETALLE" a
+where p."PRECIO_UNITARIO" is not null  and a."PRODUCTO_CODIGO"=p."PRODUCTO_CODIGO"
+and a."PROVEEDOR_CODIGO"=p."PROVEEDOR_CODIGO" and a."CANTIDAD" is not null
+group by p."PROVEEDOR_CODIGO"
+having count(*)<3
+</query>
+		</named-native-query>
+ 
+ 
+
 
 </entity-mappings>
