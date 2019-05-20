@@ -11,7 +11,6 @@ import java.util.Date;
  */
 @Entity
 @Table(name="hoja_vida", schema = "ustanomina")
-@NamedQuery(name="HojaVida.findAll", query="SELECT h FROM HojaVida h")
 public class HojaVida implements Serializable {
 	private static final long serialVersionUID = 1L;
 	public static final String FILL_ALL = "Hoja_vida.Listar_hojaVida";

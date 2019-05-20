@@ -1,102 +1,101 @@
 package co.com.UstaEmpresarial.nomina.modelo;
 
-import java.io.Serializable;
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 
 
 /**
  * The persistent class for the contrato database table.
- * 
  */
 @Entity
-@NamedQuery(name="Contrato.findAll", query="SELECT c FROM Contrato c")
+@Table(name = "contrato", schema = "ustanomina")
 public class Contrato implements Serializable {
-	private static final long serialVersionUID = 1L;
-	public static final String FIND_ALL ="Contrato.Listar_contrato";
-	public static final String ENCONTRAR_POR_CARGO ="Contrato.Listar_contrato";
-	public static final String ENCONTRAR_POR_DEPENDENCIA ="Contrato.Listar_contrato";
-	private Integer codigo;
-	private Integer cargoCod;
-	private Integer dependenciaCod;
-	private Date fechaFin;
-	private Date fechaInicio;
-	private Integer hojaVidaDoc;
-	private Integer salario;
+    private static final long serialVersionUID = 1L;
+    public static final String FIND_ALL = "Contrato.FIND_ALL";
+    public static final String ENCONTRAR_POR_CARGO = "Contrato.ENCONTRAR_POR_CARGO ";
+    public static final String ENCONTRAR_POR_DEPENDENCIA = "Contrato.ENCONTRAR_POR_DEPENDENCIA";
+    private Integer codigo;
+    private Integer cargoCod;
+    private Integer dependenciaCod;
+    private Date fechaFin;
+    private Date fechaInicio;
+    private Integer hojaVidaDoc;
+    private Integer salario;
 
-	public Contrato() {
-	}
-
-
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	public Integer getCodigo() {
-		return this.codigo;
-	}
-
-	public void setCodigo(Integer codigo) {
-		this.codigo = codigo;
-	}
+    public Contrato() {
+    }
 
 
-	@Column(name="cargo_cod")
-	public Integer getCargoCod() {
-		return this.cargoCod;
-	}
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    public Integer getCodigo() {
+        return this.codigo;
+    }
 
-	public void setCargoCod(Integer cargoCod) {
-		this.cargoCod = cargoCod;
-	}
-
-
-	@Column(name="dependencia_cod")
-	public Integer getDependenciaCod() {
-		return this.dependenciaCod;
-	}
-
-	public void setDependenciaCod(Integer dependenciaCod) {
-		this.dependenciaCod = dependenciaCod;
-	}
+    public void setCodigo(Integer codigo) {
+        this.codigo = codigo;
+    }
 
 
-	@Temporal(TemporalType.DATE)
-	@Column(name="fecha_fin")
-	public Date getFechaFin() {
-		return this.fechaFin;
-	}
+    @Column(name = "cargo_cod")
+    public Integer getCargoCod() {
+        return this.cargoCod;
+    }
 
-	public void setFechaFin(Date fechaFin) {
-		this.fechaFin = fechaFin;
-	}
-
-
-	@Temporal(TemporalType.DATE)
-	@Column(name="fecha_inicio")
-	public Date getFechaInicio() {
-		return this.fechaInicio;
-	}
-
-	public void setFechaInicio(Date fechaInicio) {
-		this.fechaInicio = fechaInicio;
-	}
+    public void setCargoCod(Integer cargoCod) {
+        this.cargoCod = cargoCod;
+    }
 
 
-	@Column(name="hoja_vida_doc")
-	public Integer getHojaVidaDoc() {
-		return this.hojaVidaDoc;
-	}
+    @Column(name = "dependencia_cod")
+    public Integer getDependenciaCod() {
+        return this.dependenciaCod;
+    }
 
-	public void setHojaVidaDoc(Integer hojaVidaDoc) {
-		this.hojaVidaDoc = hojaVidaDoc;
-	}
+    public void setDependenciaCod(Integer dependenciaCod) {
+        this.dependenciaCod = dependenciaCod;
+    }
 
 
-	public Integer getSalario() {
-		return this.salario;
-	}
+    @Temporal(TemporalType.DATE)
+    @Column(name = "fecha_fin")
+    public Date getFechaFin() {
+        return this.fechaFin;
+    }
 
-	public void setSalario(Integer salario) {
-		this.salario = salario;
-	}
+    public void setFechaFin(Date fechaFin) {
+        this.fechaFin = fechaFin;
+    }
+
+
+    @Temporal(TemporalType.DATE)
+    @Column(name = "fecha_inicio")
+    public Date getFechaInicio() {
+        return this.fechaInicio;
+    }
+
+    public void setFechaInicio(Date fechaInicio) {
+        this.fechaInicio = fechaInicio;
+    }
+
+
+    @Column(name = "hoja_vida_doc")
+    public Integer getHojaVidaDoc() {
+        return this.hojaVidaDoc;
+    }
+
+    public void setHojaVidaDoc(Integer hojaVidaDoc) {
+        this.hojaVidaDoc = hojaVidaDoc;
+    }
+
+
+    public Integer getSalario() {
+        return this.salario;
+    }
+
+    public void setSalario(Integer salario) {
+        this.salario = salario;
+    }
 
 }

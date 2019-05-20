@@ -9,7 +9,7 @@ import javax.persistence.*;
  * 
  */
 @Entity
-@NamedQuery(name="Cargo.findAll", query="SELECT c FROM Cargo c")
+@Table(name="cargo", schema="ustanomina")
 public class Cargo implements Serializable {
 	private static final long serialVersionUID = 1L;
 	public static final String LISTAR_CARGO="Cargo.Listar_cargo";

@@ -1,24 +1,17 @@
 package co.com.ustaempresarial.bean;
 
-import java.util.ArrayList;
-import java.util.List;
+import co.com.UstaEmpresarial.nomina.modelo.*;
+import co.com.ustaempresarial.fachada.NominaFachada;
 
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 import javax.ejb.TransactionManagement;
 import javax.ejb.TransactionManagementType;
 import javax.persistence.EntityManager;
-import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
-import co.com.ustaempresarial.fachada.NominaFachada;
-import co.com.UstaEmpresarial.nomina.modelo.Cargo;
-import co.com.UstaEmpresarial.nomina.modelo.Nomina;
-import co.com.UstaEmpresarial.nomina.modelo.Dependencia;
-import co.com.UstaEmpresarial.nomina.modelo.HojaVida;
-import co.com.UstaEmpresarial.nomina.modelo.Contrato;
-import co.com.UstaEmpresarial.nomina.modelo.Concepto;
-import co.com.UstaEmpresarial.nomina.modelo.Periodo;
+import java.util.ArrayList;
+import java.util.List;
 
 @Stateless
 @LocalBean
@@ -26,355 +19,410 @@ import co.com.UstaEmpresarial.nomina.modelo.Periodo;
 
 public class NominaBean implements NominaFachada {
 
-	@PersistenceContext(unitName = "nomina")
-	private EntityManager em;
+    @PersistenceContext(unitName = "nomina")
+    private EntityManager em;
 
-	public NominaBean() {
+    public NominaBean() {
 
-		super();
-/**
- * @autor Oscar Gomez 
- */
-	}
-	@Override
-	public HojaVida crearHojaVida(HojaVida hojaVida) throws Exception {
-		if (hojaVida.getDocumento() != null && !hojaVida.getDocumento().equals("")) {
-			em.persist(hojaVida);
-		}
-		return null;
-	}
+        super();
+    }
+    // ==================================================================================================================
+    // -------------------------------------------------HOJA DE VIDA-----------------------------------------------------
+    // ==================================================================================================================
 
-	@Override
-	public HojaVida modificarHojaVida(HojaVida hojaVida) throws Exception {
-		HojaVida hojaVida1 = new HojaVida();
-		hojaVida1 = buscarPorIdHojaVida(hojaVida.getDocumento());
-		if (hojaVida1.getDocumento() > 0) {
-			em.merge(hojaVida);
-		} else {
-			hojaVida1 = null;
-		}
-		return hojaVida1;
-	}
+    /**
+     * @Author Oscar Gómez
+     */
 
-	@Override
-	public boolean eliminarHojaVida(int codigoHojaVida) throws Exception {
-		HojaVida hojaVida = buscarPorIdHojaVida(codigoHojaVida);
-		boolean flag = false;
-		if (hojaVida.getDocumento() > 0) {
-			em.remove(hojaVida);
-			flag = true;
-		}
-		return flag;
-	}
+    @Override
+    public HojaVida crearHojaVida(HojaVida hojaVida) throws Exception {
+        if (hojaVida.getDocumento() != null && !hojaVida.getDocumento().equals("")) {
+            em.persist(hojaVida);
+        }
+        return null;
+    }
 
-	@Override
-	public List<HojaVida> listarHojasVida() throws Exception {
-		List<HojaVida> hojaVidas = new ArrayList<>();
-		Query query = em.createNamedQuery(HojaVida.FILL_ALL);
-		return null;
-	}
+    @Override
+    public HojaVida modificarHojaVida(HojaVida hojaVida) throws Exception {
+        HojaVida hojaVida1 = new HojaVida();
+        hojaVida1 = buscarPorIdHojaVida(hojaVida.getDocumento());
+        if (hojaVida1.getDocumento() > 0) {
+            em.merge(hojaVida);
+        } else {
+            hojaVida1 = null;
+        }
+        return hojaVida1;
+    }
 
-	private HojaVida buscarPorIdHojaVida(int idHojaVida) throws Exception {
-		HojaVida hojaVida = new HojaVida();
-		hojaVida = em.find(HojaVida.class, idHojaVida);
-		return hojaVida;
-	}
+    @Override
+    public boolean eliminarHojaVida(int codigoHojaVida) throws Exception {
+        HojaVida hojaVida = buscarPorIdHojaVida(codigoHojaVida);
+        boolean flag = false;
+        if (hojaVida.getDocumento() > 0) {
+            em.remove(hojaVida);
+            flag = true;
+        }
+        return flag;
+    }
 
-	/**
-	 * @autor Angie Suarez
-	 */
-	@Override
-	public List<Cargo> listarCargos() throws Exception {
+    @Override
+    public List<HojaVida> listarHojasVida() throws Exception {
+        List<HojaVida> hojaVidas = new ArrayList<>();
+        Query query = em.createNamedQuery(HojaVida.FILL_ALL);
+        hojaVidas = query.getResultList();
+        return hojaVidas;
+    }
 
-		List<Cargo> cargos;
+    private HojaVida buscarPorIdHojaVida(int idHojaVida) throws Exception {
+        HojaVida hojaVida = new HojaVida();
+        hojaVida = em.find(HojaVida.class, idHojaVida);
+        return hojaVida;
+    }
 
-		Query q = em.createNamedQuery(Cargo.LISTAR_CARGO);
-		cargos = q.getResultList();
+    // =================================================================================================================
+    // -------------------------------------------------CARGO-----------------------------------------------------------
+    // =================================================================================================================
 
-		return cargos;
+    /**
+     * @autor Angie Suarez
+     */
+    @Override
+    public List<Cargo> listarCargos() throws Exception {
 
-	}
+        List<Cargo> cargos;
 
-	@Override
-	public void crearCargo(Cargo cargo) throws Exception {
+        Query q = em.createNamedQuery(Cargo.LISTAR_CARGO);
+        cargos = q.getResultList();
 
-		if (cargo != null) {
-			em.persist(cargo);
-			em.flush();
-		}
-	}
+        return cargos;
 
-	// @Override
-	public void editarCargo(Cargo cargos) throws Exception {
-		if (cargos != null) {
-			if (cargos.getCodigo() > 0) {
-				em.merge(cargos);
-				em.flush();
-			}
-		}
-	}
+    }
 
-	@Override
-	public boolean eliminarCargo(Cargo cargos) throws Exception {
-		if (cargos.getCodigo() > 0) {
-			em.remove(cargos);
-			return true;
-		}
-		return false;
-	}
-	/**
-	 * @autor Christian Mejia
-	 */
-	@Override
-	public List<Dependencia> traerDependencia() throws Exception {
-		List<Dependencia> dependencias = new ArrayList<Dependencia>();
-		Query query = em.createNamedQuery(Dependencia.FIND_ALL);
-		dependencias = query.getResultList();
-		return dependencias;
-	}
+    @Override
+    public void crearCargo(Cargo cargo) throws Exception {
 
-	@Override
-	public void crearDependencia(Dependencia dep) throws Exception {
-		if (dep.getNombre() != null && !dep.getNombre().equals("")) {
-			em.persist(dep);
-		}
-	}
+        if (cargo != null) {
+            em.persist(cargo);
+            em.flush();
+        }
+    }
 
-	private Dependencia buscarPorCod(int codigoDependencia) throws Exception {
-		Dependencia p = new Dependencia();
-		p = em.find(Dependencia.class, codigoDependencia);
-		return p;
-	}
+    // @Override
+    public void editarCargo(Cargo cargos) throws Exception {
+        if (cargos != null) {
+            if (cargos.getCodigo() > 0) {
+                em.merge(cargos);
+                em.flush();
+            }
+        }
+    }
 
-	@Override
-	public void editarDependencia(Dependencia depen) throws Exception {
-		Dependencia dep = new Dependencia();
-		dep = buscarPorCod(depen.getCodigo());
-		if (dep.getCodigo() > 0) {
-			em.merge(depen);
-		} else {
-			dep = null;
-		}
+    @Override
+    public boolean eliminarCargo(Cargo cargos) throws Exception {
+        if (cargos.getCodigo() > 0) {
+            em.remove(cargos);
+            return true;
+        }
+        return false;
+    }
 
-	}
+    // =================================================================================================================
+    // -------------------------------------------------DEPENDENCA-----------------------------------------------------------
+    // =================================================================================================================
 
-	@Override
-	public boolean borrarDependencia(int codigo) throws Exception {
-		Dependencia dependencias = buscarPorCod(codigo);
-		Contrato contrato = new Contrato();
-		boolean flag = false;
-		if (dependencias.getCodigo() > 0) {
-			if (contrato.getDependenciaCod() == dependencias.getCodigo()) {
-				em.remove(dependencias);
-				flag = true;
-			}
-		}
-		return flag;
-	}
-	/**
-	 * @autor Mario Murcia
-	 */
-	public void crearContrato(Contrato contrato) throws Exception {
+    /**
+     * @autor Christian montes
+     */
+    @Override
+    public List<Dependencia> listarDependencias() throws Exception {
+        List<Dependencia> dependencias = new ArrayList<Dependencia>();
+        Query query = em.createNamedQuery(Dependencia.FIND_ALL);
+        dependencias = query.getResultList();
+        return dependencias;
+    }
 
-		if (contrato.getCodigo() != null && !contrato.getCodigo().equals("")) {
-			em.persist(contrato);
-		}
-		// TODO Auto-generated method stub
+    @Override
+    public void crearDependencia(Dependencia dep) throws Exception {
+        if (dep.getNombre() != null && !dep.getNombre().equals("")) {
+            em.persist(dep);
+        }
+    }
 
-	}
+    @Override
+    public void editarDependencia(Dependencia depen) throws Exception {
+        Dependencia dep = new Dependencia();
+        dep = buscarDependenciaPorCod(depen.getCodigo());
+        if (dep.getCodigo() > 0) {
+            em.merge(depen);
+        } else {
+            dep = null;
+        }
 
-	public Contrato modificarContrato(Contrato contrato) throws Exception {
-		Contrato dep = new Contrato();
-		dep = buscarPorCodigo(contrato.getCodigo());
-		if (dep.getCodigo() > 0) {
-			em.merge(contrato);
-		} else {
-			dep = null;
-		}
+    }
 
-		return dep;
-	}
+    @Override
+    public boolean borrarDependencia(int codigo) throws Exception {
+        Dependencia dependencias = buscarDependenciaPorCod(codigo);
+        Contrato contrato = new Contrato();
+        boolean flag = false;
+        if (dependencias.getCodigo() > 0) {
+            if (contrato.getDependenciaCod() == dependencias.getCodigo()) {
+                em.remove(dependencias);
+                flag = true;
+            }
+        }
+        return flag;
+    }
 
-	public boolean eliminarContrato(int codigo) throws Exception {
-		Contrato contrato = buscarPorCodigo(codigo);
-		boolean flag = false;
-		if (contrato.getCodigo() > 0) {
-			em.remove(contrato);
-			flag = true;
-		}
-		return flag;
-	}
+    private Dependencia buscarDependenciaPorCod(int codigoDependencia) throws Exception {
+        Dependencia p = new Dependencia();
+        p = em.find(Dependencia.class, codigoDependencia);
+        return p;
+    }
+    // =================================================================================================================
+    // -------------------------------------------------CONTRATO-----------------------------------------------------------
+    // =================================================================================================================
+
+    /**
+     * @autor Mario Murcia
+     */
+    public boolean crearContrato(Contrato contrato) throws Exception {
+        boolean flag = true;
+        if (contrato.getCodigo() != null && !contrato.getCodigo().equals("")) {
+            Contrato contrato1 = buscarContratoPorCodigo(contrato.getCodigo());
+            if (contrato1.getCodigo() > 1) {
+                //https://www.mkyong.com/java/how-to-compare-dates-in-java/
+                //si las fechas no se cruzan, es decir que el nuevo contrato empieza después de haber finalizado el registrado
+                if (contrato1.getFechaFin().compareTo(contrato.getFechaInicio()) < 0) {
+                    em.persist(contrato);
+                } else {
+                    //se cruzan los contratos
+                    flag = false;
+                }
+
+            }
+        }
+        return flag;
+    }
+
+    public Contrato editarContrato(Contrato contrato) throws Exception {
+        Contrato dep = new Contrato();
+        dep = buscarContratoPorCodigo(contrato.getCodigo());
+        if (dep.getCodigo() > 0) {
+            em.merge(contrato);
+        } else {
+            dep = null;
+        }
+
+        return dep;
+    }
+
+    public boolean eliminarContrato(int codigo) throws Exception {
+        Contrato contrato = buscarContratoPorCodigo(codigo);
+        boolean flag = false;
+        if (contrato.getCodigo() > 0) {
+            em.remove(contrato);
+            flag = true;
+        }
+        return flag;
+    }
 
     @Override
     public List<Contrato> listaContratoDependecia() throws Exception {
-        return null;
+        List<Contrato> car = new ArrayList<Contrato>();
+        Query query = em.createNamedQuery(Contrato.ENCONTRAR_POR_DEPENDENCIA);
+        if (query != null) {
+//            query.setParameter("dependenciacod", dependencia);
+            car = query.getResultList();
+        }
+        return car;
     }
 
     @Override
     public List<Contrato> listaContratoCargo() throws Exception {
-        return null;
+        List<Contrato> car = new ArrayList<>();
+        Query query = em.createNamedQuery(Contrato.ENCONTRAR_POR_CARGO);
+        if (query != null) {
+//            query.setParameter("cargo", cargo);
+            car = query.getResultList();
+        }
+        return car;
+    }
+
+
+    @Override
+    public List<Contrato> listaContratoTodo() throws Exception {
+        List<Contrato> dependencias = new ArrayList<>();
+        Query query = em.createNamedQuery(Contrato.FIND_ALL);
+        dependencias = query.getResultList();
+        return dependencias;
+    }
+
+
+    private Contrato buscarContratoPorCodigo(int codigoContrato) throws Exception {
+        Contrato p = new Contrato();
+        p = em.find(Contrato.class, codigoContrato);
+        return p;
+    }
+
+    // =================================================================================================================
+    // -------------------------------------------------CONCEPTO-----------------------------------------------------------
+    // =================================================================================================================
+
+    /**
+     * @autor Alejandro Parra
+     */
+    public List<Concepto> listarConceptos() throws Exception {
+        List<Concepto> conceptos = new ArrayList<Concepto>();
+        Query query = em.createNamedQuery(Concepto.FIND_ALL);
+        conceptos = query.getResultList();
+        return conceptos;
     }
 
     @Override
-	public List<Contrato> buscarContratoPorCargo(String cargo) throws Exception {
-		List<Contrato> car = new ArrayList<Contrato>();
-		Query query = em.createNamedQuery(Contrato.ENCONTRAR_POR_CARGO);
-		if (query != null) {
-			query.setParameter("cargo", cargo);
-			car = query.getResultList();
-		}
-		return car;
-	}
-	@Override
-	public List<Contrato> buscarContratoPorDependencia(String dependencia) throws Exception {
-		List<Contrato> car = new ArrayList<Contrato>();
-		Query query = em.createNamedQuery(Contrato.ENCONTRAR_POR_DEPENDENCIA);
-		if (query != null) {
-			query.setParameter("dependenciacod", dependencia);
-			car = query.getResultList();
-		}
-		return car;
-	}
+    public void crearConcepto(Concepto con) throws Exception {
+        if (con.getNombre() != null && !con.getNombre().equals("")) {
+            em.persist(con);
+        }
+    }
 
-	public List<Contrato> listaContratoAll() throws Exception {
-		List<Contrato> dependencias = new ArrayList<>();
-		Query query = em.createNamedQuery(Contrato.FIND_ALL);
-		dependencias = query.getResultList();
-		return dependencias;
-	}
+    public Concepto editarConcepto(Concepto concep) throws Exception {
+        Concepto con = new Concepto();
+        con = buscarPorIdConcepto(concep.getCodigo());
+        if (con.getCodigo() > 0) {
+            em.merge(concep);
+        } else {
+            con = null;
+        }
 
-	private Contrato buscarPorCodigo(int codigoContrato) throws Exception {
-		Contrato p = new Contrato();
-		p = em.find(Contrato.class, codigoContrato);
-		return p;
-	}
-	/**
-	 * @autor Alejandro Parra
-	 */
-	public List<Concepto> traerConcepto() throws Exception {
-		List<Concepto> conceptos = new ArrayList<Concepto>();
-		Query query = em.createNamedQuery(Concepto.FIND_ALL);
-		conceptos = query.getResultList();
-		return conceptos;
-	}
+        return con;
+    }
 
-	@Override
-	public void crearConcepto(Concepto con) throws Exception {
-		if (con.getNombre() != null && !con.getNombre().equals("")) {
-			em.persist(con);
-		}
-	}
+    @Override
+    public boolean borrarConcepto(int codigo) throws Exception {
+        Concepto conceptos = buscarPorIdConcepto(codigo);
+        boolean flag = false;
+        if (conceptos.getCodigo() > 0) {
+            em.remove(conceptos);
+            flag = true;
+        }
+        return flag;
+    }
 
-	public Concepto editarConcepto(Concepto concep) throws Exception {
-		Concepto con = new Concepto();
-		con = buscarPorIdConcepto(concep.getCodigo());
-		if (con.getCodigo() > 0) {
-			em.merge(concep);
-		} else {
-			con = null;
-		}
+    private Concepto buscarPorIdConcepto(int codigoConcepto) throws Exception {
+        Concepto c = new Concepto();
+        c = em.find(Concepto.class, codigoConcepto);
+        return c;
+    }
 
-		return con;
-	}
+    // =================================================================================================================
+    // -------------------------------------------------PERIODO-----------------------------------------------------------
+    // =================================================================================================================
+    public List<Periodo> listarPeriodos() throws Exception {
+        List<Periodo> periodos = new ArrayList<>();
+        Query query = em.createNamedQuery(Periodo.FIND_ALL);
+        periodos = query.getResultList();
+        return periodos;
+    }
 
-	@Override
-	public boolean borrarConcepto(int codigo) throws Exception {
-		Concepto conceptos = buscarPorIdConcepto(codigo);
-		boolean flag = false;
-		if (conceptos.getCodigo() > 0) {
-			em.remove(conceptos);
-			flag = true;
-		}
-		return flag;
-	}
+    @Override
+    public boolean crearPeriodo(Periodo per) throws Exception {
+        if (per.getCodigo() != null && !per.getCodigo().equals("")) {
+            em.persist(per);
+            return true;
+        }
+        return false;
+    }
 
-	private Concepto buscarPorIdConcepto(int codigoConcepto) throws Exception {
-		Concepto c = new Concepto();
-		c = em.find(Concepto.class, codigoConcepto);
-		return c;
-	}
+    public boolean editarPeriodo(Periodo per) throws Exception {
+        if (per != null) {
+            if (per.getCodigo() > 0) {
+                em.merge(per);
+                em.flush();
+                return true;
+            }
+        }
+        return false;
 
-	public List<Periodo> traerPeriodo() throws Exception {
-		List<Periodo> periodos = new ArrayList<Periodo>();
-		Query query = em.createNamedQuery(Periodo.FIND_ALL);
-		periodos = query.getResultList();
-		return periodos;
-	}
+    }
 
-	@Override
-	public boolean crearPeriodo(Periodo per) throws Exception {
-		if (per.getCodigo() != null && !per.getCodigo().equals("")) {
-			em.persist(per);
-			return true;
-		}
-		return false;
-	}
+    public boolean borrarPeriodo(int codigo) throws Exception {
+        Periodo periodos = buscarPorCodigoPeriodo(codigo);
+        boolean flag = false;
+        if (periodos.getCodigo() > 0) {
+            em.remove(periodos);
+            flag = true;
+        }
+        return flag;
+    }
 
-	public boolean editarPeriodo(Periodo per) throws Exception {
-		if (per != null) {
-			if (per.getCodigo() > 0) {
-				em.merge(per);
-				em.flush();
-				return true;
-			}
-		}
-		return false;
+    private Periodo buscarPorCodigoPeriodo(int codigoPeriodo) throws Exception {
+        Periodo p = new Periodo();
+        p = em.find(Periodo.class, codigoPeriodo);
+        return p;
+    }
 
-	}
+    // =================================================================================================================
+    // -------------------------------------------------NOMINA-----------------------------------------------------------
+    // =================================================================================================================
 
-	public boolean borrarPeriodo(int codigo) throws Exception {
-		Periodo periodos = buscarPorCodigoPeriodo(codigo);
-		boolean flag = false;
-		if (periodos.getCodigo() > 0) {
-			em.remove(periodos);
-			flag = true;
-		}
-		return flag;
-	}
+    /**
+     * @autor Johan Bernal
+     */
+    @Override
+    public void liquidarNomina(Nomina nomina) throws Exception {
+        // TODO Auto-generated method stub
 
-	private Periodo buscarPorCodigoPeriodo(int codigoPeriodo) throws Exception {
-		Periodo p = new Periodo();
-		p = em.find(Periodo.class, codigoPeriodo);
-		return p;
-	}
-	/**
-	 * @autor Johan Bernal
-	 */
-	@Override
-	public void LiquidarNomina(Nomina nomina) throws Exception {
-		// TODO Auto-generated method stub
+    }
 
-	}
+    @Override
+    public Nomina editarNomina(Nomina nomina) throws Exception {
 
-	@Override
-	public Nomina editarNomina(Nomina nomina) throws Exception {
+        Nomina nomina1 = new Nomina();
+        // nomina1 = buscarPorIdHojaVida(hojaVida.getDocumento());
+        if (nomina1 != null) {
+            em.merge(nomina);
+        } else {
+            nomina1 = null;
+        }
+        return nomina1;
 
-		Nomina nomina1 = new Nomina();
-		// nomina1 = buscarPorIdHojaVida(hojaVida.getDocumento());
-		if (nomina1 != null) {
-			em.merge(nomina);
-		} else {
-			nomina1 = null;
-		}
-		return nomina1;
+    }
 
-	}
+    public List conceptosLiquidadosNominaEmpleado(int empleadoDoc) throws Exception {
+        List nominas = new ArrayList();
+        Query query = em.createNamedQuery(Nomina.LIQUIDACION_NOMINA_EMPLEADO);
+        if (empleadoDoc != 0) {
+            query.setParameter("documento", empleadoDoc);
+            nominas = query.getResultList();
+        }
+        return nominas;
+    }
 
-	public boolean conceptosLiquidadosNomina(int codigo) throws Exception {
-		// TODO Auto-generated method stub
-		return false;
-	}
+    @Override
+    public List conceptosLiquidadosPorPeriodo(int periodo) throws Exception {
+        List nominas = new ArrayList();
+        Query query = em.createNamedQuery(Nomina.LIQUIDACION_NOMINA_PERIODO);
+        if (periodo != 0) {
+            query.setParameter("periodo", periodo);
+            nominas = query.getResultList();
+        }
+        return nominas;
+    }
 
-	@Override
-	public boolean conceptosPagadosNomina(int codigo) throws Exception {
-		// TODO Auto-generated method stub
-		return false;
-	}
+    //-------------------------------** regla de negocio ** ---------------------------------------------
+    @Override
+    public List compararLiquidaciones() throws Exception {
+//        List peridoReciente = conceptosLiquidadosPorPeriodo(2);
+//        List periodoAnterior = conceptosLiquidadosPorPeriodo(1);
+//        for(Object item: peridoReciente){
+////            item.get("");
+//        }
+//        Query query = em.createNamedQuery(Nomina.COMPARAR_LIQUIDACION_PERIODO);
+//        nominas = query.getResultList();
+//        return nominas;
+        return null;
+    }
 
-	@Override
-	public List<Nomina> obtenerNominas() throws Exception {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 }
