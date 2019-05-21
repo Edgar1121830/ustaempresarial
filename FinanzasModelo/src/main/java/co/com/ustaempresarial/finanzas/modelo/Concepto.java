@@ -12,6 +12,9 @@ import javax.persistence.*;
 @Table(name="concepto", schema="\"FINANZAS\"")
 public class Concepto implements Serializable {
 	private static final long serialVersionUID = 1L;
+	
+	public static final String LISTARCONCEPTO = "Concepto.Listar";
+	public static final String LISTARCONCEPTOBYNAME = "Concepto.ListarByName";
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
