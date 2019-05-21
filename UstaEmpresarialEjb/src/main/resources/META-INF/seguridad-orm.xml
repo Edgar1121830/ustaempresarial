@@ -88,4 +88,12 @@
 		</query>
 	</named-query>
 
+<named-query name="UsuarioLog.ENCONTRAR_MODULO_USUARIO">
+		<query>
+		
+SELECT ul.proceso, u.nombre
+FROM seguridad.usuario_log ul INNER JOIN seguridad.usuario u on ul.codigo = u.codigo
+		
+		</query>
+	</named-query>
 </entity-mappings>

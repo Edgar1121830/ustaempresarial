@@ -333,10 +333,10 @@ public class SeguridadBean implements SeguridadFachada{
 
 		@Override
 		public RolPermiso buscarRolPermiso(int codigo) throws Exception {
-			RolPermiso rol = new RolPermiso();
-			//Query q = em.createNamedQuery("SELECT r FROM Rol r WHERE id_rol = "+codigo);
-			//rol = (RolPermiso) q.getSingleResult();
-			return rol;
+			RolPermiso objRol;
+			objRol = new RolPermiso();
+			objRol = em.find(Rol.class, codigo);
+			return objRol;
 		}
 		/**
 		 * metodo para buscar el rolpermiso por el codigo
@@ -368,10 +368,10 @@ public class SeguridadBean implements SeguridadFachada{
 
 		@Override
 		public RolUsuario buscarRolUsuario(int codigo) throws Exception {
-			RolUsuario rol = new RolUsuario();
-			//Query q = em.createNamedQuery("SELECT r FROM Rol r WHERE id_rol = "+codigo);
-			//rol = (RolUsuario) q.getSingleResult();
-			return rol;
+			RolUsuario objRol;
+			objRol = new RolUsuario();
+			objRol = em.find(Rol.class, codigo);
+			return objRol;
 		}
 		/**
 		 * metodo para buscar un RolUsuario con el codigo
