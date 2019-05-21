@@ -13,6 +13,10 @@ import java.util.Date;
 @Table(name="periodo", schema="\"FINANZAS\"")
 public class Periodo implements Serializable {
 	private static final long serialVersionUID = 1L;
+	
+	public static final String LISTARPERIODO = "Periodo.Listar";
+	public static final String LISTARPERIODOBYNAME = "Periodo.ListarByName";
+
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
