@@ -67,7 +67,9 @@ public class FinanzasServicio {
 		return fachada.listarLibroMayorsByNombre(nombre);
 	}
 	    
-    
+    public void crearPeriodo(Periodo periodo) throws Exception{
+    	 fachada.crearPeriodo(periodo);
+    }
        
 	public Periodo editarPeriodo(Periodo periodo) throws Exception {
 		return fachada.editarPeriodo(periodo);
@@ -87,7 +89,9 @@ public class FinanzasServicio {
     }
 
        
-    
+    public void crearConcepto(Concepto concepto) throws Exception{
+    	 fachada.crearConcepto(concepto);
+    }
        
 	public Concepto editarConcepto(Concepto concepto) throws Exception {
 		return fachada.editarConcepto(concepto);
@@ -106,7 +110,9 @@ public class FinanzasServicio {
     }
 
     
-   
+    public void crearPlanContable(PlanContable plan_contable) throws Exception{
+    	 fachada.crearPlanContable(plan_contable);
+    }
        
 	public PlanContable editarPlanContable(PlanContable plan_contable) throws Exception {
 		return fachada.editarPlanContable(plan_contable);
