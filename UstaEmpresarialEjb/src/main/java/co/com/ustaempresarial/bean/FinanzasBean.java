@@ -94,8 +94,9 @@ public class FinanzasBean implements FinanzasFachada {
     public boolean eliminarLibroDiario(int codigo) throws Exception {
         LibroDiario LibroDiario = buscarLibroDiarioById(codigo);
         boolean retorno = false;
+        LibroDiario.setEstado(false);
         if (LibroDiario.getAsiento() > 0) {
-            em.remove(LibroDiario);
+            em.merge(LibroDiario);
             retorno = true;
         }
         return retorno;
@@ -166,8 +167,9 @@ public class FinanzasBean implements FinanzasFachada {
     public boolean eliminarLibroMayor(int codigo) throws Exception {
         LibroMayor LibroMayor = buscarLibroMayorById(codigo);
         boolean retorno = false;
+        LibroMayor.setEstado(false);
         if (LibroMayor.getId().getPeriodoCod() > 0) {
-            em.remove(LibroMayor);
+            em.merge(LibroMayor);
             retorno = true;
         }
         return retorno;
@@ -332,4 +334,5 @@ public class FinanzasBean implements FinanzasFachada {
         return objPlanContable;
     }
 
+	
 }
