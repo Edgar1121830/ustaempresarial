@@ -12,15 +12,15 @@ public
 interface FinanzasFachada {
 
 	/**
-	 * Metodo que lista las LibroDiarios de los productos
+	 * Metodo que lista las LibroDiarios 
 	 *
-	 * @return List<LibroDiario> Lista de las LibroDiarios de producto
+	 * @return List<LibroDiario> Lista de las LibroDiarios de 
 	 * @throws Exception Capturar errores posibles osbre ejecuci�n
 	 */
 	List<LibroDiario> listarLibroDiario() throws Exception;
 
 	/**
-	 * Metodo que crea las LibroDiarios de producto
+	 * Metodo que crea las LibroDiarios de 
 	 *
 	 * @param LibroDiario
 	 * @throws Exception Capturar errores posibles osbre ejecuci�n
@@ -28,7 +28,7 @@ interface FinanzasFachada {
 	void crearLibroDiario(LibroDiario LibroDiario) throws Exception;
 
 	/**
-	 * Metodo que actualiza la LibroDiario producto
+	 * Metodo que actualiza la LibroDiario 
 	 *
 	 * @param LibroDiario
 	 * @return Objeto LibroDiario
@@ -37,7 +37,7 @@ interface FinanzasFachada {
 	LibroDiario editarLibroDiario(LibroDiario LibroDiario) throws Exception;
 
 	/**
-	 * Metodo que elimina la LibroDiario producto
+	 * Metodo que elimina la LibroDiario 
 	 *
 	 * @param codigo
 	 * @return true: Si se borro y false si no se borra
@@ -46,31 +46,23 @@ interface FinanzasFachada {
 	boolean eliminarLibroDiario(int codigo) throws Exception;
 
 	/**
-	 * Metodo que busca LibroDiario producto por nombre
+	 * Metodo que busca LibroDiario  por nombre
 	 *
 	 * @param nombre de la categor�a
-	 * @return Objeto categor�a producto
+	 * @return Objeto categor�a 
 	 * @throws Exception Capturar errores posibles osbre ejecuci�n
 	 */
 	LibroDiario listalibroDiarioByNombre(String nombre) throws Exception;
 
 	/**
-	 * Metodo que busca LibroDiario producto por nombre
+	 * Metodo que busca LibroDiario  por nombre
 	 *
 	 * @param nombre de la categor�a
-	 * @return Objeto categor�a producto
+	 * @return Objeto categor�a 
 	 * @throws Exception Capturar errores posibles osbre ejecuci�n
 	 */
 	List<LibroDiario> listarLibroDiariosByNombre(String nombre) throws Exception;
 
-	/**
-	 * Metodo que busca LibroDiario producto por id
-	 *
-	 * @param id de la categor�a
-	 * @return Objeto categor�a producto
-	 * @throws Exception Capturar errores posibles osbre ejecuci�n
-	 */
-	LibroDiario listarLibroDiarioById(int id) throws Exception;
 
 	/**
 	 * Metodo que lista los LibroMayors
@@ -124,14 +116,6 @@ interface FinanzasFachada {
 	 */
 	List<LibroMayor> listarLibroMayorsByNombre(String nombre) throws Exception;
 
-	/**
-	 * Metodo que busca LibroMayor por id
-	 *
-	 * @param id del LibroMayor
-	 * @return Objeto LibroMayor
-	 * @throws Exception Capturar errores posibles osbre ejecuci�n
-	 */
-	LibroMayor listarLibroMayorById(int id) throws Exception;
 
 	
 	/**
@@ -266,5 +250,11 @@ interface FinanzasFachada {
 	 * @throws Exception Capturar errores posibles sobre ejecicion
 	 */
 	PlanContable listarPlanContablePorNombre(String nombre) throws Exception;
+
+	LibroDiario buscarLibroDiarioById(int codigo) throws Exception;
+
+
+
+
 
 }
