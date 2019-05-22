@@ -26,9 +26,10 @@ public interface CRMFachada {
 	 * Este Metodo que crea una campaña publicitaria
 	 * 
 	 * @param campania: tipo de objeto a crear
+	 * @param listaEvento: Lista de eventos
 	 * @throws Exception Capturar errores posibles sobre ejecucion
 	 */
-	public void crearCampania(Campania campania) throws Exception;
+	public void crearCampania(Campania campania, List<Evento> listaEvento) throws Exception;
 
 	/**
 	 * Este metodo lo que hace es editar una campaña ya creada
@@ -145,23 +146,24 @@ public interface CRMFachada {
 	 */
 	public TipoMedio listarTipoMedioPorNombre(String nombre) throws Exception;
 
+	// Periodo
+
 	/**
-	 * Metodo que busca un medio por codigo
+	 *  En este metodo se va a listar los periodos
 	 * 
-	 * @param Codigo del medio
-	 * @return Objeto TipoMedio
-	 * @throws Exception Captura posibles errores sobre la ejecución
+	 * @return List<Periodo>: listado de periodo
+	 * @throws Exception Capturar errores posibles sobre ejecucion
 	 */
 
-	// Periodo
 	public List<Periodo> listarPeriodo() throws Exception;
 
 	/**
-	 * Metodo que permite listar los periodos
+	 * Metodo que permite crear los periodos
 	 * 
-	 * @param Objeto Periodo
+	 * @param Objeto Tipo de objeto a crear.
 	 * @throws Exception Captura posibles errores sobre la ejecución
 	 */
+
 	public void crearPeriodo(Periodo per) throws Exception;
 
 	/**

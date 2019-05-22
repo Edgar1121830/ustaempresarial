@@ -50,15 +50,17 @@ public class CRMBean implements CRMFachada {
 	  Metodo que crea  campañas   
 	  Juan Diego Gomez
 	*/
-	public void crearCampania(Campania campania) throws Exception {
+	public void crearCampania(Campania campania, List<Evento> listaEvento) throws Exception {
 		if (campania.getNombre() != null && !campania.getNombre().equals("")) {
-			em.persist(campania);
+			if (listaEvento.size()>=2 && listaEvento.size()<=10) {
+				em.persist(campania);
+			}
 		}
 
 	}
 
     /**
-	  Metodo que busca  campañas   por Id
+	  Metodo que busca campañas por Id
 	  Juan Diego Gomez
 	*/
 	private Campania buscarCampaniaPorId(int codigo) throws Exception {
@@ -189,6 +191,10 @@ public class CRMBean implements CRMFachada {
 		return objRecurso;
 	}
 
+	/**
+	  Metodo que busca Recurso por Id
+	  Nicolle Vanessa Saavedra
+	*/
 
 	private Recurso buscarRecursoID(int cod) throws Exception {
 		Recurso p = new Recurso();
@@ -268,6 +274,11 @@ public class CRMBean implements CRMFachada {
 		}
 		return objMedio;
 	}
+
+	/**
+	  Metodo que busca Tipo Medio por Id
+	  Maria Fernanda Molina
+	*/
 	
 	private TipoMedio buscarTipoPorId(int codigo) throws Exception {
 		TipoMedio p = new TipoMedio();
@@ -334,6 +345,11 @@ public class CRMBean implements CRMFachada {
 		periodos = q.getResultList();
 		return periodos;
 	}
+
+	/**
+	  Metodo que busca Periodo por Id
+	  Marcela Rincon
+	*/
 	
 	private Periodo buscarPeriodoPorId(int codigo) throws Exception {
 		Periodo p = new Periodo();
@@ -366,6 +382,11 @@ public class CRMBean implements CRMFachada {
 		}
 
 	}
+
+	/**
+	  Metodo que busca Medio por Id
+	  Chrisropher Pérez
+	*/
 
 	private Medio buscarMedioPorId(int codigo) throws Exception {
 		Medio p = new Medio();
@@ -442,7 +463,11 @@ public class CRMBean implements CRMFachada {
 
 	}
 
-	
+	/**
+	  Metodo que busca Evento por Id
+	  Luis Gomez
+	*/
+
 	private Evento buscarPorId(int codigo) throws Exception {
 		Evento p = new Evento();
 		p = em.find(Evento.class, codigo);
