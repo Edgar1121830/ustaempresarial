@@ -332,10 +332,10 @@ public class SeguridadBean implements SeguridadFachada{
 		}
 
 		@Override
-		public RolPermiso buscarRolPermiso(int codigo) throws Exception {
+		public RolPermiso buscarRolPermiso(RolPermisoPK codigo) throws Exception {
 			RolPermiso objRol;
 			objRol = new RolPermiso();
-			objRol = em.find(Rol.class, codigo);
+			objRol = em.find(RolPermiso.class, codigo);
 			return objRol;
 		}
 		/**
@@ -367,10 +367,10 @@ public class SeguridadBean implements SeguridadFachada{
 		}
 
 		@Override
-		public RolUsuario buscarRolUsuario(int codigo) throws Exception {
+		public RolUsuario buscarRolUsuario(RolUsuario codigo) throws Exception {
 			RolUsuario objRol;
 			objRol = new RolUsuario();
-			objRol = em.find(Rol.class, codigo);
+			objRol = em.find(RolUsuario.class, codigo);
 			return objRol;
 		}
 		/**

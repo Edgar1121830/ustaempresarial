@@ -6,6 +6,7 @@ import java.util.List;
 import co.com.ustaempresarial.seguridad.modelo.Permiso;
 import co.com.ustaempresarial.seguridad.modelo.Rol;
 import co.com.ustaempresarial.seguridad.modelo.RolPermiso;
+import co.com.ustaempresarial.seguridad.modelo.RolPermisoPK;
 import co.com.ustaempresarial.seguridad.modelo.RolUsuario;
 import co.com.ustaempresarial.seguridad.modelo.Usuario;
 import co.com.ustaempresarial.seguridad.modelo.UsuarioLog;
@@ -227,7 +228,7 @@ public List<UsuarioLog> buscarUsuarioLogPorProceso(String proceso) throws Except
 		 * @throws Exception Capturar errores posibles sobre ejecucion
 		 *@author Favian
 		 */
-		public RolUsuario buscarRolUsuario(int codigo) throws Exception; 
+		public RolUsuario buscarRolUsuario(RolUsuario codigo) throws Exception ;
 		
 	//**********************************rol_permiso******************************************
 		/**
@@ -250,6 +251,6 @@ public List<UsuarioLog> buscarUsuarioLogPorProceso(String proceso) throws Except
 		 * @throws Exception Capturar errores posibles sobre ejecucion
 		 * @author Favian
 		 */
-		public RolPermiso buscarRolPermiso(int codigo) throws Exception;
+		public RolPermiso buscarRolPermiso(RolPermisoPK codigo) throws Exception;
 	
 }
