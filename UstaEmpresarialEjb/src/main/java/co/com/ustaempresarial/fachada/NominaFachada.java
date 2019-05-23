@@ -5,6 +5,7 @@ import java.util.List;
 import javax.ejb.Remote;
 
 import co.com.UstaEmpresarial.nomina.modelo.Nomina;
+import co.com.UstaEmpresarial.nomina.modelo.Periodo;
 
 @Remote
 public interface NominaFachada {
@@ -41,7 +42,14 @@ public interface NominaFachada {
 	 * @return
 	 * @throws Exception
 	 */
+	
 	public boolean borrarNomina(int codigo) throws Exception;
+
+	public boolean borrarPeriodo(int id) throws Exception;
+
+	public void crearPeriodo(Periodo periodo) throws Exception;
+
+	public List<Nomina> buscarPeriodoPorId(int id) throws Exception;
 
 	/**
 	 * buscarNominaPorNombre
@@ -50,7 +58,4 @@ public interface NominaFachada {
 	 * @return
 	 * @throws Exception
 	 */
-
-	public List<Nomina> buscarNominaPorNombre(String nombre) throws Exception;
-
-}
+	}
