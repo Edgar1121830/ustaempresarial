@@ -57,7 +57,7 @@
         </query>
     </named-query>
 
-    <named-query name="Nomina.liquidacion_nomina_empleado">
+    <named-native-query name="Nomina.liquidacion_nomina_empleado" result-set-mapping="mapeado1">
         <query>
             select concat(h.nombre, ' ', h.apellido) as nombre,
             contr.salario,
@@ -79,8 +79,13 @@
             and concep.codigo = n.concepto_cod
             and p.codigo = n.periodo_cod;
         </query>
-    </named-query>
-    <named-query name="Nomina.liquidacion_nomina_periodo">
+    </named-native-query>
+
+    <sql-result-set-mapping name="mapeado1">
+        <column-result name="nombre"/>
+    </sql-result-set-mapping>
+
+    <named-native-query name="Nomina.liquidacion_nomina_periodo" result-set-mapping="mapeado2">
         <query>
             select concat(h.nombre, ' ', h.apellido)             as nombre,
             contr.salario,
@@ -102,7 +107,12 @@
             and concep.codigo = n.concepto_cod
             and p.codigo = n.periodo_cod;
         </query>
-    </named-query>
+    </named-native-query>
+
+    <sql-result-set-mapping name="mapeado2">
+        <column-result name="nombre"/>
+    </sql-result-set-mapping>
+
     <named-query name="Nomina.comparar_liquidacion">
         <query>
             SELECT n

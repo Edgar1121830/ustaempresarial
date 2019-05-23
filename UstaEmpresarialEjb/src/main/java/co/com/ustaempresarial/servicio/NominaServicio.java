@@ -15,7 +15,7 @@ public class NominaServicio {
     //==================================================================================================================
 
     /**
-     * Crea una nueva hoja de vida
+     * Crea una nueva hoja de vida con respecto a el numero de documentacion de la persona 
      *
      * @param hojaVida Objeto hoja de vida
      * @return
@@ -26,7 +26,7 @@ public class NominaServicio {
     }
 
     /**
-     * Modifica la información de una hoja de vida
+     * Modifica la informacion de una hoja de vida buscando la hoja de vida por el codigo de creacion 
      *
      * @param hojaVida Objeto hoja de vida
      * @return
@@ -37,7 +37,7 @@ public class NominaServicio {
     }
 
     /**
-     * Elimina la hoja de vida correspondiente al código
+     * Elimina la hoja de vida correspondiente al codigo ingresado 
      *
      * @param codigoHojaVida
      * @return
@@ -48,7 +48,7 @@ public class NominaServicio {
     }
 
     /**
-     * Lista todas la hojas de vida existentes
+     * Lista todas la hojas de vida existentes con sus datos registrados 
      *
      * @return Listado de las hojas de vida registradas
      * @throws Exception
@@ -62,10 +62,10 @@ public class NominaServicio {
     //==================================================================================================================
 
     /**
-     * Lista todos los cargos en la base de datos
+     * Lista todos los cargos que se encuentren en la base de datos
      *
      * @return lista de entidades de la tabla cargo
-     * @throws Exception
+     * @throws Exception Capturar errores posibles sobre ejecucion
      */
 
     public List<Cargo> listarCargos() throws Exception {
@@ -76,7 +76,7 @@ public class NominaServicio {
      * Crea un nuevo cargo en la base de datos
      *
      * @param cargo Objeto cargo
-     * @throws Exception
+     * @throws Exception Capturar errores posibles sobre ejecucion
      */
     public void crearCargo(Cargo cargo) throws Exception {
         nominaFachada.crearCargo(cargo);
@@ -86,7 +86,7 @@ public class NominaServicio {
      * Edita un cargo existente en la base de datos
      *
      * @param cargo Objetos cargo a editar
-     * @throws Exception
+     * @throws Exception Capturar errores posibles sobre ejecucion
      */
     public void editarCargo(Cargo cargo) throws Exception {
         nominaFachada.editarCargo(cargo);
@@ -96,8 +96,8 @@ public class NominaServicio {
      * Elimina un cargo de la base de datos
      *
      * @param cargo Objeto cargo a eliminar
-     * @return true si se eliminó, false si no
-     * @throws Exception
+     * @return true si se eliminï¿½, false si no
+     * @throws Exception Capturar errores posibles sobre ejecucion
      */
     public boolean eliminarCargo(Cargo cargo) throws Exception {
         return nominaFachada.eliminarCargo(cargo);
@@ -111,29 +111,29 @@ public class NominaServicio {
      * Crea una nueva Dependencia
      *
      * @param depen Tipo de objeto a crear
-     * @throws Exception Capturar errores posibles sobre ejecución
+     * @throws Exception Capturar errores posibles sobre ejecucion
      */
     public void crearDependencia(Dependencia depen) throws Exception {
         nominaFachada.crearDependencia(depen);
     }
 
     /**
-     * Modifica una dependencia existente
+     * Modifica una dependencia existente que es buscada por el codigo y muestra los datos que se pueden modificar 
      *
-     * @param depen dependencia
+     * @param  dependencia
      * @return dependencia actualizada
-     * @throws Exception Capturar errores posibles sobre ejecución
+     * @throws Exception Capturar errores posibles sobre ejecucion
      */
     public void editarDependencia(Dependencia depen) throws Exception {
         nominaFachada.editarDependencia(depen);
     }
 
     /**
-     * Elimina  la dependencia correspondiente al código especificado
+     * Elimina  la dependencia correspondiente al codigo especificado
      *
-     * @param codigo Código de la dependencia
-     * @return true: borra si el código de la dependencia está en contrato
-     * @throws Exception Exception Capturar errores posibles sobre ejecución
+     * @param codigo Cï¿½digo de la dependencia
+     * @return true: borra si el cï¿½digo de la dependencia estï¿½ en contrato
+     * @throws Exception Exception Capturar errores posibles sobre ejecuciï¿½n
      */
     public boolean borrarDependencia(int codigo) throws Exception {
         return nominaFachada.borrarDependencia(codigo);
@@ -143,7 +143,7 @@ public class NominaServicio {
      * Lista todas las  dependencias existentes
      *
      * @return List<dependencia>: Lista de dependencias
-     * @throws Exception Capturar errores posibles sobre ejecución
+     * @throws Exception Capturar errores posibles sobre ejecuciï¿½n
      */
     public List<Dependencia> traerDependencia() throws Exception {
         return nominaFachada.listarDependencias();
@@ -154,32 +154,33 @@ public class NominaServicio {
     //==================================================================================================================
 
     /**
-     * Crea un contrato
+     * Crea un contrato asignando un codigo teniendo en cuenta las reglas de negocio
      *
      * @param contrato
-     * @throws Exception
+     * @return true : devuleve confirmacion si se creo el contrato 
+     * @throws Exception Capturar errores posibles sobre ejecucion
      */
     public void crearContrato(Contrato contrato) throws Exception {
         nominaFachada.crearContrato(contrato);
     }
 
     /**
-     * Modifica un contrato
+     * Modifica un contrato buscanco el cotrato por el codigo y mostrando los camposmodificables 
      *
      * @param contrato
-     * @return true or false
-     * @throws Exception
+     * @return true or false si se llega a modificar 
+     * @throws Exception Capturar errores posibles sobre ejecucion
      */
     public Contrato modificarContrato(Contrato contrato) throws Exception {
         return nominaFachada.editarContrato(contrato);
     }
 
     /**
-     * Elimina un Contrato correspondiente al código especificado
+     * Elimina un Contrato correspondiente al cï¿½digo especificado
      *
      * @param codigo
      * @return true or false
-     * @throws Exception
+     * @throws Exception Capturar errores posibles sobre ejecucion
      */
     public boolean eliminarContrato(int codigo) throws Exception {
         return nominaFachada.eliminarContrato(codigo);
@@ -189,7 +190,7 @@ public class NominaServicio {
      * lista los contratos por -dependencias-hojavida
      *
      * @return lista las dependencias
-     * @throws Exception
+     * @throws Exception Capturar errores posibles sobre ejecucion
      */
     public List<Contrato> listaContratoDependecia() throws Exception {
         return nominaFachada.listaContratoDependecia();
@@ -199,7 +200,7 @@ public class NominaServicio {
      * listarContratoCargo lista los contratos por cargo
      *
      * @return lista los cargos
-     * @throws Exception
+     * @throws Exception Capturar errores posibles sobre ejecucion
      */
     public List<Contrato> listaContratoCargo() throws Exception {
         return nominaFachada.listaContratoCargo();
@@ -209,7 +210,7 @@ public class NominaServicio {
      * listarContratoAll lista todo el contrato
      *
      * @return lista con todos los datos
-     * @throws Exception
+     * @throws Exception Capturar errores posibles sobre ejecucion
      */
     public List<Contrato> listaContratoTodo() throws Exception {
         return nominaFachada.listaContratoTodo();
@@ -223,7 +224,7 @@ public class NominaServicio {
      * Crea un nuevo concepto en la base de datos
      *
      * @param conceptos Objeto concepto
-     * @throws Exception
+     * @throws Exception Capturar errores posibles sobre ejecucion
      */
     public void crearConcepto(Concepto conceptos) throws Exception {
     }
@@ -232,7 +233,7 @@ public class NominaServicio {
      * Edita un concepto existente en la base de datos
      *
      * @param concep editar
-     * @throws Exception
+     * @throws Exception Capturar errores posibles sobre ejecucion
      */
     public Concepto editarConcepto(Concepto concep) throws Exception {
         return nominaFachada.editarConcepto(concep);
@@ -243,8 +244,8 @@ public class NominaServicio {
      * Elimina un concepto de la base de datos
      *
      * @param codigo a eliminar
-     * @return true si se eliminó, false si no
-     * @throws Exception
+     * @return true si se eliminï¿½, false si no
+     * @throws Exception Capturar errores posibles sobre ejecucion
      */
     public boolean borrarConcepto(int codigo) throws Exception {
         return nominaFachada.borrarConcepto(codigo);
@@ -254,7 +255,7 @@ public class NominaServicio {
      * Lista todos los conceptos de la base de datos
      *
      * @return lista de entidades de la tabla cargo
-     * @throws Exception
+     * @throws Exception Capturar errores posibles sobre ejecucion
      */
     public List<Concepto> listarConceptos() throws Exception {
         return nominaFachada.listarConceptos();
@@ -269,18 +270,18 @@ public class NominaServicio {
      *
      * @param per periodo
      * @return periodo actualizado
-     * @throws Exception Capturar errores posibles sobre ejecución
+     * @throws Exception Capturar errores posibles sobre ejecuciï¿½n
      */
     public boolean editarPeriodo(Periodo per) throws Exception {
         return nominaFachada.editarPeriodo(per);
     }
 
     /**
-     * Borra el periodo correspondiente al código
+     * Borra el periodo correspondiente al cï¿½digo
      *
-     * @param codigo Código del periodo
-     * @return true: donde si borra y false donde hay error de ejecución
-     * @throws Exception Exception Capturar errores posibles sobre ejecución
+     * @param codigo Cï¿½digo del periodo
+     * @return true: donde si borra y false donde hay error de ejecuciï¿½n
+     * @throws Exception Exception Capturar errores posibles sobre ejecuciï¿½n
      */
     public boolean eliminarPeriodo(int codigo) throws Exception {
         return nominaFachada.borrarPeriodo(codigo);
@@ -304,18 +305,19 @@ public class NominaServicio {
      * Genera los concepts de nomina por contrato para cada periodo
      *
      * @param nomina
-     * @throws Exception
+     * @return true or false 
+     * @throws Exception Capturar errores posibles sobre ejecucion
      */
     public void liquidarNomina(Nomina nomina) throws Exception {
         nominaFachada.liquidarNomina(nomina);
     }
 
     /**
-     * Edita una nomina
+     * Edita una nomina en la base de datos 
      *
      * @param nomina
-     * @return
-     * @throws Exception
+     * @return nomnina editada
+     * @throws Exception Capturar errores posibles sobre ejecucion
      */
     public Nomina editarNomina(Nomina nomina) throws Exception {
         return nominaFachada.editarNomina(nomina);
@@ -324,9 +326,9 @@ public class NominaServicio {
     /**
      * Lista todos los pagos de nomina realizados por el periodo especificado
      *
-     * @param empleado mes en el que se realizó la liquidación de nomina
-     * @return
-     * @throws Exception
+     * @param empleado mes en el que se realizo la liquidacionde nomina
+     * @return muestra unan lista con los emopleados 
+     * @throws Exception Capturar errores posibles sobre ejecucion
      */
     public List conceptosLiquidadosNominaEmpleado(int empleado) throws Exception {
         return nominaFachada.conceptosLiquidadosNominaEmpleado(empleado);
@@ -336,8 +338,8 @@ public class NominaServicio {
      * Lista todos los conceptos respecto  al pago por dias trabajados
      *
      * @param periodo
-     * @return
-     * @throws Exception
+     * @return objeto liquidacion por periodos 
+     * @throws Exception Capturar errores posibles sobre ejecucion
      */
     public Object conceptosLiquidadosPorPeriodo(int periodo) throws Exception {
         return nominaFachada.conceptosLiquidadosPorPeriodo(periodo);
@@ -347,7 +349,7 @@ public class NominaServicio {
      * Se debe comparar las liquidaciones del mes actual con el mes anterior y no debe superar el 10%
      * en diferencias, delo contrario se debe generar un reporte informando.
      * @return
-     * @throws Exception
+     * @throws Exception Capturar errores posibles sobre ejecucion
      */
     public List compararLiquidaciones() throws Exception {
         return nominaFachada.compararLiquidaciones();
