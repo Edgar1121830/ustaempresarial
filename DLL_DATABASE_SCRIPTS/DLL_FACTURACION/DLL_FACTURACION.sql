@@ -1,3 +1,5 @@
+CREATE SCHEMA facturacion;
+
 CREATE TABLE facturacion."CATEGORIA_PRODUCTO"
 (
    "CODIGO"            INTEGER NOT NULL,

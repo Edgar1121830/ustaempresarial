@@ -9,7 +9,7 @@ import java.util.Date;
  * The persistent class for the nomina database table.
  */
 @Entity
-@Table(name = "nomina", schema = "ustanomina")
+@Table(name = "nomina", schema = "nomina")
 public class Nomina implements Serializable {
     private static final long serialVersionUID = 1L;
     public static final String LISTAR_NOMINA = "Nomina.Listar_nomina";

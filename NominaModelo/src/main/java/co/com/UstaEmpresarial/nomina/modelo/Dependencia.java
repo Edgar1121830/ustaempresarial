@@ -9,7 +9,7 @@ import javax.persistence.*;
  * 
  */
 @Entity
-@Table(name="dependencia", schema="ustanomina")
+@Table(name="dependencia", schema="nomina")
 public class Dependencia implements Serializable {
 	private static final long serialVersionUID = 1L;
 	public static final String FIND_ALL = "Dependencia.Listar_depndencia";

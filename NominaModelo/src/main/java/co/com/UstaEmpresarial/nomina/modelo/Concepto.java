@@ -8,7 +8,7 @@ import java.io.Serializable;
  * The persistent class for the concepto database table.
  */
 @Entity
-@Table(name = "concepto", schema = "ustanomina")
+@Table(name = "concepto", schema = "nomina")
 public class Concepto implements Serializable {
     private static final long serialVersionUID = 1L;
     public static final String LISTAR_CONCEPTO = "Concepto.Listar_concepto";

@@ -10,7 +10,7 @@ import java.util.Date;
  * 
  */
 @Entity
-@Table(name = "periodo", schema = "ustanomina")
+@Table(name = "periodo", schema = "nomina")
 public class Periodo implements Serializable {
 	private static final long serialVersionUID = 1L;
 	public static final String FIND_ALL = "Peiodo.Listar_periodo";

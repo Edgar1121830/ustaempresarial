@@ -2,7 +2,7 @@ package co.com.ustaempresarial.seguridad.modelo;
 
 import java.io.Serializable;
 import javax.persistence.*;
-import java.util.Date;
+import java.sql.Timestamp;
 
 
 /**
@@ -19,7 +19,7 @@ public class RolUsuario implements Serializable {
 	@EmbeddedId
 	private RolUsuarioPK id;
 
-	private Date fecha;
+	private Timestamp fecha;
 
 	public RolUsuario() {
 	}
@@ -32,9 +32,11 @@ public class RolUsuario implements Serializable {
 		this.id = id;
 	}
 
-	
+	public Timestamp getFecha() {
+		return this.fecha;
+	}
 
-	public void setFecha(Date fecha) {
+	public void setFecha(Timestamp fecha) {
 		this.fecha = fecha;
 	}
 

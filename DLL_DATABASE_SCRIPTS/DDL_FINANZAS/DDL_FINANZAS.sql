@@ -3,36 +3,39 @@
 /* Created by:     THE ALIRIOS		                            */
 /*==============================================================*/
 
+create schema "FINANZAS";
 /*==============================================================*/
-/* Table: PLAN_CONTABLE                                         */
+/* Table: LOG_CUENTAS                                         */
 /*==============================================================*/
-CREATE TABLE "FINANZAS".log_cuentas(
-	CODIGO_cuenta_nueva INTEGER PRIMARY KEY NOT NULL,
-	NOMBRE_cuenta_nueva CHARACTER VARYING (100) NOT NULL,
-	DESCRIPCION_cuenta_nueva  CHARACTER VARYING (300) NOT NULL,
-	TIPO_cuenta_nueva  INTEGER NOT NULL,
-	VIGENCIA_cuenta_nueva DATE NOT NULL
+CREATE TABLE "FINANZAS".LOG_CUENTAS
+(
+    CODIGO_cuenta_nueva      INTEGER PRIMARY KEY    NOT NULL,
+    NOMBRE_cuenta_nueva      CHARACTER VARYING(100) NOT NULL,
+    DESCRIPCION_cuenta_nueva CHARACTER VARYING(300) NOT NULL,
+    TIPO_cuenta_nueva        INTEGER                NOT NULL,
+    VIGENCIA_cuenta_nueva    DATE                   NOT NULL
 );
 
-COMMENT ON TABLE "FINANZAS".log_cuentas
+COMMENT ON TABLE "FINANZAS".LOG_CUENTAS
     IS 'Tabla donde se almacenan cada cuenta que entra como nueva ';
 
-COMMENT ON COLUMN "FINANZAS".PLAN_CONTABLE.CODIGO IS 'Código de la cuenta nueva – PUC';
-COMMENT ON COLUMN "FINANZAS".PLAN_CONTABLE.NOMBRE IS 'NOMBRE de la cuenta nueva';
-COMMENT ON COLUMN "FINANZAS".PLAN_CONTABLE.DESCRIPCION IS 'Descripción de la cuenta nueva';
-COMMENT ON COLUMN "FINANZAS".PLAN_CONTABLE.TIPO IS 'Clase(1), grupo(2),cuenta(3), subcuenta(4)';
-COMMENT ON COLUMN "FINANZAS".PLAN_CONTABLE.VIGENCIA IS 'Fecha de inicio de VIGENCIA de la cuenta nueva';
+COMMENT ON COLUMN "FINANZAS".LOG_CUENTAS.CODIGO_cuenta_nueva IS 'Código de la cuenta nueva – PUC';
+COMMENT ON COLUMN "FINANZAS".LOG_CUENTAS.NOMBRE_cuenta_nueva IS 'NOMBRE de la cuenta nueva';
+COMMENT ON COLUMN "FINANZAS".LOG_CUENTAS.DESCRIPCION_cuenta_nueva IS 'Descripción de la cuenta nueva';
+COMMENT ON COLUMN "FINANZAS".LOG_CUENTAS.TIPO_cuenta_nueva IS 'Clase(1), grupo(2),cuenta(3), subcuenta(4)';
+COMMENT ON COLUMN "FINANZAS".LOG_CUENTAS.VIGENCIA_cuenta_nueva IS 'Fecha de inicio de VIGENCIA de la cuenta nueva';
 
 /*==============================================================*/
 /* Table: PLAN_CONTABLE                                         */
 /*==============================================================*/
-CREATE TABLE "FINANZAS".PLAN_CONTABLE(
-	CODIGO INTEGER PRIMARY KEY NOT NULL,
-	NOMBRE CHARACTER VARYING (100) NOT NULL,
-	DESCRIPCION  CHARACTER VARYING (300) NOT NULL,
-	TIPO  INTEGER NOT NULL,
-	VIGENCIA DATE NOT NULL,
-	CODIGO_PADRE  INTEGER
+CREATE TABLE "FINANZAS".PLAN_CONTABLE
+(
+    CODIGO       INTEGER PRIMARY KEY    NOT NULL,
+    NOMBRE       CHARACTER VARYING(100) NOT NULL,
+    DESCRIPCION  CHARACTER VARYING(300) NOT NULL,
+    TIPO         INTEGER                NOT NULL,
+    VIGENCIA     DATE                   NOT NULL,
+    CODIGO_PADRE INTEGER
 );
 
 COMMENT ON TABLE "FINANZAS".PLAN_CONTABLE

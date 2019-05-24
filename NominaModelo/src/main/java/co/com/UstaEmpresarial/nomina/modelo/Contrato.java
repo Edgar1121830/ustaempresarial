@@ -9,7 +9,7 @@ import java.util.Date;
  * The persistent class for the contrato database table.
  */
 @Entity
-@Table(name = "contrato", schema = "ustanomina")
+@Table(name = "contrato", schema = "nomina")
 public class Contrato implements Serializable {
     private static final long serialVersionUID = 1L;
     public static final String FIND_ALL = "Contrato.FIND_ALL";

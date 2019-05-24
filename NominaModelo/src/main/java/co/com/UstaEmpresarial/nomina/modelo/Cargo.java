@@ -9,7 +9,7 @@ import javax.persistence.*;
  * 
  */
 @Entity
-@Table(name="cargo", schema="ustanomina")
+@Table(name="cargo", schema="nomina")
 public class Cargo implements Serializable {
 	private static final long serialVersionUID = 1L;
 	public static final String LISTAR_CARGO="Cargo.Listar_cargo";
