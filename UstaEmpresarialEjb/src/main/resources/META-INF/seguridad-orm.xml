@@ -4,13 +4,13 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm http://java.sun.com/xml/ns/persistence/orm_2_0.xsd">
 
-<named-query name="Usuario.findAll">
+	<named-query name="Usuario.findAll">
 		<query>
 			SELECT u 
 			FROM Usuario u
 		</query>
 	</named-query>
-	
+
 	<named-query name="Usuario.encontrarPorNombre">
 		<query>
 			SELECT u 
@@ -29,14 +29,14 @@
 		</query>
 	</named-query>
 
-<named-query name="RolPermiso.LISTAR_PERMISOS">
+	<named-query name="RolPermiso.LISTAR_PERMISOS">
 		<query>
 			SELECT r 
 			FROM RolPermisos r
 		</query>
 	</named-query>
-	
-<named-query name="RolUsuario.find_all">
+
+	<named-query name="RolUsuario.find_all">
 		<query>
 			SELECT R 
 			FROM RolUsuarios R
@@ -49,7 +49,7 @@
         FROM rol r
 		</query>
 	</named-query>
-	
+
 	<named-query name="Rol.ENCONTRAR_NOMBRE_ROL">
 		<query>
 			SELECT r 
@@ -58,14 +58,15 @@
 		</query>
 	</named-query>
 
-		<named-query name="UsuarioLog.TRAER_USUARIO_LOG">
+	<named-query name="UsuarioLog.TRAER_USUARIO_LOG">
 		<query>
 		SELECT ul
 		FROM usuario_log ul
 		</query>
 	</named-query>
-	
-	<named-query name="UsuarioLog.ENCONTRAR_NOMBRE_PROCESO_USUARIO_LOG">
+
+	<named-query
+		name="UsuarioLog.ENCONTRAR_NOMBRE_PROCESO_USUARIO_LOG">
 		<query>
 			SELECT ul
 			FROM usuario_log ul
@@ -79,7 +80,7 @@
 		FROM permiso p
 		</query>
 	</named-query>
-	
+
 	<named-query name="Permiso.ENCONTRAR_NOMBRE_PERMISO">
 		<query>
 			SELECT p
@@ -88,12 +89,15 @@
 		</query>
 	</named-query>
 
-<named-query name="UsuarioLog.ENCONTRAR_MODULO_USUARIO">
+	<named-query name="UsuarioLog.ENCONTRAR_MODULO_USUARIO">
 		<query>
-		
-SELECT ul.proceso, u.nombre
-FROM seguridad.usuario_log ul INNER JOIN seguridad.usuario u on ul.codigo = u.codigo
-		
+		SELECT u.nombre AS nombreusuario, p.nombre AS nombrepermiso 
+		FROM usuario u INNER JOIN rol_usuario ru ON u.codigo = ru.usuario_cod
+		INNER JOIN rol r ON r.codigo = ru.rol_cod 
+		INNER JOIN rol_permiso rp ON rp.rol_cod = r.codigo 
+		INNER JOIN permiso p ON p.codigo = rp.permiso_cod
+		ORDER BY u.nombre DESC 
 		</query>
 	</named-query>
+	
 </entity-mappings>

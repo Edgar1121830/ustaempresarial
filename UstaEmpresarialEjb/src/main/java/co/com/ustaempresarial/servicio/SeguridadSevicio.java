@@ -14,7 +14,6 @@ import co.com.ustaempresarial.fachada.SeguridadFachada;
 import co.com.ustaempresarial.seguridad.modelo.Permiso;
 import co.com.ustaempresarial.seguridad.modelo.Rol;
 import co.com.ustaempresarial.seguridad.modelo.RolPermiso;
-import co.com.ustaempresarial.seguridad.modelo.RolPermisoPK;
 import co.com.ustaempresarial.seguridad.modelo.RolUsuario;
 import co.com.ustaempresarial.seguridad.modelo.Usuario;
 import co.com.ustaempresarial.seguridad.modelo.UsuarioLog;
@@ -310,7 +309,7 @@ public class SeguridadSevicio {
 	 * 
 	 * @return List<RolUsuario>: listado de RolUsuario
 	 * @throws Exception Capturar errores posibles sobre ejecucion
-	 * @author Favian
+	 * @author Fabian
 	 */
 	public List<RolPermiso> traerRolPermisos() throws Exception {
 		return fachada.listarRolPermiso();
@@ -321,7 +320,7 @@ public class SeguridadSevicio {
 	 * 
 	 * @return el Rolusuario que se creo
 	 * @throws Exception Capturar errores posibles sobre ejecucion
-	 * @author Favian
+	 * @author Fabian
 	 */
 	public void crearRolPermisos(RolPermiso rolP) throws Exception {
 		fachada.crearRolPermiso(rolP);
@@ -331,17 +330,17 @@ public class SeguridadSevicio {
 	 * @param codigo del usuario
 	 * @return el objeto rolUsuario
 	 * @throws Exception Capturar errores posibles sobre ejecucion
-	 *@author Favian
+	 *@author Fabian
 	 */
 
-	public RolPermiso buscarRolPermiso(RolPermisoPK codigo) throws Exception {
+	public RolPermiso buscarRolPermiso(int codigo) throws Exception {
 		return fachada.buscarRolPermiso(codigo);
 	}
 	/**
 	 * metodo para listar los RolPermiso
 	 * @return List<RolPermiso>: listado de RolPermiso
 	 * @throws Exception Capturar errores posibles sobre ejecucion
-	 * @author Favian
+	 * @author Fabian
 	 */
 
 	public List<RolUsuario> traerRolUsuario() throws Exception {
@@ -350,7 +349,7 @@ public class SeguridadSevicio {
 	/**
 	 * metodo encargado para crear el rolPermiso
 	 * @throws Exception
-	 * @author Favian
+	 * @author Fabian
 	 */
 
 	public void crearRolUsuarios(RolUsuario rolU) throws Exception {
@@ -361,10 +360,10 @@ public class SeguridadSevicio {
 	 * @param codigo del permiso
 	 * @return el objeto rolPermiso
 	 * @throws Exception Capturar errores posibles sobre ejecucion
-	 * @author Favian
+	 * @author Fabian
 	 */
 
-	public RolUsuario buscarRolUsuario(RolUsuario codigo) throws Exception  {
+	public RolUsuario buscarRolUsuario(int codigo) throws Exception {
 		return fachada.buscarRolUsuario(codigo);
 	}	
 	
