@@ -46,7 +46,7 @@ public class CRMServicio {
 	 */
 
 	public void crearCampania(Campania campania, List<Evento> listaEvento) throws Exception {
-		fachada.crearCampania(campania);
+		fachada.crearCampania(campania, listaEvento);
 	}
 
 	/**
