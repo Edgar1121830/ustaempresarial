@@ -12,10 +12,10 @@ import java.util.Date;
 @Table(name = "nomina", schema = "nomina")
 public class Nomina implements Serializable {
     private static final long serialVersionUID = 1L;
-    public static final String LISTAR_NOMINA = "Nomina.Listar_nomina";
-    public static final String LIQUIDACION_NOMINA_EMPLEADO = "Nomina.liquidacion_nomina_empleado";
-    public static final String LIQUIDACION_NOMINA_PERIODO = "Nomina.liquidacion_nomina_periodo";
-    public static final String COMPARAR_LIQUIDACION_PERIODO = "Nomina.comparar_liquidacion";
+    public static final String LISTAR_NOMINA = "Nomina.LISTAR_NOMINA";
+    public static final String LIQUIDACION_NOMINA_EMPLEADO = "Nomina.LIQUIDACION_NOMINA_EMPLEADO";
+    public static final String LIQUIDACION_NOMINA_PERIODO = "Nomina.LIQUIDACION_NOMINA_PERIODO";
+    public static final String COMPARAR_LIQUIDACION_PERIODO = "Nomina.COMPARAR_LIQUIDACION";
 
     private NominaPK id;
     private Date fechaInsert;

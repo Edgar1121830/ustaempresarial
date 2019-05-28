@@ -12,7 +12,7 @@ import javax.persistence.*;
 @Table(name="cargo", schema="nomina")
 public class Cargo implements Serializable {
 	private static final long serialVersionUID = 1L;
-	public static final String LISTAR_CARGO="Cargo.Listar_cargo";
+	public static final String LISTAR_CARGO="Cargo.LISTAR_CARGO";
 	private Integer codigo;
 	private String competencias;
 	private String funcion;

@@ -308,8 +308,8 @@ public class NominaServicio {
      * @return true or false 
      * @throws Exception Capturar errores posibles sobre ejecucion
      */
-    public void liquidarNomina(Nomina nomina) throws Exception {
-        nominaFachada.liquidarNomina(nomina);
+    public boolean liquidarNomina(Nomina nomina) throws Exception {
+       return nominaFachada.liquidarNomina(nomina);
     }
 
     /**

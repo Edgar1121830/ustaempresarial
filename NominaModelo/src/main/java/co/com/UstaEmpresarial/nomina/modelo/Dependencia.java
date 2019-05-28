@@ -12,7 +12,7 @@ import javax.persistence.*;
 @Table(name="dependencia", schema="nomina")
 public class Dependencia implements Serializable {
 	private static final long serialVersionUID = 1L;
-	public static final String FIND_ALL = "Dependencia.Listar_depndencia";
+	public static final String FIND_ALL = "Dependencia.LISTAR_POR_DEPENDENCIA";
 	private Integer codigo;
 	private Integer dependenciaPadre;
 	private Boolean estado;

@@ -190,9 +190,7 @@ public class NominaBean implements NominaFachada {
         boolean flag = true;
         if (contrato.getCodigo() != null && !contrato.getCodigo().equals("")) {
             Contrato contrato1 = buscarContratoPorCodigo(contrato.getCodigo());
-            if (contrato1.getCodigo() > 1) {
-                //https://www.mkyong.com/java/how-to-compare-dates-in-java/
-                //si las fechas no se cruzan, es decir que el nuevo contrato empieza después de haber finalizado el registrado
+            if (contrato1.getCodigo() > 0) {
                 if (contrato1.getFechaFin().compareTo(contrato.getFechaInicio()) < 0) {
                     em.persist(contrato);
                 } else {
@@ -213,7 +211,6 @@ public class NominaBean implements NominaFachada {
         } else {
             dep = null;
         }
-
         return dep;
     }
 
@@ -232,7 +229,6 @@ public class NominaBean implements NominaFachada {
         List<Contrato> car = new ArrayList<Contrato>();
         Query query = em.createNamedQuery(Contrato.ENCONTRAR_POR_DEPENDENCIA);
         if (query != null) {
-//            query.setParameter("dependenciacod", dependencia);
             car = query.getResultList();
         }
         return car;
@@ -243,7 +239,6 @@ public class NominaBean implements NominaFachada {
         List<Contrato> car = new ArrayList<>();
         Query query = em.createNamedQuery(Contrato.ENCONTRAR_POR_CARGO);
         if (query != null) {
-//            query.setParameter("cargo", cargo);
             car = query.getResultList();
         }
         return car;
@@ -370,8 +365,9 @@ public class NominaBean implements NominaFachada {
      * @autor Johan Bernal
      */
     @Override
-    public void liquidarNomina(Nomina nomina) throws Exception {
-        // TODO Auto-generated method stub
+    public boolean liquidarNomina(Nomina nomina) throws Exception {
+//        Query query = em.createNativeQuery(Nomina.)
+        return  true;
 
     }
 

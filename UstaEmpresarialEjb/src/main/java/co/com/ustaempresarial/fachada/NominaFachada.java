@@ -1,4 +1,4 @@
-﻿package co.com.ustaempresarial.fachada;
+package co.com.ustaempresarial.fachada;
 
 import co.com.UstaEmpresarial.nomina.modelo.*;
 
@@ -262,7 +262,7 @@ public interface NominaFachada {
      * @param nomina
      * @throws Exception
      */
-    public void liquidarNomina(Nomina nomina) throws Exception;
+    public boolean liquidarNomina(Nomina nomina) throws Exception;
 
     /**
      * Edita una nomina

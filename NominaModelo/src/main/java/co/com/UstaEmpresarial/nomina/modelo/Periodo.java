@@ -13,7 +13,7 @@ import java.util.Date;
 @Table(name = "periodo", schema = "nomina")
 public class Periodo implements Serializable {
 	private static final long serialVersionUID = 1L;
-	public static final String FIND_ALL = "Peiodo.Listar_periodo";
+	public static final String FIND_ALL = "Peiodo.LISTAR_PERIODO";
 	private Integer codigo;
 	private Boolean estado;
 	private Date fechaFin;
