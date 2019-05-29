@@ -18,7 +18,6 @@ public class RolPermiso implements Serializable {
 	@EmbeddedId
 	private RolPermisoPK id;
 
-	@Temporal(TemporalType.TIMESTAMP)
 	private Timestamp fecha;
 
 	public RolPermiso() {

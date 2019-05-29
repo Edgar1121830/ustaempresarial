@@ -19,7 +19,6 @@ public class RolUsuario implements Serializable {
 	@EmbeddedId
 	private RolUsuarioPK id;
 
-	@Temporal(TemporalType.TIMESTAMP)
 	private Timestamp fecha;
 
 	public RolUsuario() {

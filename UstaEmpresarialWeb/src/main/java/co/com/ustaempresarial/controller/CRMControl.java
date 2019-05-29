@@ -10,8 +10,12 @@ import java.io.Serializable;
 
 @ManagedBean(name = "crm")
 @SessionScoped
-public class CrmControl implements Serializable {
-    private Periodo periodo;
+public class CRMControl implements Serializable {
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private Periodo periodo;
     @EJB
     private CRMServicio crmServicio;
 
