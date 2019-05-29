@@ -1,5 +1,6 @@
 package co.com.ustaempresarial.fachada;
 
+import co.com.UstaEmpresarial.nomina.dto.LiquidacionNominaDTO;
 import co.com.UstaEmpresarial.nomina.modelo.*;
 
 import javax.ejb.Remote;
@@ -19,7 +20,7 @@ public interface NominaFachada {
      * @return
      * @throws Exception
      */
-    public HojaVida crearHojaVida(HojaVida hojaVida) throws Exception;
+    public boolean crearHojaVida(HojaVida hojaVida) throws Exception;
 
     /**
      * Modifica la información de una hoja de vida
@@ -257,7 +258,8 @@ public interface NominaFachada {
     //==================================================================================================================
 
     /**
-     * Genera los concepts de nomina por contrato para cada periodo
+     * Genera los conceptos de nomina por contrato para cada periodo y por empleado
+     * Sirve para saber cuanto hay que pagar por cada empleado en un periodo especifico
      *
      * @param nomina
      * @throws Exception
@@ -281,7 +283,7 @@ public interface NominaFachada {
      * @throws Exception
      */
 
-    public List conceptosLiquidadosNominaEmpleado(int documento) throws Exception;
+    public List<LiquidacionNominaDTO> conceptosLiquidadosNominaEmpleado(int documento) throws Exception;
 
     /**
      * Lista todos los pagos de nomina por periodos de todos los empleados
@@ -290,7 +292,7 @@ public interface NominaFachada {
      * @return
      * @throws Exception
      */
-    public List conceptosLiquidadosPorPeriodo(int id) throws Exception;
+    public List<LiquidacionNominaDTO> conceptosLiquidadosPorPeriodo(int id) throws Exception;
 
     //-------------------------------** regla de negocio ** ---------------------------------------------
 
@@ -300,6 +302,6 @@ public interface NominaFachada {
      * @return
      * @throws Exception
      */
-    public List compararLiquidaciones() throws Exception;
+    public List<LiquidacionNominaDTO> compararLiquidaciones() throws Exception;
 
 }
