@@ -44,14 +44,12 @@
 			<groupId>UstaEmpresarial</groupId>
 			<artifactId>FacturacionModelo</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
-			<scope>provided</scope>
 			</dependency>
 			
 		<dependency>
 			 <groupId>UstaEmpresarial</groupId>
   			<artifactId>NominaModelo</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
-			<scope>provided</scope>
 		</dependency>
 	
 		<dependency>

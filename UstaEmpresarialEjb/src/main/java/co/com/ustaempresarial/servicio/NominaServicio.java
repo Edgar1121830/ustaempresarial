@@ -21,7 +21,7 @@ public class NominaServicio {
      * @return
      * @throws Exception
      */
-    public HojaVida crearHojaVida(HojaVida hojaVida) throws Exception {
+    public boolean crearHojaVida(HojaVida hojaVida) throws Exception {
         return nominaFachada.crearHojaVida(hojaVida);
     }
 
@@ -120,7 +120,7 @@ public class NominaServicio {
     /**
      * Modifica una dependencia existente que es buscada por el codigo y muestra los datos que se pueden modificar 
      *
-     * @param  dependencia
+     * @param depen
      * @return dependencia actualizada
      * @throws Exception Capturar errores posibles sobre ejecucion
      */
