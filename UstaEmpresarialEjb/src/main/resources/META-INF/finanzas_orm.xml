@@ -7,7 +7,7 @@
     <named-query name="Concepto.LISTARCONCEPTO">
         <query>
             SELECT c
-            FROM Usuario c
+            FROM Concepto c
         </query>
     </named-query>
     <named-query name="Concepto.LISTARCONCEPTOBYNAME">
@@ -18,13 +18,13 @@
         </query>
     </named-query>
 
-    <named-query name="LibroDiario.LISTARLibroDiario">
+    <named-query name="LibroDiario.LISTAR_LIBRO_DIARIO">
         <query>
             SELECT c
-            FROM Usuario c
+            FROM LibroDiario c
         </query>
     </named-query>
-    <named-query name="LibroDiario.LISTARLibroDiarioBYNAME">
+    <named-query name="LibroDiario.LISTARBYNAME">
         <query>
             SELECT c
             FROM Concepto c
@@ -32,13 +32,13 @@
         </query>
     </named-query>
 
-    <named-query name="LibroMayor.LISTARLibroMayor">
+    <named-query name="LibroMayor.LISTAR_LIBRO_MAYOR">
         <query>
             SELECT c
-            FROM Usuario c
+            FROM LibroMayor c
         </query>
     </named-query>
-    <named-query name="LibroMayor.LISTARLibroMayorBYNAME">
+    <named-query name="LibroMayor.LISTAR_LIBRO_MAYOR_BYNAME">
         <query>
             SELECT c
             FROM Concepto c
@@ -49,7 +49,7 @@
     <named-query name="Periodo.LISTARPERIODO">
         <query>
             SELECT c
-            FROM Usuario c
+            FROM Periodo c
         </query>
     </named-query>
     <named-query name="Periodo.LISTARPERIODOBYNAME">
@@ -63,7 +63,7 @@
     <named-query name="PlanContable.LISTARPLANCONTABLE">
         <query>
             SELECT c
-            FROM Usuario c
+            FROM PlanContable c
         </query>
     </named-query>
     <named-query name="PlanContable.LISTARPLANCONTABLEBYNAME">
