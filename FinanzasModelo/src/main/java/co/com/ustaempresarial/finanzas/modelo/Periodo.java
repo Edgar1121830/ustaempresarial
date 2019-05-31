@@ -14,8 +14,8 @@ import java.util.Date;
 public class Periodo implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
-	public static final String LISTARPERIODO = "Periodo.Listar";
-	public static final String LISTARPERIODOBYNAME = "Periodo.ListarByName";
+	public static final String LISTARPERIODO = "Periodo.LISTARPERIODO";
+	public static final String LISTARPERIODOBYNAME = "Periodo.LISTARPERIODOBYNAME";
 
 
 	@Id

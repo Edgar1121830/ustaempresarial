@@ -13,8 +13,8 @@ import javax.persistence.*;
 public class Concepto implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
-	public static final String LISTARCONCEPTO = "Concepto.Listar";
-	public static final String LISTARCONCEPTOBYNAME = "Concepto.ListarByName";
+	public static final String LISTARCONCEPTO = "Concepto.LISTARCONCEPTO";
+	public static final String LISTARCONCEPTOBYNAME = "Concepto.LISTARCONCEPTOBYNAME";
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)

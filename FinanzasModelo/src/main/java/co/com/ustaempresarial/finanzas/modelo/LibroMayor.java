@@ -15,8 +15,8 @@ import java.util.Date;
 public class LibroMayor implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	public static final String LISTARLibroMayor = "LibroMayor.Listar";
-	public static final String LISTARLibroMayorBYNAME = "LibroMayor.ListarByName";
+	public static final String LISTARLibroMayor = "LibroMayor.LISTAR_LIBRO_MAYOR";
+	public static final String LISTARLibroMayorBYNAME = "LibroMayor.LISTAR_LIBRO_MAYOR_BYNAME";
 
 	@EmbeddedId
 	private LibroMayorPK id;
