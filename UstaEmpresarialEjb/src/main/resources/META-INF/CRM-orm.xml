@@ -30,7 +30,7 @@
 		<query>
 			SELECT p
 			FROM Periodo p
-			WHERE p.fecha_inicio = ':fechainicio'
+			WHERE p.fechaInicio = ':fechainicio'
 		</query>
 	</named-query>
 
@@ -69,18 +69,9 @@
 	<named-query name="TipoMedio.TRAER_TIPOMEDIO">
 		<query>
 			SELECT tm
-			FROM Tipo_Medio tm
+			FROM TipoMedio tm
 		</query>
 	</named-query>
-
-	<named-query name="Recurso.ENCONTRAR_POR_NOMBRE">
-		<query>
-			SELECT tm
-			FROM Tipo_Medio tm
-			WHERE tm.nombre like '%:nombre%'
-		</query>
-	</named-query>
-	
 
 	<named-query name="Medio.TRAER_MEDIO">
 		<query>
