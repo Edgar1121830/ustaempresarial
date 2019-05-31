@@ -24,7 +24,7 @@ import co.com.ustaempresarial.fachada.CRMFachada;
 @TransactionManagement(TransactionManagementType.CONTAINER)
 public class CRMBean implements CRMFachada {
 
-	@PersistenceContext(unitName = "UstaEmpresarialCRM")
+	@PersistenceContext(unitName = "PersistenceCRM")
 	private EntityManager em;
 
 	public CRMBean() {

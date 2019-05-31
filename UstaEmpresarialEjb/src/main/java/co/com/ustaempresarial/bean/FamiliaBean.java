@@ -20,7 +20,7 @@ import co.com.ustaempresarial.fachada.FamiliaFachada;
 @TransactionManagement(TransactionManagementType.CONTAINER)
 public class FamiliaBean implements FamiliaFachada{
 	
-	@PersistenceContext(unitName = "UstaEmpresarialParientes")
+	@PersistenceContext(unitName = "PersistenceParientes")
 	private EntityManager emp;
 	
 

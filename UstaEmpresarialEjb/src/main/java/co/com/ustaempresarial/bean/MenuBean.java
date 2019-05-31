@@ -20,7 +20,7 @@ import co.com.ustaempresarial.fachada.MenuFachada;
 @LocalBean
 public class MenuBean implements MenuFachada {
 
-	@PersistenceContext(unitName="facturacion")
+	@PersistenceContext(unitName="PersistenceFacturacion")
 	private EntityManager em;
 
 	/**

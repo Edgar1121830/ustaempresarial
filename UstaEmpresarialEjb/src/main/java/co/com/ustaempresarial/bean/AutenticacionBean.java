@@ -18,7 +18,7 @@ import co.com.ustaempresarial.fachada.AutenticacionFachada;
 @LocalBean
 public class AutenticacionBean implements AutenticacionFachada{
 
-	@PersistenceContext(unitName="facturacion")
+	@PersistenceContext(unitName="PersistenceFacturacion")
 	private EntityManager em;
 	
 	public AutenticacionBean() {

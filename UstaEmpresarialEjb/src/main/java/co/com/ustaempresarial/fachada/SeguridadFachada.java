@@ -10,7 +10,9 @@ import co.com.ustaempresarial.seguridad.modelo.RolUsuario;
 import co.com.ustaempresarial.seguridad.modelo.Usuario;
 import co.com.ustaempresarial.seguridad.modelo.UsuarioLog;
 
+import javax.ejb.Remote;
 
+@Remote
 public interface SeguridadFachada {
 	
 	

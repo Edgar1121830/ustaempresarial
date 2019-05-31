@@ -20,7 +20,7 @@ import java.util.List;
 @TransactionManagement(TransactionManagementType.CONTAINER)
 public class FinanzasBean implements FinanzasFachada {
 
-    @PersistenceContext(unitName = "FinanzasModelo")
+    @PersistenceContext(unitName = "PersistenceFinanzas")
     public EntityManager em;
 
     public FinanzasBean() {

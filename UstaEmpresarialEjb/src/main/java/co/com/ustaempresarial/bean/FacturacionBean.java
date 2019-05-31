@@ -28,7 +28,7 @@ import co.com.ustaempresarial.fachada.FacturacionFachada;
 @TransactionManagement(TransactionManagementType.CONTAINER)
 public class FacturacionBean implements FacturacionFachada {
 
-	@PersistenceContext(unitName = "facturacion")
+	@PersistenceContext(unitName = "PersistenceFacturacion")
 	private EntityManager em;
 
 	public FacturacionBean() {

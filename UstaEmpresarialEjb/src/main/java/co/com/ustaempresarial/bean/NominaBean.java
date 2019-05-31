@@ -20,7 +20,7 @@ import java.util.List;
 
 public class NominaBean implements NominaFachada {
 
-    @PersistenceContext(unitName = "nomina")
+    @PersistenceContext(unitName = "PerisistenceNomina")
     private EntityManager em;
 
     public NominaBean() {

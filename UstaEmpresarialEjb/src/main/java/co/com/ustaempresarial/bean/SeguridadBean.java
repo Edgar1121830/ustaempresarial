@@ -27,7 +27,7 @@ import co.com.ustaempresarial.seguridad.modelo.UsuarioLog;
 @LocalBean
 @TransactionManagement(TransactionManagementType.CONTAINER)
 public class SeguridadBean implements SeguridadFachada {
-	@PersistenceContext(unitName = "ustaEmpresarialEjb")
+	@PersistenceContext(unitName = "PersistenceSeguridad")
 	private EntityManager em;
 
 	public SeguridadBean() {

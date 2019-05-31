@@ -18,13 +18,12 @@ import co.com.ustaempresarial.seguridad.modelo.RolUsuario;
 import co.com.ustaempresarial.seguridad.modelo.Usuario;
 import co.com.ustaempresarial.seguridad.modelo.UsuarioLog;
 
-
-
 @Stateless
 @LocalBean
 @TransactionAttribute(TransactionAttributeType.NOT_SUPPORTED)
 
 public class SeguridadSevicio {
+
 	@EJB
 	 SeguridadFachada fachada;
 	
