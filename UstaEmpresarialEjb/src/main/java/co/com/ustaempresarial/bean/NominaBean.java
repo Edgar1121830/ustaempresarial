@@ -39,6 +39,7 @@ public class NominaBean implements NominaFachada {
     public boolean crearHojaVida(HojaVida hojaVida) throws Exception {
         if (hojaVida.getDocumento() != null && !hojaVida.getDocumento().equals("")) {
             em.persist(hojaVida);
+            em.flush();
             return true;
         }
         return false;
@@ -147,6 +148,7 @@ public class NominaBean implements NominaFachada {
     public void crearDependencia(Dependencia dep) throws Exception {
         if (dep.getNombre() != null && !dep.getNombre().equals("")) {
             em.persist(dep);
+            em.flush();
         }
     }
 
@@ -195,6 +197,7 @@ public class NominaBean implements NominaFachada {
             if (contrato1.getCodigo() > 0) {
                 if (contrato1.getFechaFin().compareTo(contrato.getFechaInicio()) < 0) {
                     em.persist(contrato);
+                    em.flush();
                 } else {
                     //se cruzan los contratos
                     flag = false;
@@ -280,6 +283,7 @@ public class NominaBean implements NominaFachada {
     public void crearConcepto(Concepto con) throws Exception {
         if (con.getNombre() != null && !con.getNombre().equals("")) {
             em.persist(con);
+            em.flush();
         }
     }
 
@@ -326,6 +330,7 @@ public class NominaBean implements NominaFachada {
     public boolean crearPeriodo(Periodo per) throws Exception {
         if (per.getCodigo() != null && !per.getCodigo().equals("")) {
             em.persist(per);
+            em.flush();
             return true;
         }
         return false;
@@ -370,6 +375,7 @@ public class NominaBean implements NominaFachada {
     public boolean liquidarNomina(Nomina nomina) throws Exception {
         if (nomina.getId() != null) {
             em.persist(nomina);
+            em.flush();
             return true;
         }
         return false;
