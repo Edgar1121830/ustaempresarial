@@ -13,7 +13,7 @@ import javax.faces.bean.SessionScoped;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 
-import org.primefaces.context.RequestContext;
+//import org.primefaces.context.RequestContext;
 
 import co.com.facturacion.modelo.UsuarioLogin;
 import co.com.ustaempresarial.servicio.AutenticacionServicio;
