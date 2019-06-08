@@ -60,17 +60,17 @@
         </query>
     </named-query>
 
-    <named-query name="PlanContable.LISTARPLANCONTABLE">
+    <named-query name="PlanContable.LISTAR_PLANCONTABLE">
         <query>
             SELECT c
             FROM PlanContable c
         </query>
     </named-query>
-    <named-query name="PlanContable.LISTARPLANCONTABLEBYNAME">
+    <named-query name="PlanContable.LISTAR_PLANCONTABLE_BYNAME">
         <query>
-            SELECT c
-            FROM Concepto c
-            WHERE c.nombre like '%:nombre%'
+            SELECT p
+            FROM PlanContable p
+            WHERE p.nombre like '%:nombre%'
         </query>
     </named-query>
 </entity-mappings>

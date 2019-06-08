@@ -4,24 +4,23 @@ import java.io.Serializable;
 import javax.persistence.*;
 import java.util.Date;
 
-
 /**
  * The persistent class for the plan_contable database table.
  * 
  */
 @Entity
-@Table(name="plan_contable", schema="\"FINANZAS\"")
+@Table(name = "plan_contable", schema = "finanzas")
 public class PlanContable implements Serializable {
 	private static final long serialVersionUID = 1L;
-	
-	public static final String LISTARPLANCONTABLE = "PlanContable.LISTARPLANCONTABLE";
-	public static final String LISTARPLANCONTABLEBYNAME = "PlanContable.LISTARPLANCONTABLEBYNAME";
-	
+
+	public static final String LISTAR_PLANCONTABLE = "PlanContable.LISTAR_PLANCONTABLE";
+	public static final String LISTAR_PLANCONTABLE_BYNAME = "PlanContable.LISTAR_PLANCONTABLE_BYNAME";
+
 	@Id
-	//@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer codigo;
 
-	@Column(name="codigo_padre")
+	@Column(name = "codigo_padre")
 	private Integer codigoPadre;
 
 	private String descripcion;

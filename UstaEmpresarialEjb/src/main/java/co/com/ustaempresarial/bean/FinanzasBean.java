@@ -1,14 +1,12 @@
 package co.com.ustaempresarial.bean;
 
 import co.com.ustaempresarial.fachada.FinanzasFachada;
-import co.com.ustaempresarial.finanzas.modelo.Concepto;
-import co.com.ustaempresarial.finanzas.modelo.LibroDiario;
-import co.com.ustaempresarial.finanzas.modelo.LibroMayor;
-import co.com.ustaempresarial.finanzas.modelo.Periodo;
-import co.com.ustaempresarial.finanzas.modelo.PlanContable;
-import co.com.ustaempresarial.finanzas.modelo.LogCuenta;
+import co.com.ustaempresarial.finanzas.modelo.*;
 
-import javax.ejb.*;
+import javax.ejb.LocalBean;
+import javax.ejb.Stateless;
+import javax.ejb.TransactionManagement;
+import javax.ejb.TransactionManagementType;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
@@ -26,12 +24,13 @@ public class FinanzasBean implements FinanzasFachada {
     public FinanzasBean() {
         super();
     }
+
     /**
-  	 * Metodo que crea los libro diarios.
-  	 *
-  	 * @param libroDiario
-  	 * @throws Exception Capturar errores posibles sobre ejecución.
-  	 */
+     * Metodo que crea los libro diarios.
+     *
+     * @param libroDiario
+     * @throws Exception Capturar errores posibles sobre ejecución.
+     */
     @Override
     public void crearLibroDiario(LibroDiario libroDiario) throws Exception {
         if (libroDiario.getAsiento() != null && libroDiario.getValor() != null) {
@@ -39,6 +38,7 @@ public class FinanzasBean implements FinanzasFachada {
             em.flush();
         }
     }
+
     /**
      * Metodo que lista los libros diarios.
      *
@@ -52,6 +52,7 @@ public class FinanzasBean implements FinanzasFachada {
         libroDiario = q.getResultList();
         return libroDiario;
     }
+
     /**
      * Metodo que busca libro diario por el nombre.
      *
@@ -72,6 +73,7 @@ public class FinanzasBean implements FinanzasFachada {
 
         return objlibroDiario;
     }
+
     /**
      * Metodo que busca libro diario por el nombre.
      *
@@ -114,6 +116,7 @@ public class FinanzasBean implements FinanzasFachada {
         }
         return libroDiario;
     }
+
     /**
      * Metodo que elimina el libro diario.
      *
@@ -132,25 +135,39 @@ public class FinanzasBean implements FinanzasFachada {
         }
         return retorno;
     }
+
     /**
-  	 * Metodo que busca el libro diario por nombre.
-  	 *
-  	 * @param Codigo del libro diario.
-  	 * @return p, el resultado de la busqueda por nombre.
-  	 * @throws Exception Capturar errores posibles sobre ejecución.
-  	 */
+     * Metodo que busca el libro diario por nombre.
+     *
+     * @param Codigo del libro diario.
+     * @return p, el resultado de la busqueda por nombre.
+     * @throws Exception Capturar errores posibles sobre ejecución.
+     */
     @Override
     public LibroDiario buscarLibroDiarioById(int codigo) throws Exception {
         LibroDiario p = new LibroDiario();
         p = em.find(LibroDiario.class, codigo);
         return p;
     }
+
     /**
-  	 * Metodo que crea los libros mayores.
-  	 *
-  	 * @param libroMayor.
-  	 * @throws Exception Capturar errores posibles sobre ejecución.
-  	 */
+     * Busca un plan contable por su código identificador
+     *
+     * @param codigo
+     * @return
+     * @throws Exception
+     */
+    @Override
+    public PlanContable buscarPlanContable(int codigo) throws Exception {
+        return null;
+    }
+
+    /**
+     * Metodo que crea los libros mayores.
+     *
+     * @param libroMayor.
+     * @throws Exception Capturar errores posibles sobre ejecución.
+     */
     @Override
     public void crearLibroMayor(LibroMayor libroMayor) throws Exception {
         if (libroMayor.getId() != null && libroMayor.getDebe() != null) {
@@ -158,6 +175,7 @@ public class FinanzasBean implements FinanzasFachada {
             em.flush();
         }
     }
+
     /**
      * Metodo que lista los libros mayores.
      *
@@ -171,6 +189,7 @@ public class FinanzasBean implements FinanzasFachada {
         libroMayor = q.getResultList();
         return libroMayor;
     }
+
     /**
      * Metodo que lista los libros mayores por nombre.
      *
@@ -188,6 +207,7 @@ public class FinanzasBean implements FinanzasFachada {
         }
         return objLibroMayor;
     }
+
     /**
      * Metodo que lista los libros mayores por nombre.
      *
@@ -204,6 +224,7 @@ public class FinanzasBean implements FinanzasFachada {
         }
         return listLibroMayor;
     }
+
     /**
      * Metodo que actualiza un LibroMayor
      *
@@ -225,6 +246,7 @@ public class FinanzasBean implements FinanzasFachada {
         }
         return libroMayor;
     }
+
     /**
      * Metodo que elimina un libro mayor.
      *
@@ -242,6 +264,7 @@ public class FinanzasBean implements FinanzasFachada {
         }
         return retorno;
     }
+
     /**
      * Metodo que busca libro mayor por ID.
      *
@@ -263,22 +286,24 @@ public class FinanzasBean implements FinanzasFachada {
      * @throws Exception Capturar errores posibles sobre ejecución.
      */
     public Periodo buscarPeriodoPorCodigo(int codigo) throws Exception {
-    	Periodo p = new Periodo();
-		p = em.find(Periodo.class, codigo);
-		return p;
-	}
-  /**
-   * Metodo que crea un periodo.
-   *
-   * @param Objeto periodo.
-   * @throws Exception Capturar errores posibles sobre ejecución.
-   */
-    public void crearPeriodo(Periodo periodo) throws Exception{
-    	if (periodo.getCodigo() != null ) {
+        Periodo p = new Periodo();
+        p = em.find(Periodo.class, codigo);
+        return p;
+    }
+
+    /**
+     * Metodo que crea un periodo.
+     *
+     * @param Objeto periodo.
+     * @throws Exception Capturar errores posibles sobre ejecución.
+     */
+    public void crearPeriodo(Periodo periodo) throws Exception {
+        if (periodo.getCodigo() != null) {
             em.persist(periodo);
             em.flush();
         }
     }
+
     /**
      * Metodo que actualiza el periodo.
      *
@@ -286,24 +311,25 @@ public class FinanzasBean implements FinanzasFachada {
      * @return Objeto newcampania. El periodo actualizado.
      * @throws Exception Capturar errores posibles sobre ejecución.
      */
-	public Periodo editarPeriodo(Periodo periodo) throws Exception {
-		Periodo newcampania = new Periodo();
-		newcampania = buscarPeriodoPorCodigo(periodo.getCodigo());
-			if (newcampania.getCodigo()>0) {
-				em.merge(periodo);
-			}else newcampania = null;
+    public Periodo editarPeriodo(Periodo periodo) throws Exception {
+        Periodo newcampania = new Periodo();
+        newcampania = buscarPeriodoPorCodigo(periodo.getCodigo());
+        if (newcampania.getCodigo() > 0) {
+            em.merge(periodo);
+        } else newcampania = null;
 
-		return newcampania;
-	}
-  /**
-   * Metodo que elimina el periodo.
-   *
-   * @param Codigo del periodo.
-   * @return True si se elimina, false si no se elimina.
-   * @throws Exception Capturar errores posibles sobre ejecución.
-   */
+        return newcampania;
+    }
+
+    /**
+     * Metodo que elimina el periodo.
+     *
+     * @param Codigo del periodo.
+     * @return True si se elimina, false si no se elimina.
+     * @throws Exception Capturar errores posibles sobre ejecución.
+     */
     public boolean eliminarPeriodo(int codigo) throws Exception {
-    	Periodo periodo = buscarPeriodoPorCodigo(codigo);
+        Periodo periodo = buscarPeriodoPorCodigo(codigo);
         boolean retorno = false;
         periodo.setEstado(false);
         if (periodo.getCodigo() > 0) {
@@ -312,6 +338,7 @@ public class FinanzasBean implements FinanzasFachada {
         }
         return retorno;
     }
+
     /**
      * Metodo que lista los periodos.
      *
@@ -325,6 +352,7 @@ public class FinanzasBean implements FinanzasFachada {
         periodo = q.getResultList();
         return periodo;
     }
+
     /**
      * Metodo que lista los periodos por su nombre.
      *
@@ -333,7 +361,7 @@ public class FinanzasBean implements FinanzasFachada {
      * @throws Exception Capturar errores posibles sobre ejecución.
      */
     public Periodo listarPeriodoPorNombre(String nombre) throws Exception {
-    	Periodo objPeriodo = new Periodo();
+        Periodo objPeriodo = new Periodo();
         if (nombre != null && !nombre.equals("")) {
             Query q = em.createNamedQuery(Periodo.LISTARPERIODOBYNAME).setParameter("nombre", nombre);
             Object obj = q.getSingleResult();
@@ -341,6 +369,7 @@ public class FinanzasBean implements FinanzasFachada {
         }
         return objPeriodo;
     }
+
     /**
      * Metodo que busca el concepto por su codigo.
      *
@@ -349,22 +378,24 @@ public class FinanzasBean implements FinanzasFachada {
      * @throws Exception Capturar errores posibles sobre ejecución.
      */
     public Concepto buscarConceptoPorCodigo(int codigo) throws Exception {
-    	Concepto p = new Concepto();
-		p = em.find(Concepto.class, codigo);
-		return p;
-	}
-  /**
-   * Metodo que crea un concepto.
-   *
-   * @param Objeto concepto.
-   * @throws Exception Capturar errores posibles sobre ejecución.
-   */
-    public void crearConcepto(Concepto concepto) throws Exception{
-    	if (concepto.getCodigo() != null ) {
+        Concepto p = new Concepto();
+        p = em.find(Concepto.class, codigo);
+        return p;
+    }
+
+    /**
+     * Metodo que crea un concepto.
+     *
+     * @param Objeto concepto.
+     * @throws Exception Capturar errores posibles sobre ejecución.
+     */
+    public void crearConcepto(Concepto concepto) throws Exception {
+        if (concepto.getCodigo() != null) {
             em.persist(concepto);
             em.flush();
         }
     }
+
     /**
      * Metodo que actualiza el concepto.
      *
@@ -372,31 +403,34 @@ public class FinanzasBean implements FinanzasFachada {
      * @return Objeto newcampania con el concepto actualizado.
      * @throws Exception Capturar errores posibles sobre ejecución.
      */
-	public Concepto editarConcepto(Concepto concepto) throws Exception {
-		Concepto newcampania = new Concepto();
-		newcampania = buscarConceptoPorCodigo(concepto.getCodigo());
-			if (newcampania.getCodigo()>0) {
-				em.merge(concepto);
-			}else newcampania = null;
+    public Concepto editarConcepto(Concepto concepto) throws Exception {
+        Concepto newcampania = new Concepto();
+        newcampania = buscarConceptoPorCodigo(concepto.getCodigo());
+        if (newcampania.getCodigo() > 0) {
+            em.merge(concepto);
+        } else newcampania = null;
 
-		return newcampania;
-	}
-  /**
-   * Metodo que elimina un concepto.
-   *
-   * @param Codigo del concepto.
-   * @return True si se elimina, false si no se elimina.
-   * @throws Exception Capturar errores posibles sobre ejecución.
-   */
+        return newcampania;
+    }
+
+    /**
+     * Metodo que elimina un concepto.
+     *
+     * @param Codigo del concepto.
+     * @return True si se elimina, false si no se elimina.
+     * @throws Exception Capturar errores posibles sobre ejecución.
+     */
     public boolean eliminarConcepto(int codigo) throws Exception {
-    	Concepto concepto = buscarConceptoPorCodigo(codigo);
+        Concepto concepto = buscarConceptoPorCodigo(codigo);
         boolean retorno = false;
         if (concepto.getCodigo() > 0) {
-            em.remove(concepto);;
+            em.remove(concepto);
+            ;
             retorno = true;
         }
         return retorno;
     }
+
     /**
      * Metodo que lista los conceptos.
      *
@@ -409,6 +443,7 @@ public class FinanzasBean implements FinanzasFachada {
         concepto = q.getResultList();
         return concepto;
     }
+
     /**
      * Metodo que lista los conceptos por su nombre.
      *
@@ -417,7 +452,7 @@ public class FinanzasBean implements FinanzasFachada {
      * @throws Exception Capturar errores posibles sobre ejecución.
      */
     public Concepto listarConceptoPorNombre(String nombre) throws Exception {
-    	Concepto objConcepto = new Concepto();
+        Concepto objConcepto = new Concepto();
         if (nombre != null && !nombre.equals("")) {
             Query q = em.createNamedQuery(Concepto.LISTARCONCEPTOBYNAME).setParameter("nombre", nombre);
             Object obj = q.getSingleResult();
@@ -425,6 +460,7 @@ public class FinanzasBean implements FinanzasFachada {
         }
         return objConcepto;
     }
+
     /**
      * Metodo que busca un plan contable por su codigo.
      *
@@ -433,30 +469,33 @@ public class FinanzasBean implements FinanzasFachada {
      * @throws Exception Capturar errores posibles sobre ejecución.
      */
     public PlanContable buscarPlanContablePorCodigo(int codigo) throws Exception {
-    	PlanContable p = new PlanContable();
-		p = em.find(PlanContable.class, codigo);
-		return p;
-	}
-  /**
-   * Metodo que crea un plan contable. Y a su vez hacer el ingreso de la nueva cuenta en la tabla log de cuentas Cuentas
-   *
-   * @param Objeto plan_contable.
-   * @throws Exception Capturar errores posibles sobre ejecución.
-   */
-    public void crearPlanContable(PlanContable plan_contable) throws Exception{
-    	LogCuenta logNuevo = new LogCuenta();
-    	logNuevo.setCodigoCuentaNueva(plan_contable.getCodigo());
-    	logNuevo.setDescripcionCuentaNueva(plan_contable.getDescripcion());
-    	logNuevo.setNombreCuentaNueva(plan_contable.getNombre());
-    	logNuevo.setTipoCuentaNueva(plan_contable.getTipo());
-    	logNuevo.setVigenciaCuentaNueva(plan_contable.getVigencia());
-    	PlanContable planContable = new PlanContable();
-    	if (plan_contable.getCodigo() != null ) {
-    		em.persist(logNuevo);
+        PlanContable p = new PlanContable();
+        p = em.find(PlanContable.class, codigo);
+        return p;
+    }
+
+    /**
+     * Metodo que crea un plan contable. Y a su vez hacer el ingreso de la nueva cuenta en la tabla log de cuentas Cuentas
+     *
+     * @param Objeto plan_contable.
+     * @throws Exception Capturar errores posibles sobre ejecución.
+     */
+    public boolean crearPlanContable(PlanContable plan_contable) throws Exception {
+        LogCuenta logNuevo = new LogCuenta();
+        logNuevo.setCodigoCuentaNueva(plan_contable.getCodigo());
+        logNuevo.setDescripcionCuentaNueva(plan_contable.getDescripcion());
+        logNuevo.setNombreCuentaNueva(plan_contable.getNombre());
+        logNuevo.setTipoCuentaNueva(plan_contable.getTipo());
+        logNuevo.setVigenciaCuentaNueva(plan_contable.getVigencia());
+        if (plan_contable.getCodigo() != null) {
+            em.persist(logNuevo);
             em.persist(plan_contable);
             em.flush();
+            return true;
         }
+        return false;
     }
+
     /**
      * Metodo que actualiza un plan contable.
      *
@@ -464,24 +503,25 @@ public class FinanzasBean implements FinanzasFachada {
      * @return objeto newcampania con el plan_contable actualizado.
      * @throws Exception Capturar errores posibles sobre ejecución.
      */
-	public PlanContable editarPlanContable(PlanContable plan_contable) throws Exception {
-		PlanContable newcampania = new PlanContable();
-		newcampania = buscarPlanContablePorCodigo(plan_contable.getCodigo());
-			if (newcampania.getCodigo()>0) {
-				em.merge(plan_contable);
-			}else newcampania = null;
+    public PlanContable editarPlanContable(PlanContable plan_contable) throws Exception {
+        PlanContable newcampania = new PlanContable();
+        newcampania = buscarPlanContablePorCodigo(plan_contable.getCodigo());
+        if (newcampania.getCodigo() > 0) {
+            em.merge(plan_contable);
+        } else newcampania = null;
 
-		return newcampania;
-	}
-  /**
-   * Metodo que elimina un plan contable.
-   *
-   * @param Codigo del plan contable.
-   * @return True si se elimina, false si no se elimina.
-   * @throws Exception Capturar errores posibles sobre ejecución.
-   */
+        return newcampania;
+    }
+
+    /**
+     * Metodo que elimina un plan contable.
+     *
+     * @param Codigo del plan contable.
+     * @return True si se elimina, false si no se elimina.
+     * @throws Exception Capturar errores posibles sobre ejecución.
+     */
     public boolean eliminarPlanContable(int codigo) throws Exception {
-    	PlanContable plan_contable = buscarPlanContablePorCodigo(codigo);
+        PlanContable plan_contable = buscarPlanContablePorCodigo(codigo);
         boolean retorno = false;
         if (plan_contable.getCodigo() > 0) {
             em.merge(plan_contable);
@@ -489,6 +529,7 @@ public class FinanzasBean implements FinanzasFachada {
         }
         return retorno;
     }
+
     /**
      * Metodo que lista los planes contables.
      *
@@ -496,11 +537,12 @@ public class FinanzasBean implements FinanzasFachada {
      * @throws Exception Capturar errores posibles sobre ejecución.
      */
     public List<PlanContable> listarPlanContable() throws Exception {
-        List<PlanContable> plan_contable;
-        Query q = em.createNamedQuery(PlanContable.LISTARPLANCONTABLE);
+        List<PlanContable> plan_contable = new ArrayList<PlanContable>();
+        Query q = em.createNamedQuery(PlanContable.LISTAR_PLANCONTABLE);
         plan_contable = q.getResultList();
         return plan_contable;
     }
+
     /**
      * Metodo que lista los planes contables por sus nombres.
      *
@@ -509,18 +551,14 @@ public class FinanzasBean implements FinanzasFachada {
      * @throws Exception Capturar errores posibles sobre ejecución.
      */
     public PlanContable listarPlanContablePorNombre(String nombre) throws Exception {
-    	PlanContable objPlanContable = new PlanContable();
+        PlanContable objPlanContable = new PlanContable();
         if (nombre != null && !nombre.equals("")) {
-            Query q = em.createNamedQuery(PlanContable.LISTARPLANCONTABLEBYNAME).setParameter("nombre", nombre);
+            Query q = em.createNamedQuery(PlanContable.LISTAR_PLANCONTABLE_BYNAME).setParameter("nombre", nombre);
             Object obj = q.getSingleResult();
             objPlanContable = (PlanContable) obj;
         }
         return objPlanContable;
     }
-
-
-
-
 
 
 }

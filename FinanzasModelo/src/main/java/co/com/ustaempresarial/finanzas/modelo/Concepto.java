@@ -9,13 +9,13 @@ import javax.persistence.*;
  * 
  */
 @Entity
-@Table(name="concepto", schema="\"FINANZAS\"")
+@Table(name="concepto", schema="finanzas")
 public class Concepto implements Serializable {
 	private static final long serialVersionUID = 1L;
-	
+
 	public static final String LISTARCONCEPTO = "Concepto.LISTARCONCEPTO";
 	public static final String LISTARCONCEPTOBYNAME = "Concepto.LISTARCONCEPTOBYNAME";
-
+	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer codigo;

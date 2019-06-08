@@ -119,12 +119,13 @@
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
 		<jta-data-source>java:jboss/env/jdbc/finanzas</jta-data-source>
 		<mapping-file>META-INF/finanzas_orm.xml</mapping-file>
-		<class>co.com.ustaempresarial.finanzas.modelo.PlanContable</class>
 		<class>co.com.ustaempresarial.finanzas.modelo.Concepto</class>
 		<class>co.com.ustaempresarial.finanzas.modelo.LibroDiario</class>
 		<class>co.com.ustaempresarial.finanzas.modelo.LibroMayor</class>
 		<class>co.com.ustaempresarial.finanzas.modelo.LibroMayorPK</class>
+		<class>co.com.ustaempresarial.finanzas.modelo.LogCuenta</class>
 		<class>co.com.ustaempresarial.finanzas.modelo.Periodo</class>
+		<class>co.com.ustaempresarial.finanzas.modelo.PlanContable</class>
 		<exclude-unlisted-classes>true</exclude-unlisted-classes>
 		<shared-cache-mode>ENABLE_SELECTIVE</shared-cache-mode>
 		<properties>

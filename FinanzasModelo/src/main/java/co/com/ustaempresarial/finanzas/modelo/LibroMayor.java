@@ -11,10 +11,10 @@ import java.util.Date;
  * 
  */
 @Entity
-@Table(name="libro_mayor", schema="\"FINANZAS\"")
+@Table(name="libro_mayor", schema="finanzas")
 public class LibroMayor implements Serializable {
 	private static final long serialVersionUID = 1L;
-
+	
 	public static final String LISTARLibroMayor = "LibroMayor.LISTAR_LIBRO_MAYOR";
 	public static final String LISTARLibroMayorBYNAME = "LibroMayor.LISTAR_LIBRO_MAYOR_BYNAME";
 

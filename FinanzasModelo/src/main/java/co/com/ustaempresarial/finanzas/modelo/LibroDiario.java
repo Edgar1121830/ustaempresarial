@@ -11,14 +11,13 @@ import java.util.Date;
  * 
  */
 @Entity
-@Table(name="libro_diario", schema="\"FINANZAS\"")
+@Table(name="libro_diario", schema="finanzas")
 public class LibroDiario implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	public static final String LISTARLibroDiario = "LibroDiario.LISTAR_LIBRO_DIARIO";
 	public static final String LISTARLibroDiarioBYNAME = "LibroDiario.LISTARBYNAME";
-
-
+	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer asiento;
