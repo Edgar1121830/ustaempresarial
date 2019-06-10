@@ -124,9 +124,9 @@
                         <password>root</password>
                     </security>
                 </datasource>
-
+s
                 <drivers>
-                    <driver name="postgresql" module="org.postgresql">
+                    <driver name="postgresql" module="com.postgresql">
                         <xa-datasource-class>org.postgresql.xa.PGXADataSource</xa-datasource-class>
                     </driver>
                     <driver name="h2" module="com.h2database.h2">
