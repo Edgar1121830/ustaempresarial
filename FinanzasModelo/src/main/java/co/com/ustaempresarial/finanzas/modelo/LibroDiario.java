@@ -17,7 +17,8 @@ public class LibroDiario implements Serializable {
 
 	public static final String LISTARLibroDiario = "LibroDiario.LISTAR_LIBRO_DIARIO";
 	public static final String LISTARLibroDiarioBYNAME = "LibroDiario.LISTARBYNAME";
-	
+
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer asiento;

@@ -13,7 +13,7 @@ import java.util.Date;
 @Table(name="periodo", schema="finanzas")
 public class Periodo implements Serializable {
 	private static final long serialVersionUID = 1L;
-
+	
 	public static final String LISTARPERIODO = "Periodo.LISTARPERIODO";
 	public static final String LISTARPERIODOBYNAME = "Periodo.LISTARPERIODOBYNAME";
 

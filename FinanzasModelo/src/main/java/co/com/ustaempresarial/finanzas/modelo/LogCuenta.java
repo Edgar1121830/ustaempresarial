@@ -10,12 +10,11 @@ import java.util.Date;
  * 
  */
 @Entity
-@Table(name="log_cuentas", schema="finanzas")
+@Table(name="log_cuentas", schema = "finanzas")
 public class LogCuenta implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="codigo_cuenta_nueva")
 	private Integer codigoCuentaNueva;
 
