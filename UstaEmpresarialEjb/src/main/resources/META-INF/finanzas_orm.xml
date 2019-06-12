@@ -20,8 +20,8 @@
 
     <named-query name="LibroDiario.LISTAR_LIBRO_DIARIO">
         <query>
-            SELECT c
-            FROM LibroDiario c
+            SELECT l
+            FROM LibroDiario l
         </query>
     </named-query>
     <named-query name="LibroDiario.LISTARBYNAME">
@@ -34,36 +34,36 @@
 
     <named-query name="LibroMayor.LISTAR_LIBRO_MAYOR">
         <query>
-            SELECT c
-            FROM LibroMayor c
+            SELECT l
+            FROM LibroMayor l
         </query>
     </named-query>
-    <named-query name="LibroMayor.LISTAR_LIBRO_MAYOR_BYNAME">
+    <named-query name="LibroMayor.LISTAR_LIBRO_MAYOR_BYID">
         <query>
-            SELECT c
-            FROM Concepto c
-            WHERE c.nombre like '%:nombre%'
+            SELECT lm
+            FROM LibroMayor lm
+            WHERE lm.id = :id
         </query>
     </named-query>
 
     <named-query name="Periodo.LISTARPERIODO">
         <query>
-            SELECT c
-            FROM Periodo c
+            SELECT p
+            FROM Periodo p
         </query>
     </named-query>
     <named-query name="Periodo.LISTARPERIODOBYNAME">
         <query>
-            SELECT c
-            FROM Concepto c
-            WHERE c.nombre like '%:nombre%'
+            SELECT p
+            FROM Periodo p
+            WHERE p.codigo = :codigo
         </query>
     </named-query>
 
     <named-query name="PlanContable.LISTAR_PLANCONTABLE">
         <query>
-            SELECT c
-            FROM PlanContable c
+            SELECT p
+            FROM PlanContable p
         </query>
     </named-query>
     <named-query name="PlanContable.LISTAR_PLANCONTABLE_BYNAME">
