@@ -1,0 +1,34 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	template="/WEB-INF/templates/comf-template-consultas.xhtml">
+	<ui:define name="head">:: GES ::</ui:define>
+	<ui:define name="body">
+		<h:body>
+			<h:form>
+				<p:growl id="msgs" showDetail="true" />
+
+				<p:panel id="basic" header="Panel de adminstración"
+					style="margin-bottom:20px">
+					<h:panelGrid columns="2" cellpadding="10">
+						<p:dataTable var="car" value="#{dtBasicView.cars}">
+							<p:column headerText="ID">
+								<h:outputText value="#{adm.id}" />
+							</p:column>
+
+								<h:outputText value="#{car.year}" />
+							</p:column>
+							<p:column headerText="usuario">
+								<h:outputText value="#{car.year}" />
+							</p:column>
+
+
+						</p:dataTable>
+					</h:panelGrid>
+				</p:panel>
+			</h:form>
+		</h:body>
+	</ui:define>
+</ui:composition>
