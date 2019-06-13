@@ -149,7 +149,7 @@ public class FacturacionServicio {
 	public boolean borrarVenta(int codigo) throws Exception {
 		return fachada.borrarVenta(codigo);
 	}
-	/*Lista todas las ventas/
+	//Lista todas las ventas/
 	public List<Venta> traerVenta() throws Exception {
 		return fachada.traerVenta();
 	}
