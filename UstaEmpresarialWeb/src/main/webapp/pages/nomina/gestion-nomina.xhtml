@@ -1,24 +1,220 @@
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:p="http://primefaces.org/ui">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	template="/WEB-INF/templates/comf-template-menu2.xhtml">
+	<ui:define name="head">NOMINA</ui:define>
+	<ui:define name="body">
+		<h:body>
+			<p:messages id="messages" globalOnly="true" autoUpdate="true"
+				closable="true" showDetail="true" showSummary="true" />
+			<div align="center">
+				<h:outputLabel value="BIENVENIDO " />
+				#{prin.usLoged}
+				<h:outputLabel value="AL SISTEMA DE NOMINA" />
+			</div>
+			<h:form>
+				<p:tabView>
+					<p:tab title="#{msg.tabPlanContable}">
+						<h:form id="formPlanContable">
+							<p:panel>
+								<p:panelGrid columns="1" layout="grid">
+									<h3>Crear hoja de vida</h3>
+									<div class="row">
+										<div class="col-5">
+											<p:outputLabel for="docPlan" value="#{msg.docPlan}" />
+											<p:inputText id="docPlan"
+												value="#{planContableHojaDeVida.hojaVidaContable.documento}" />
 
-<h:head>
-    <meta http-equiv="content-type" content="text/html; charset=iso-8859-1"/>
-    <link rel="stylesheet" href="../../CSS/cambios.css"/>
-</h:head>
+											<p:outputLabel for="nombrePlan" value="#{msg.nombrePlan}" />
+											<p:inputText id="nombrePlan"
+												value="#{planContableHojaDeVida.hojaVidaContable.nombre}" />
 
-<h:body>
-    <p:spinner/>
-    <h:form>
-        <h3>Basic</h3>
-        <p:inputText/>
+											<p:outputLabel for="apePlan" value="#{msg.apellidoPlan}" />
+											<p:inputText id="apePlan"
+												value="#{planContableHojaDeVida.hojaVidaContable.apellido}" />
 
-        <h3>Floating Label</h3>
-        <span class="ui-float-label">
-       <p:inputText id="float-input" value="#{basicView.text}"/>
-       <p:outputLabel for="@previous" value="Username"/>
-   </span>
+											<p:outputLabel for="dirPlan" value="#{msg.direccionPlan}" />
+											<p:inputText id="dirPlan"
+												value="#{planContableHojaDeVida.hojaVidaContable.direccion}" />
 
-    </h:form>
-</h:body>
-</html>
+											<p:outputLabel for="fechaNaPlan"
+												value="#{msg.fechaNacimientoPlan}" />
+											<p:calendar id="fechaNaPlan"
+												value="#{planContableHojaDeVida.hojaVidaContable.nacimientoFecha}"
+												showOn="button" />
+											<p:outputLabel for="lugNaPlan"
+												value="#{msg.lugarNacimientoPlan}" />
+											<p:calendar id="lugNaPlan"
+												value="#{planContableHojaDeVida.hojaVidaContable.nacimientoLugar}" />
+											<p:outputLabel for="telPlan" value="#{msg.telefonoPlan}" />
+											<p:inputText id="telPlan"
+												value="#{planContableHojaDeVida.hojaVidaContable.telefono}" />
+
+
+										</div>
+										<div align="center">
+											<p:commandButton value="#{msg.botonGuardar}"
+												action="#{planContableHojaDeVida.crearHojaVidaContable()}"
+												icon="ui-icon-extlink" />
+											<!--                                                         icon="ui-icon-extlink" update="@listPlanContable"/>-->
+										</div>
+
+									</div>
+								</p:panelGrid>
+							</p:panel>
+						</h:form>
+
+						<h3>Listado de hoja de vida</h3>
+						<p:tab title="Listado de Hoja de vida">
+							<p:dataTable var="hojaVida"
+								value="#{planContableHojaDeVida.lista_hoja_de_vida}">
+								<p:column headerText="documento">
+									<h:outputText value="#{hojaVida.documento}" />
+								</p:column>
+
+								<p:column headerText="Nombre">
+									<h:outputText value="#{hojaVida.nombre}" />
+								</p:column>
+
+								<p:column headerText="	Apellido">
+									<h:outputText value="#{hojaVida.apellido}" />
+								</p:column>
+
+								<p:column headerText="Direccion">
+									<h:outputText value="#{hojaVida.direccion}" />
+								</p:column>
+								<p:column headerText="Fecha de nacimiento">
+									<h:outputText value="#{hojaVida.nacimientoFecha}" />
+								</p:column>
+								<p:column headerText="Lugar de nacimiento">
+									<h:outputText value="#{hojaVida.nacimientoLugar}" />
+								</p:column>
+								<p:column headerText="Telefono">
+									<h:outputText value="#{hojaVida.telefono}" />
+								</p:column>
+							</p:dataTable>
+							<!--                        <p:commandButton value="#{msg.botonCrear}" action="" icon="ui-icon-extlink"/>-->
+							<!--                        <p:commandButton value="#{msg.botonEditar}" action="" icon="ui-icon-extlink"/>-->
+						</p:tab>
+						<p:tab title="#{msg.tabPeriodo}">
+							<h:form id="formPeriodo">
+								<p:panel>
+									<p:panelGrid columns="1" layout="grid">
+										<h3>Crear periodo</h3>
+										<div class="row">
+											<div class="col-4">
+												<p:outputLabel for="codigoPerido" value="#{msg.codPeriodo}" />
+												<p:inputText id="codigoPerido"
+													value="#{periodoNomina.periodoContable.codigo}" />
+
+												<p:outputLabel for="fechaInicio" value="#{msg.fechaIni}" />
+												<p:calendar id="fechaInicio"
+													value="#{periodoNomina.periodoContable.fechaInicio}"
+													showOn="button" />
+
+												<p:outputLabel for="fechaFin" value="#{msg.fechaFin}" />
+												<p:calendar id="fechaFin"
+													value="#{periodoNomina.periodoContable.fechaFin}"
+													showOn="button" />
+
+												<p:outputLabel for="Estado" value="#{msg.estadoPeri}" />
+												<p:inputText id="Estado"
+													value="#{periodoNomina.periodoContable.estado}" />
+											</div>
+											<div align="center">
+												<p:commandButton value="#{msg.botonGuardar}"
+													action="#{periodoNomina.crearPeriodoContable()}"
+													icon="ui-icon-extlink" />
+											</div>
+										</div>
+									</p:panelGrid>
+								</p:panel>
+							</h:form>
+								
+							<h3>Listado Periodo</h3>
+									<p:dataTable var="periodo" value="#{periodoNomina.periodos}">
+										<p:column headerText="Código">
+											<h:outputText value="#{periodo.codigo}" />
+										</p:column>
+
+										<p:column headerText="Fecha inicio">
+											<h:outputText value="#{periodo.fechaInicio}" />
+										</p:column>
+
+										<p:column headerText="	Fecha final">
+											<h:outputText value="#{periodo.fechaFin}" />
+										</p:column>
+
+										<p:column headerText="Estado">
+											<h:outputText value="#{periodo.estado}" />
+										</p:column>
+									</p:dataTable>
+								</p:tab>
+
+						</p:tab>
+
+						<p:tab title="#{msg.tabDependencia}">
+							<p:panel>
+								<p:panelGrid columns="1" layout="grid">
+									<h3>Crear dependencias</h3>
+									<div class="row">
+										<div class="col-5">
+											<p:outputLabel for="codigoDependencia"
+												value="#{msg.codDependencia}" />
+											<p:inputText id="codigoDependencia"
+												value="#{planDependencia.objDependencia.codigo}" />
+
+											<p:outputLabel for="dependenciaPadre"
+												value="#{msg.dependenciaPadre}" />
+											<p:inputText id="dependenciaPadre"
+												value="#{planDependencia.objDependencia.dependenciaPadre} " />
+
+											<p:outputLabel for="nombreDependencia"
+												value="#{msg.nombreDependencia}" />
+											<p:inputText id="nombreDependencia"
+												value="#{planDependencia.objDependencia.nombre} " />
+
+											<p:outputLabel for="EstadoDependencia"
+												value="#{msg.EstadoDependencia}" />
+											<p:inputText id="EstadoDependencia"
+												value="#{planDependencia.objDependencia.estado} " />
+
+										</div>
+										<div align="center">
+											<p:commandButton value="#{msg.botonGuardar}"
+												action="#{planDependencia.crearDependencia()}"
+												icon="ui-icon-extlink" />
+										</div>
+
+									</div>
+								</p:panelGrid>
+							</p:panel>
+							<h3>Listado Dependencia</h3>
+							<p:dataTable id="listDependencia" var="listadoDependencia"
+								value="#{planDependencia.listaDependencia}">
+								<p:column headerText="CodDependencia">
+									<h:outputText value="#{listadoDependencia.codigo}" />
+								</p:column>
+
+								<p:column headerText="dependeciaPadre">
+									<h:outputText value="#{listadoDependencia.dependenciaPadre}" />
+								</p:column>
+
+								<p:column headerText="Nombre">
+									<h:outputText value="#{listadoDependencia.nombre}" />
+								</p:column>
+
+								<p:column headerText="Estado">
+									<h:outputText value="#{listadoDependencia.estado}" />
+								</p:column>
+
+							</p:dataTable>
+							<!--                        <p:commandButton value="#{msg.botonCrear}" action="" icon="ui-icon-extlink"/>-->
+							<!--                        <p:commandButton value="#{msg.botonEditar}" action="" icon="ui-icon-extlink"/>-->
+						</p:tab>
+				</p:tabView>
+			</h:form>
+		</h:body>
+	</ui:define>
+</ui:composition>

@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+</h:head>
+<h:body>
+	<h1>Crear contrato</h1>
+
+	<h:form>
+		<p:panel id="cear" header="#{msg.headerContrato}">
+			<p:messages id="msgs" />
+			<h:panelGrid columns="6" cellpadding="5">
+
+				<p:outputLabel for="cd" value="#{msg.labelCodConDep}" />
+				<p:inputText id="cd" value="#{nmcontrato.contrato.dependenciaCod}"
+					required="true" label="Codigo dependencia">
+					<f:validateLength minimum="1" />
+				</p:inputText>
+				<p:message for="cd" display="icon" />
+
+
+				<p:outputLabel for="hj" value="#{msg.labelDocHj}" />
+				<p:inputText id="hj" value="#{nmcontrato.contrato.hojaVidaDoc}"
+					required="true" label="Documento Hoja de vida">
+					<f:validateLength minimum="1" />
+				</p:inputText>
+				<p:message for="hj" display="icon" />
+
+				<p:outputLabel for="cdc" value="#{msg.labelCdCargo}" />
+				<p:inputText id="cdc" value="#{nmcontrato.contrato.codigo}"
+					required="true" label="Codigo Cargo">
+					<f:validateLength minimum="1" />
+				</p:inputText>
+				<p:message for="cdc" display="icon" />
+
+				<p:outputLabel for="sal" value="#{msg.labelSalario}" />
+				<p:inputText id="sal" value="#{nmcontrato.contrato.salario}"
+					required="true" label="Salario requerido">
+					<f:validateLength minimum="1" />
+				</p:inputText>
+				<p:message for="sal" display="icon" />
+
+
+				<p:outputLabel for="fini" value="#{msg.labelFechaInicio}" />
+				<p:calendar id="fini" value="#{nmcontrato.contrato.fechaInicio}"
+					showOn="button" />
+				<p:outputLabel for="button" value="Button" />
+					required="true" label="Fecha Inicio">
+								<p:message for="fini" display="icon" />
+
+				<p:outputLabel for="ffin" value="#{msg.labelFechaFin}" />
+				<p:calendar id="ffin" value="#{nmcontrato.contrato.fechaFin}"
+					showOn="button" />
+				<p:outputLabel for="button" value="Button:" />
+					required="true" label="Fecha fin">
+				
+				<p:message for="ffin" display="icon" />
+
+			</h:panelGrid>
+
+			<p:commandButton value="Guardar" update="cear"
+				action="#{nmcontrato.create()}" icon="pi pi-check" />
+		</p:panel>
+	</h:form>
+
+	<h:form>
+		<p:panel id="lista" header="#{msg.headerContratoListar}">
+			<p:dataTable var="con" value="#{nmcontrato.listContrato}">
+				<p:column headerText="Cod Contrato">
+					<h:outputText value="#{con.cargoCod}" />
+				</p:column>
+
+				<p:column headerText="Dependencia">
+					<h:outputText value="#{con.dependenciaCod}" />
+				</p:column>
+
+				<p:column headerText="Documento Id Hoja de vida">
+					<h:outputText value="#{con.hojaVidaDoc}" />
+				</p:column>
+
+				<p:column headerText="Cargo">
+					<h:outputText value="#{con.cargoCod}" />
+				</p:column>
+
+				<p:column headerText="Salario">
+					<h:outputText value="#{con.salario}" />
+				</p:column>
+
+				<p:column headerText="Fecha Inicio">
+					<h:outputText value="#{con.fechaInicio}" />
+				</p:column>
+
+				<p:column headerText="Fecha fin">
+					<h:outputText value="#{con.fechaFin}" />
+				</p:column>
+
+			</p:dataTable>
+		</p:panel>
+	</h:form>
+
+	<h:form>
+		<p:panel id="eliminar" header="#{msg.headerContratoEliminar}">
+			<h:panelGrid columns="6" cellpadding="5">
+				<p:outputLabel for="cd" value="#{msg.labelDocHj}" />
+				<p:inputText id="cd" value="#{nmcontrato.contrato.hojaVidaDoc}" />
+			</h:panelGrid>
+			<p:commandButton value="Eliminar" update="eliminar"
+				action="#{nmcontrato.delete()}" icon="pi pi-check" />
+		</p:panel>
+	</h:form>
+
+
+
+
+
+
+
+</h:body>
+</html>

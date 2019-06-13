@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+</h:head>
+<h:body>
+	<h1></h1>
+	<h:form>
+		<h:panelGrid columns="4" cellpadding="5">
+			<h:outputLabel for="codigo" value="Codigo:" style="font-weight:bold" />
+			<p:inputText id="codigo" value="#{prin.plan.codigo}" />
+			<h:outputLabel for="codigop" value="Codigo P:" style="font-weight:bold" />
+			<p:inputText id="codigop" value="#{prin.plan.codigoPadre}" />
+			<h:outputLabel for="name" value="Name:" style="font-weight:bold" />
+			<p:inputText id="name" value="#{prin.plan.nombre}" />
+			<h:outputLabel for="desc" value="Desc:" style="font-weight:bold" />
+			<p:inputText id="desc" value="#{prin.plan.descripcion}" />
+			<h:outputLabel for="tipo" value="Tipo:" style="font-weight:bold" />
+			<p:inputText id="tipo" value="#{prin.plan.tipo}" />
+			<p:commandButton value="Submit" action="#{prin.create()}" icon="pi pi-check" />
+		</h:panelGrid>
+	</h:form>
+
+</h:body>
+</html>

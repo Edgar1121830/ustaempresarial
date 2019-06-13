@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+</h:head>
+<h:body>
+	<h1>Crear Cargo</h1>
+
+	<h:form>
+		<p:panel id="cear" header="#{msg.headerCrearCargo}">
+			<p:messages id="msgs" />
+			<h:panelGrid columns="6" cellpadding="5">
+
+				<p:outputLabel for="cg" value="#{msg.labelNomCargo}" />
+				<p:inputText id="cg" value="#{nmcargo.cargo.nombre}"
+					required="true" label="Nombre Cargo">
+					<f:validateLength minimum="1" />
+				</p:inputText>
+				<p:message for="cg" display="icon" />
+
+
+				<p:outputLabel for="fc" value="#{msg.labelFunCargo}" />
+				<p:inputText id="fc" value="#{nmcargo.cargo.funcion}"
+					required="true" label="Función">
+					<f:validateLength minimum="1" />
+				</p:inputText>
+				<p:message for="fc" display="icon" />
+
+				<p:outputLabel for="cmp" value="#{msg.labelComCargo}" />
+				<p:inputText id="cmp" value="#{nmcargo.cargo.competencias}"
+					required="true" label="Competenecia">
+					<f:validateLength minimum="1" />
+				</p:inputText>
+				<p:message for="cmp" display="icon" />
+								
+			</h:panelGrid>
+
+			<p:commandButton value="Guardar" update="cear"
+				action="#{nmcargo.create()}" icon="pi pi-check" />
+		</p:panel>
+	</h:form>
+
+	<h:form>
+		<p:panel id="lista" header="#{msg.headerListarCargo}">
+			<p:dataTable var="con" value="#{nmcargo.listCargo}">
+				<p:column headerText="Cod Cargo">
+					<h:outputText value="#{con.codigo}" />
+				</p:column>
+
+				<p:column headerText="Nombre Cargo">
+					<h:outputText value="#{con.nombre}" />
+				</p:column>
+
+				<p:column headerText="Función">
+					<h:outputText value="#{con.funcion}" />
+				</p:column>
+
+				<p:column headerText="Competencias">
+					<h:outputText value="#{con.competencias}" />
+				</p:column>
+
+			</p:dataTable>
+		</p:panel>
+	</h:form>
+
+	<h:form>
+		<p:panel id="eliminar" header="#{msg.headerCargoEliminar}">
+			<h:panelGrid columns="6" cellpadding="5">
+				<p:outputLabel for="cd" value="#{msg.labelCdCargo}" />
+				<p:inputText id="cd" value="#{nmcontrato.contrato.hojaVidaDoc}" />
+			</h:panelGrid>
+			<p:commandButton value="Eliminar" update="eliminar"
+				action="#{nmcontrato.delete()}" icon="pi pi-check" />
+		</p:panel>
+	</h:form>
+
+
+
+
+
+
+
+</h:body>
+</html>
