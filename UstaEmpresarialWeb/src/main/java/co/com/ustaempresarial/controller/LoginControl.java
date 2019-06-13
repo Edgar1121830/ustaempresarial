@@ -60,9 +60,9 @@ public class LoginControl implements Serializable {
 			if(usaux==null||usaux.compareTo("")==0){
 				try {
 					usuarioLogin = autenticacionServicio.consultarUsuario(user, pass);
-					if(usuarioLogin!=null) {
+					if(usuarioLogin!=null  ) {
 						FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put(AUTH_KEY,user);
-						login="/pages/comun/principal.faces";
+						login="/pages/finanzas/finanzas.faces";
 					}
 				} catch (Exception e) {
 					FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR,"",prop.getProperty("usarioVencido")));

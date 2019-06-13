@@ -1,0 +1,375 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                template="/WEB-INF/templates/comf-template-menu2.xhtml">
+    <ui:define name="head">SEGURIDAD</ui:define>
+    <ui:define name="body">
+        <h:body>
+            <p:messages id="messages" globalOnly="true" autoUpdate="true"
+                        closable="true" showDetail="true" showSummary="true"/>
+            <div align="center">
+                <h:outputLabel value="BIENVENIDO "/>
+                #{prin.usLoged}
+               <h:outputLabel value="Administrador"/>
+  </div>
+            <h:form>
+                <p:tabView>
+                    <p:tab title="#{msg.tabPermiso}">
+                        <h:form id="formPermisos">
+                            <p:panel>
+                                <p:panelGrid columns="1" layout="grid">
+                                    <h3>Crear permisos</h3>
+                                    <div class="row">
+                                        <div class="col-5">
+                                            <p:outputLabel for="codpermiso" value="#{msg.codpermiso}"/>
+                                            <p:inputText id="codpermiso"
+                                                         value="#{permisoSeguridad.permisoSeguridadAdm.codigo}"/>
+
+                                            <p:outputLabel for="nombrePermiso" value="#{msg.nombrePermiso}"/>
+                                            <p:inputText id="nombrePermiso"
+                                                         value="#{permisoSeguridad.permisoSeguridadAdm.nombre}"/>
+
+                                            <p:outputLabel for="descripPermiso" value="#{msg.descripcionPermiso}"/>
+                                            <p:inputText id="descripPermiso"
+                                                         value="#{permisoSeguridad.permisoSeguridadAdm.descripcion}"/>
+
+                                            <p:outputLabel for="estadoPermiso" value="#{msg.estadoPermiso}"/>
+                                            <p:inputText id="estadoPermiso"
+                                                         value="#{permisoSeguridad.permisoSeguridadAdm.estado}"/>
+                                        </div>
+                                        <div align="center">
+                                            <p:commandButton value="#{msg.bntGuardar}"
+                                                             action="#{permisoSeguridad.crearPermisoSeguridad()}"
+                                                             icon="ui-icon-extlink"/>
+                                          
+                                        </div>
+
+                                    </div>
+                                </p:panelGrid>
+                            </p:panel>
+                        </h:form>
+
+                        <h3>Listar Permisos</h3>
+                        <p:dataTable id="listPermiso" var="listadoPer"
+                                     value="#{permisoSeguridad.permisoSeguridadAdm}">
+                            <p:column headerText="Código">
+                                <h:outputText value="#{listadoPer.codigo}"/>
+                            </p:column>
+
+                            <p:column headerText="Nombre">
+                                <h:outputText value="#{listadoPer.nombre}"/>
+                            </p:column>
+
+                            <p:column headerText="Descripción">
+                                <h:outputText value="#{listadoPer.descripcion}"/>
+                            </p:column>
+
+                            <p:column headerText="Estado">
+                                <h:outputText value="#{listadoPer.estado}"/>
+                            </p:column>
+                        </p:dataTable>
+                        <!--                        <p:commandButton value="#{msg.bntCrear}" action="" icon="ui-icon-extlink"/>-->
+                        <!--                        <p:commandButton value="#{msg.bntEditar}" action="" icon="ui-icon-extlink"/>-->
+                    </p:tab>
+                    <p:tab title="#{msg.tabRol}">
+                        <h:form id="formRol">
+                            <p:panel>
+                                <p:panelGrid columns="1" layout="grid">
+                                    <h3>Crear Rol</h3>
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <p:outputLabel for="codigoRol" value="#{msg.codRol}"/>
+                                            <p:inputText id="codigoRol"
+                                                         value="#{rolSeguridad.rolSeg.codigo}"/>
+                                             <p:outputLabel for="descripcionRol" value="#{msg.descripRol}"/>
+                                            <p:inputText id="descripcionRol"
+                                                         value="#{rolSeguridad.rolSeg.descripcion}"/>
+
+                                            <p:outputLabel for="estadoRol" value="#{msg.estadoRol}"/>
+                                            <p:inputText id="estadoRol"
+                                                         value="#{rolSeguridad.rolSeg.estado}"/>
+
+                                            <p:outputLabel for="nombreRol" value="#{msg.nombreRol}"/>
+                                            <p:inputText id="nombreRol"
+                                                         value="#{rolSeguridad.rolSeg.nombre}"/>
+                                       </div>
+                                        <div align="center">
+                                            <p:commandButton value="#{msg.bntGuardar}"
+                                                             action="#{rolSeguridad.crearPermisoSeguridad()}"
+                                                             icon="ui-icon-extlink"/>
+                                          
+                                        </div>
+
+                                    </div>
+                                </p:panelGrid>
+                            </p:panel>
+                           </h:form>
+                    
+                         
+                        <h3>Listar Rol</h3>
+                        <p:dataTable id="listRol" var="listadoRol"
+                                     value="#{rolSeguridad.rolSeg}">
+                            <p:column headerText="Código">
+                                <h:outputText value="#{listadoRol.codigo}"/>
+                            </p:column>
+
+                            <p:column headerText="Descripción">
+                                <h:outputText value="#{listadoRol.descripcion}"/>
+                            </p:column>
+
+                            <p:column headerText="Estado">
+                                <h:outputText value="#{listadoRol.estado}"/>
+                            </p:column>
+
+                            <p:column headerText="Nombre">
+                                <h:outputText value="#{listadoRol.nombre}"/>
+                            </p:column>
+                        </p:dataTable>
+                        <!--                        <p:commandButton value="#{msg.bntCrear}" action="" icon="ui-icon-extlink"/>-->
+                        <!--                        <p:commandButton value="#{msg.bntEditar}" action="" icon="ui-icon-extlink"/>-->
+                    </p:tab>
+                    
+                     <p:tab title="#{msg.tabUsuario}">
+                        <h:form id="formUsuario">
+                            <p:panel>
+                                <p:panelGrid columns="1" layout="grid">
+                                    <h3>Crear Usuario</h3>
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <p:outputLabel for="codigoUsuario" value="#{msg.codUsuario}"/>
+                                            <p:inputText id="codigoUsuario"
+                                                         value="#{seguridadUsuario.usuarioSeguridad.codigo}"/>
+                                             <p:outputLabel for="nombreUsuario" value="#{msg.nombreUsuario}"/>
+                                            <p:inputText id="nombreUsuario"
+                                                         value="#{seguridadUsuario.usuarioSeguridad.nombre}"/>
+
+                                            <p:outputLabel for="emailUsuario" value="#{msg.emailUsuario}"/>
+                                            <p:inputText id="emailUsuario"
+                                                         value="#{seguridadUsuario.usuarioSeguridad.email}"/>
+                                                         
+                                            <p:outputLabel for="fechaInicio" value="#{msg.fechaInicioUsuario}"/>
+                                            <p:calendar id="fechaInicio"
+                                                         value="#{seguridadUsuario.usuarioSeguridad.fechaInicio}" showOn="button"/>
+
+                                            <p:outputLabel for="fechaFin" value="#{msg.fechaFinUsuario}"/>
+                                            <p:calendar id="fechaFin"
+                                                         value="#{seguridadUsuario.usuarioSeguridad.fechaFin}" showOn="button"/>
+
+                                            <p:outputLabel for="passwordUsuario" value="#{msg.passwordUsuario}"/>
+                                            <p:inputText id="passwordUsuario"
+                                                         value="#{seguridadUsuario.usuarioSeguridad.password}"/>
+                                                         
+                                            <p:outputLabel for="tipoUsuario" value="#{msg.tipoUsuario}"/>
+                                            <p:inputText id="tipoUsuario"
+                                                         value="#{seguridadUsuario.usuarioSeguridad.tipo}"/>
+                                       </div>
+                                        <div align="center">
+                                            <p:commandButton value="#{msg.bntGuardar}"
+                                                             action="#{seguridadUsuario.crearUsuarioSeguridad()}"
+                                                             icon="ui-icon-extlink"/>
+                                          
+                                        </div>
+
+                                    </div>
+                                </p:panelGrid>
+                            </p:panel>
+                           </h:form>
+                    
+                         
+                        <h3>Listar Usuario</h3>
+                        <p:dataTable id="listUsuario" var="listadoUsuario"
+                                     value="#{seguridadUsuario.usuarioSeguridad}">
+                            <p:column headerText="Código">
+                                <h:outputText value="#{listadoUsuario.codigo}"/>
+                            </p:column>
+
+                            <p:column headerText="Nombre">
+                                <h:outputText value="#{listadoUsuario.nombre}"/>
+                            </p:column>
+
+                            <p:column headerText="Email">
+                                <h:outputText value="#{listadoUsuario.email}"/>
+                            </p:column>
+
+                            <p:column headerText="FechaInicio">
+                                <h:outputText value="#{listadoUsuario.fechaInicio}"/>
+                            </p:column>
+                            <p:column headerText="FechaFin">
+                                <h:outputText value="#{listadoUsuario.fechaFin}"/>
+                            </p:column>
+                            <p:column headerText="Password">
+                                <h:outputText value="#{listadoUsuario.password}"/>
+                           </p:column>
+                           <p:column headerText="Tipo">
+                                <h:outputText value="#{listadoUsuario.tipo}"/>
+                            </p:column>
+                        </p:dataTable>
+                        <!--                        <p:commandButton value="#{msg.bntCrear}" action="" icon="ui-icon-extlink"/>-->
+                        <!--                        <p:commandButton value="#{msg.bntEditar}" action="" icon="ui-icon-extlink"/>-->
+                    </p:tab>
+                    
+                      <p:tab title="#{msg.tabUsuarioLog}">
+                        <h:form id="formUsuarioLog">
+                            <p:panel>
+                                <p:panelGrid columns="1" layout="grid">
+                                    <h3>Crear UsuarioLog</h3>
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <p:outputLabel for="codigoUsuarioLog" value="#{msg.codUsuarioLog}"/>
+                                            <p:inputText id="codigoUsuarioLog"
+                                                         value="#{LogUsuario.usuarioLogSeguridad.codigo}"/>
+                                                         
+                                             <p:outputLabel for="fecha" value="#{msg.fechaUsuarioLog}"/>
+                                            <p:calendar id="fecha"
+                                                         value="#{LogUsuario.usuarioLogSeguridad.fecha}" showOn="button"/>
+                                                         
+                                             <p:outputLabel for="usuarioCod" value="#{msg.usuarioCod}"/>
+                                            <p:inputText id="usuarioCod"
+                                                         value="#{LogUsuario.usuarioLogSeguridad.usuarioCod}"/>
+
+                                            <p:outputLabel for="proceso" value="#{msg.procesoUsuarioLog}"/>
+                                            <p:inputText id="proceso"
+                                                         value="#{LogUsuario.usuarioLogSeguridad.proceso}"/>
+                                       
+                                            <p:outputLabel for="dmlUsuarioLog" value="#{msg.dmlUsuarioLog}"/>
+                                            <p:inputText id="dmlUsuarioLog"
+                                                         value="#{LogUsuario.usuarioLogSeguridad.dml}"/>
+                                                         
+                                            
+                                       </div>
+                                        <div align="center">
+                                            <p:commandButton value="#{msg.bntGuardar}"
+                                                             action="#{LogUsuario.crearUsuarioLogSeguridad()}"
+                                                             icon="ui-icon-extlink"/>
+                                          
+                                        </div>
+
+                                    </div>
+                                </p:panelGrid>
+                            </p:panel>
+                           </h:form>
+                    
+                         
+                        <h3>Listar Usuariolog</h3>
+                        <p:dataTable id="listUsuarioLog" var="listadoUsuariolog"
+                                     value="#{LogUsuario.usuarioLogSeguridad}">
+                            <p:column headerText="Código">
+                                <h:outputText value="#{listadoUsuariolog.codigo}"/>
+                            </p:column>
+
+                            <p:column headerText="Usuario Codigo">
+                                <h:outputText value="#{listadoUsuariolog.usuarioCod}"/>
+                            </p:column>
+
+                            <p:column headerText="Proceso">
+                                <h:outputText value="#{listadoUsuariolog.proceso}"/>
+                            </p:column>
+
+                            <p:column headerText="Dml">
+                                <h:outputText value="#{listadoUsuariolog.dml}"/>
+                            </p:column>
+                            <p:column headerText="Fecha">
+                                <h:outputText value="#{listadoUsuariolog.fecha}"/>
+                            </p:column>
+                           
+                        </p:dataTable>
+                        <!--                        <p:commandButton value="#{msg.bntCrear}" action="" icon="ui-icon-extlink"/>-->
+                        <!--                        <p:commandButton value="#{msg.bntEditar}" action="" icon="ui-icon-extlink"/>-->
+                    </p:tab>
+                      <p:tab title="#{msg.tabRolUsuario}">
+                        <h:form id="formRolUsuario">
+                            <p:panel>
+                                <p:panelGrid columns="1" layout="grid">
+                                    <h3>Crear Rol Usuario</h3>
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <p:outputLabel for="usuarioCodigo" value="#{msg.usuarioCod}"/>
+                                            <p:inputText id="usuarioCodigo"
+                                                         value="#{rolUsuarioPK.rolUsuarioSeguridad.usuarioCod}"/>
+                                                         
+                                             <p:outputLabel for="rolCodigo" value="#{msg.rolCodigo}"/>
+                                            <p:inputText id="rolCodigo"
+                                                         value="#{rolUsuarioPK.rolUsuarioSeguridad.rolCod}"/>
+
+                                       </div>
+                                        <div align="center">
+                                            <p:commandButton value="#{msg.bntGuardar}"
+                                                             action="#{rolUsuarioPK.crearRolUsuarioPKSeguridad()}"
+                                                             icon="ui-icon-extlink"/>
+                                          
+                                        </div>
+
+                                    </div>
+                                </p:panelGrid>
+                            </p:panel>
+                           </h:form>
+                    
+                         
+                        <h3>Listar Rol Usuario</h3>
+                        <p:dataTable id="listRolUsuario" var="listadoRolUsuario"
+                                     value="#{rolUsuarioPK.rolUsuarioSeguridad}">
+                            <p:column headerText="Usuario Código">
+                                <h:outputText value="#{listadoRolUsuario.usuarioCod}"/>
+                            </p:column>
+
+                            <p:column headerText="Rol Usuario">
+                                <h:outputText value="#{listadoRolUsuario.rolCod}"/>
+                            </p:column>
+  
+                        </p:dataTable>
+                        <!--                        <p:commandButton value="#{msg.bntCrear}" action="" icon="ui-icon-extlink"/>-->
+                        <!--                        <p:commandButton value="#{msg.bntEditar}" action="" icon="ui-icon-extlink"/>-->
+                    </p:tab>
+                    
+                     <p:tab title="#{msg.tabRolPermiso}">
+                        <h:form id="formRolPermiso">
+                            <p:panel>
+                                <p:panelGrid columns="1" layout="grid">
+                                    <h3>Crear Rol Permiso</h3>
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <p:outputLabel for="permisoCodigo" value="#{msg.permisoCod}"/>
+                                            <p:inputText id="permisoCodigo"
+                                                         value="#{rolPermisoSeguridadPk.rolPermisoSeguridad.permisoCod}"/>
+                                                         
+                                             <p:outputLabel for="rolCodigo" value="#{msg.rolCod}"/>
+                                            <p:inputText id="rolCodigo"
+                                                         value="#{rolPermisoSeguridadPk.rolPermisoSeguridad.rolCod}"/>
+
+                                       </div>
+                                        <div align="center">
+                                            <p:commandButton value="#{msg.bntGuardar}"
+                                                             action="#{rolPermisoSeguridadPk.crearRolPermiso()}"
+                                                             icon="ui-icon-extlink"/>
+                                          
+                                        </div>
+
+                                    </div>
+                                </p:panelGrid>
+                            </p:panel>
+                           </h:form>
+                    
+                         
+                        <h3>Listar Rol Permiso</h3>
+                        <p:dataTable id="listRolPermiso" var="listadoRolPermiso"
+                                     value="#{rolPermisoSeguridadPk.rolPermisoSeguridad}">
+                            <p:column headerText="Permiso Código">
+                                <h:outputText value="#{listadoRolPermiso.permisoCod}"/>
+                            </p:column>
+
+                            <p:column headerText="Rol Codigo">
+                                <h:outputText value="#{listadoRolPermiso.rolCod}"/>
+                            </p:column>
+  
+                        </p:dataTable>
+                        <!--                        <p:commandButton value="#{msg.bntCrear}" action="" icon="ui-icon-extlink"/>-->
+                        <!--                        <p:commandButton value="#{msg.bntEditar}" action="" icon="ui-icon-extlink"/>-->
+                    </p:tab>
+                    
+                    
+           </p:tabView>
+            </h:form>
+        </h:body>
+    </ui:define>
+</ui:composition>
